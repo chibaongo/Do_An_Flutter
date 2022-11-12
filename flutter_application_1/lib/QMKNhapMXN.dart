@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/QMKNhapLaiMK.dart';
 
 
 
@@ -69,7 +70,12 @@ class _QMKNhapMXN extends State<QMKNhapMXN> {
                               .withOpacity(0.8)),
                       shape: MaterialStateProperty.all(RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30.0)))),
-                  onPressed: () => {},
+                  onPressed: () => {
+Navigator.push(context,
+MaterialPageRoute(builder: (context)=>
+QMKNhapLaiMK(title: "Nhập lại mật khẩu")))
+
+                  },
                   child: const Padding(
                     padding: EdgeInsets.fromLTRB(45, 20, 45, 20),
                     child: Text('Xác nhận',style: TextStyle(color: Colors.black)),

@@ -65,6 +65,7 @@ flutter:
      - assets/images/icon/logo1.png
      - assets/images/cam_xuc/fb.png
      - assets/images/cam_xuc/gg.png
+     - assets/images/icon/chanCho.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
