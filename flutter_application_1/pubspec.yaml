@@ -84,6 +84,8 @@ flutter:
      - assets/images/avatar/dogde.png
      - assets/images/icon/home2.png
      - assets/images/cam_xuc/guom.png
+     - assets/images/rank/ranking.png
+     - assets/images/rank/rank kcc.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
