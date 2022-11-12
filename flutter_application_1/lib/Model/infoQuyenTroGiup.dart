@@ -35,9 +35,9 @@ class duLieuTroGiup {
   final String trogiup;
 
   static List<duLieuTroGiup> lstDuLieuTroGiup = [
-    const duLieuTroGiup(trogiup: "A: 50/50"),
-    const duLieuTroGiup(trogiup: "B: Đổi câu hỏi"),
-    const duLieuTroGiup(trogiup: "C: Thêm thời gian"),
-    const duLieuTroGiup(trogiup: "D: Mua đáp án"),
+    const duLieuTroGiup(trogiup: " 50/50"),
+    const duLieuTroGiup(trogiup: " Đổi câu hỏi"),
+    const duLieuTroGiup(trogiup: " Thêm thời gian"),
+    const duLieuTroGiup(trogiup: " Mua đáp án"),
   ];
 }
