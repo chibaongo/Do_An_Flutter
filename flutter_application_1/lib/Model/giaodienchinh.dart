@@ -129,7 +129,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Image.asset(
-                                'images/guom.png',
+                                'assets/images/cam_xuc/guom.png',
                                 width: 45,
                               ),
                             ],
@@ -208,7 +208,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Row(
                           children: [
                             Image.asset(
-                              'images/dogde.png',
+                              'assets/images/avatar/dogde.png',
                               fit: BoxFit.cover,
                               width: 55,
                             ),
@@ -228,7 +228,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Row(
                           children: [
                             Image.asset(
-                              'images/home.png',
+                              'assets/images/icon/home2.png',
                               fit: BoxFit.cover,
                               width: 55,
                             ),
@@ -268,7 +268,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Row(
                           children: [
                             Image.asset(
-                              'images/store.png',
+                              'assets/images/icon/store.png',
                               fit: BoxFit.cover,
                               width: 55,
                             ),
