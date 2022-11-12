@@ -103,6 +103,8 @@ flutter:
      - assets/images/avatar/tiger.png
      - assets/images/avatar/tiger1.png
      - assets/images/cam_xuc/question.png
+     - assets/images/icon/xuongcho.png
+     - assets/images/icon/clock.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
