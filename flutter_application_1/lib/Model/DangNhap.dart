@@ -35,7 +35,8 @@ class _MyHomePageState extends State<MyHomePage> {
         padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
         decoration: const BoxDecoration(
           image: DecorationImage(
-              image: AssetImage("images/nen.jpg"), fit: BoxFit.cover),
+              image: AssetImage("assets/images/nen/nen.jpg"),
+              fit: BoxFit.cover),
         ),
         constraints: const BoxConstraints.expand(),
         child: SingleChildScrollView(
@@ -44,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
               const SizedBox(
                 height: 120,
               ),
-              Image.asset("images/logo.png",
+              Image.asset("assets/images/icon/logo1.png",
                   width: MediaQuery.of(context).size.width / 3.0),
               const Padding(
                 padding: EdgeInsets.fromLTRB(0, 40, 0, 6),
