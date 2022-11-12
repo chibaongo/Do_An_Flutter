@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/QKMNhapMail.dart';
 
 void main() {
   runApp(const MyApp());
@@ -88,16 +89,25 @@ class _MyHomePageState extends State<MyHomePage> {
                           suffixIcon: Icon(Icons.remove_red_eye,
                               color: Colors.redAccent)))),
               Container(
-                constraints:
-                    BoxConstraints.loose(const Size(double.infinity, 30)),
-                alignment: AlignmentDirectional.center,
-                child: const Padding(
-                  padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                  child: Text(
-                    "Quên mật khẩu?",
-                    style: TextStyle(fontSize: 16, color: Colors.blue),
-                  ),
-                ),
+                // constraints:
+                //     BoxConstraints.loose(const Size(double.infinity, 30)),
+                // alignment: AlignmentDirectional.center,
+                // child: const Padding(
+                //   padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                  // child: Text(
+                  //   "Quên mật khẩu?",
+                  //   style: TextStyle(fontSize: 16, color: Colors.blue),
+                  // ),
+                  child: OutlinedButton(
+                    onPressed: ()
+                  {
+                    Navigator.push(context,
+                    MaterialPageRoute(builder: (context)=>
+                    const QMKNhapMail(title: 'Nhập mail')));
+                  }, 
+                  child: Text("Quên mật khẩu")
+                  )
+               // ),
               ),
               const Padding(padding: EdgeInsets.all(6)),
               Row(
