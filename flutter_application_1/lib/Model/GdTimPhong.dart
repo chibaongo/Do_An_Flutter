@@ -34,7 +34,8 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-              image: AssetImage("images/nen.jpg"), fit: BoxFit.cover),
+              image: AssetImage("assets/images/nen/nen.jpg"),
+              fit: BoxFit.cover),
         ),
         constraints: const BoxConstraints.expand(),
         child: SingleChildScrollView(
