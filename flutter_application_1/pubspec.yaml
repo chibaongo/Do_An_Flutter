@@ -86,6 +86,22 @@ flutter:
      - assets/images/cam_xuc/guom.png
      - assets/images/rank/ranking.png
      - assets/images/rank/rank kcc.png
+     - assets/images/avatar/cat.png
+     - assets/images/avatar/cool.png
+     - assets/images/avatar/corgi.png
+     - assets/images/avatar/crocodile.png
+     - assets/images/avatar/doberman.png
+     - assets/images/avatar/dog.png
+     - assets/images/avatar/gojo.png
+     - assets/images/avatar/goku.png
+     - assets/images/avatar/horse.png
+     - assets/images/avatar/kingdom.png
+     - assets/images/avatar/lion.png
+     - assets/images/avatar/naruto.png
+     - assets/images/avatar/racoon.png
+     - assets/images/avatar/shark.png
+     - assets/images/avatar/tiger.png
+     - assets/images/avatar/tiger1.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
