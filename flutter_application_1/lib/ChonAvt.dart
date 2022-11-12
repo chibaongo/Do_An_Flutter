@@ -41,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Container(
             decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('assets/images/nen.jpg'),
+                    image: AssetImage('assets/images/nen/nen.jpg'),
                     fit: BoxFit.cover)),
           ),
           Column(
@@ -84,19 +84,19 @@ class _MyHomePageState extends State<MyHomePage> {
                     // ignore: prefer_const_literals_to_create_immutables
                     children: [
                       const CircleAvatar(
-                        backgroundImage: AssetImage('assets/images/cat.png'),
+                        backgroundImage: AssetImage('assets/images/avatar/cat.png'),
                         radius: 30,
                       ),
                       const CircleAvatar(
-                        backgroundImage: AssetImage('assets/images/cool.png'),
+                        backgroundImage: AssetImage('assets/images/avatar/cool.png'),
                         radius: 30,
                       ),
                       const CircleAvatar(
-                        backgroundImage: AssetImage('assets/images/corgi.png'),
+                        backgroundImage: AssetImage('assets/images/avatar/corgi.png'),
                         radius: 30,
                       ),
                       const CircleAvatar(
-                        backgroundImage: AssetImage('assets/images/crocodile.png'),
+                        backgroundImage: AssetImage('assets/images/avatar/crocodile.png'),
                         radius: 30,
                       ),
                     ],
@@ -109,19 +109,19 @@ class _MyHomePageState extends State<MyHomePage> {
                     // ignore: prefer_const_literals_to_create_immutables
                     children: [
                       const CircleAvatar(
-                        backgroundImage: AssetImage('assets/images/doberman.png'),
+                        backgroundImage: AssetImage('assets/images/avatar/doberman.png'),
                         radius: 30,
                       ),
                       const CircleAvatar(
-                        backgroundImage: AssetImage('assets/images/dog.png'),
+                        backgroundImage: AssetImage('assets/images/avatar/dog.png'),
                         radius: 30,
                       ),
                       const CircleAvatar(
-                        backgroundImage: AssetImage('assets/images/gojo.png'),
+                        backgroundImage: AssetImage('assets/images/avatar/gojo.png'),
                         radius: 30,
                       ),
                       const CircleAvatar(
-                        backgroundImage: AssetImage('assets/images/goku.png'),
+                        backgroundImage: AssetImage('assets/images/avatar/goku.png'),
                         radius: 30,
                       ),
                     ],
@@ -132,19 +132,19 @@ class _MyHomePageState extends State<MyHomePage> {
                     // ignore: prefer_const_literals_to_create_immutables
                     children: [
                       const CircleAvatar(
-                        backgroundImage: AssetImage('assets/images/horse.png'),
+                        backgroundImage: AssetImage('assets/images/avatar/horse.png'),
                         radius: 30,
                       ),
                       const CircleAvatar(
-                        backgroundImage: AssetImage('assets/images/kingdom.png'),
+                        backgroundImage: AssetImage('assets/images/avatar/kingdom.png'),
                         radius: 30,
                       ),
                       const CircleAvatar(
-                        backgroundImage: AssetImage('assets/images/lion.png'),
+                        backgroundImage: AssetImage('assets/images/avatar/lion.png'),
                         radius: 30,
                       ),
                       const CircleAvatar(
-                        backgroundImage: AssetImage('assets/images/naruto.png'),
+                        backgroundImage: AssetImage('assets/images/avatar/naruto.png'),
                         radius: 30,
                       ),
                     ],
@@ -155,19 +155,19 @@ class _MyHomePageState extends State<MyHomePage> {
                     // ignore: prefer_const_literals_to_create_immutables
                     children: [
                       const CircleAvatar(
-                        backgroundImage: AssetImage('assets/images/racoon.png'),
+                        backgroundImage: AssetImage('assets/images/avatar/racoon.png'),
                         radius: 30,
                       ),
                       const CircleAvatar(
-                        backgroundImage: AssetImage('assets/images/shark.png'),
+                        backgroundImage: AssetImage('assets/images/avatar/shark.png'),
                         radius: 30,
                       ),
                       const CircleAvatar(
-                        backgroundImage: AssetImage('assets/images/tiger.png'),
+                        backgroundImage: AssetImage('assets/images/avatar/tiger.png'),
                         radius: 30,
                       ),
                       const CircleAvatar(
-                        backgroundImage: AssetImage('assets/images/tiger1.png'),
+                        backgroundImage: AssetImage('assets/images/avatar/tiger1.png'),
                         radius: 30,
                       ),
                     ],
