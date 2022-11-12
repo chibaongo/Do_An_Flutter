@@ -38,6 +38,7 @@ class duLieuCaNhan {
     const duLieuCaNhan(dapan: "A.Long An"),
     const duLieuCaNhan(dapan: "B.Bạc Liêu"),
     const duLieuCaNhan(dapan: "C.Cần Thơ"),
-    const duLieuCaNhan(dapan: "D.Bình Dương"),
+    const duLieuCaNhan(dapan: "D.Bình Dương."),
+
   ];
 }
