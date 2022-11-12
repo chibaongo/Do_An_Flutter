@@ -66,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               ),
                               child: const Text('2'),
                             ),
-                            Image.asset("images/add.png",
+                            Image.asset("assets/images/icon/add.png",
                                 fit: BoxFit.cover, width: 20)
                           ],
                         ),
@@ -78,7 +78,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Image.asset("images/setting.png", width: 30),
+                        Image.asset("assets/images/cam_xuc/setting.png",
+                            width: 30),
                       ],
                     ),
                   ),
@@ -99,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         color: Colors.redAccent),
                   ),
                   Image.asset(
-                    "images/lion.png",
+                    "assets/images/avatar/lion.png",
                     fit: BoxFit.cover,
                     width: 120,
                   ),
@@ -247,7 +248,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Row(
                           children: [
                             Image.asset(
-                              'images/swords.png',
+                              'assets/images/icon/swords.png',
                               fit: BoxFit.cover,
                               width: 50,
                             ),
