@@ -89,22 +89,20 @@ class _MyHomePageState extends State<MyHomePage> {
                           suffixIcon: Icon(Icons.remove_red_eye,
                               color: Colors.redAccent)))),
               Container(
-                // constraints:
-                //     BoxConstraints.loose(const Size(double.infinity, 30)),
-                // alignment: AlignmentDirectional.center,
-                // child: const Padding(
-                //   padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                  // child: Text(
-                  //   "Quên mật khẩu?",
-                  //   style: TextStyle(fontSize: 16, color: Colors.blue),
-                  // ),
+                
                   child: OutlinedButton(
                     onPressed: ()
                   {
+                    
                     Navigator.push(context,
                     MaterialPageRoute(builder: (context)=>
                     const QMKNhapMail(title: 'Nhập mail')));
+                    
                   }, 
+                  style: OutlinedButton.styleFrom(
+              padding: EdgeInsets.symmetric(horizontal: 32, vertical: 8),
+              // foreground border
+            ),
                   child: Text("Quên mật khẩu")
                   )
                // ),
