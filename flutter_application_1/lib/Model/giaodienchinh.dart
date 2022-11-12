@@ -36,7 +36,8 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-              image: AssetImage("images/nen.jpg"), fit: BoxFit.cover),
+              image: AssetImage("assets/images/nen/nen.jpg"),
+              fit: BoxFit.cover),
         ),
         child: Container(
           margin: const EdgeInsets.all(20),
@@ -52,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Row(
                           children: [
                             Image.asset(
-                              "images/star.png",
+                              "assets/images/iconxu/star.png",
                               fit: BoxFit.cover,
                               width: 20,
                             ),
