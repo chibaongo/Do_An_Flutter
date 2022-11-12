@@ -68,6 +68,7 @@ flutter:
      - assets/images/icon/chanCho.png
      - assets/images/icon/speaker.png
      - assets/images/icon/music.png
+     - assets/images/iconxu/star.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
