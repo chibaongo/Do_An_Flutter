@@ -147,7 +147,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),Padding(padding: EdgeInsets.all(10)),
               Container(
-                child: Image.asset("images/TheNganHang.png"
+                child: Image.asset("assets/images/icon/TheNganHang.png"
                 ,fit: BoxFit.cover,
                 width: MediaQuery.of(context).size.width/1.3,),
               ),

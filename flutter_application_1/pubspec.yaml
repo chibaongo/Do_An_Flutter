@@ -109,6 +109,7 @@ flutter:
      - assets/images/rank/ranking.png
      - assets/images/icon/dog.png
      - assets/images/icon/swords.png
+     - assets/images/icon/TheNganHang.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
