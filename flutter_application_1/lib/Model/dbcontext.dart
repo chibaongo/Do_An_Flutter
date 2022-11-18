@@ -22,3 +22,14 @@ class DuLieuStoreXu{
     DuLieuStoreXu(xu: 400, price: 200000),
   ];
 }
+class duLieuDoiKhang {
+  const duLieuDoiKhang({required this.dapan});
+  final String dapan;
+
+  static List<duLieuDoiKhang> lstDuLieuDoiKhang = [
+    duLieuDoiKhang(dapan: "A.64"),
+    duLieuDoiKhang(dapan: "B.63"),
+    duLieuDoiKhang(dapan: "C.65"),
+    duLieuDoiKhang(dapan: "D.66"),
+  ];
+}
