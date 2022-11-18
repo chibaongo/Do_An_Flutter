@@ -78,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
         height: MediaQuery.of(context).size.height,
         decoration: const BoxDecoration(
           image: DecorationImage(
-              image: AssetImage("images/nen.jpg"), fit: BoxFit.cover),
+              image: AssetImage("assets/images/nen/nen.jpg"), fit: BoxFit.cover),
         ),
         child: Container(
 
@@ -98,7 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           Row(
                             children: [
                               Image.asset(
-                                "images/star.png",
+                                "assets/images/iconxu/star.png",
                                 fit: BoxFit.cover,
                                 width: 20,
                               ),
@@ -111,12 +111,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ),
                                 child: Text('2'),
                               ),
-                              Image.asset("images/add.png",
+                              Image.asset("assets/images/icon/add.png",
                                   fit: BoxFit.cover, width: 20)
                             ],
                           ),
                           Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 0)),
-                          Image.asset("images/clock.png", width: 30),
+                          Image.asset("assets/images/icon/clock.png", width: 30),
                              Padding(padding: EdgeInsets.only(top: 10)),
                           Row(children: [
                             Text('10',style: TextStyle(fontSize: 20),),
@@ -131,7 +131,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         children: [
                           Row(
                             children: [
-                              Image.asset("images/xuongcho.png", width: 20),
+                              Image.asset("assets/images/icon/xuongcho.png", width: 20),
                               Text("1/5")
                             ],
                           ),
@@ -150,11 +150,11 @@ class _MyHomePageState extends State<MyHomePage> {
                         children: [
                           Row(
                             children: [
-                              Image.asset("images/swords.png", width: 15),
+                              Image.asset("assets/images/icon/swords.png", width: 15),
                               Text("Đối thủ")
                             ],
                           ),
-                          Image.asset("images/avatar/gojo.png", width: 40),
+                          Image.asset("assets/images/avatar/gojo.png", width: 40),
                           Text("Player#123455"),
                           Text("13/50")
                         ],
@@ -192,7 +192,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset("images/avatar/goku.png", width: 60),
+                      Image.asset("assets/images/avatar/goku.png", width: 60),
                       Padding(padding: EdgeInsets.all(5)),
                     Text("Số câu đúng: "),
                     Text("9")

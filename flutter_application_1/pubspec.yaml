@@ -75,6 +75,7 @@ flutter:
      - assets/images/nen/nenStr.jpg
      - assets/images/avatar/naruto.png
      - assets/images/avatar/gojo.png
+     - assets/images/avatar/goku.png
      - assets/images/avatar/luffy.png
      - assets/images/cam_xuc/setting.png
      - assets/images/icon/add.png
@@ -107,6 +108,7 @@ flutter:
      - assets/images/icon/clock.png
      - assets/images/rank/ranking.png
      - assets/images/icon/dog.png
+     - assets/images/icon/swords.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
