@@ -112,6 +112,9 @@ flutter:
      - assets/images/icon/TheNganHang.png
      - assets/images/icon/Winner.png
      - assets/images/cam_xuc/funny.png
+     - assets/images/cam_xuc/choSad.png
+     - assets/images/cam_xuc/buon.png
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

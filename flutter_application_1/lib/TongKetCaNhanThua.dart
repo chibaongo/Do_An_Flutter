@@ -1,5 +1,6 @@
+
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Model/dbcontext.dart';
+import 'Model/dbcontext.dart';
 import 'Components/itemTongKetCaNhan.dart';
 
 void main() {
@@ -86,14 +87,14 @@ class _MyHomePageState extends State<MyHomePage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             // mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Image.asset("assets/images/icon/Winner.png",width:320,
+              Image.asset("assets/images/cam_xuc/choSad.png",width:320,
               ),
              Container(
               margin: EdgeInsets.fromLTRB(5, 0, 0, 5),
               child:  Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                Image.asset('- assets/images/cam_xuc/funny.png',width: 40),
+                Image.asset('assets/images/cam_xuc/buon.png',width: 40),
                 const Text(
                 'Tổng kết',
                 style: TextStyle(
@@ -101,7 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     fontWeight: FontWeight.bold,
                     color: Colors.redAccent),
               ),
-              Image.asset('assets/images/cam_xuc/funny.png',width:40)
+              Image.asset('assets/images/cam_xuc/buon.png',width:40)
               ],),
              ),
               Container(
