@@ -1,35 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/GiaoDienChoiCaNhan.dart';
+import 'package:flutter_application_1/main.dart';
 
-void main() {
-  runApp(const MyApp());
-}
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      home: MyHomePage(
-        title: '',
-      ),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class Home extends StatefulWidget {
+  const Home({super.key, required this.title});
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<Home> createState() => _Home();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _Home extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -119,7 +102,14 @@ class _MyHomePageState extends State<MyHomePage> {
                                 .withOpacity(0.8)),
                         shape: MaterialStateProperty.all(RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30.0)))),
-                    onPressed: () => {},
+                    onPressed: ()
+                  {
+                    
+                    Navigator.push(context,
+                    MaterialPageRoute(builder: (context)=>
+                    const ChoiCaNhan(title: 'Nhập mail')));
+                    
+                  }, 
                     child: Container(
                       width: MediaQuery.of(context).size.width / 3.0,
                       child: Row(
@@ -184,7 +174,14 @@ class _MyHomePageState extends State<MyHomePage> {
                                 .withOpacity(0.8)),
                         shape: MaterialStateProperty.all(RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30.0)))),
-                    onPressed: () => {},
+                      onPressed: ()
+                  {
+                    
+                    Navigator.push(context,
+                    MaterialPageRoute(builder: (context)=>
+                    const DangNhap(title: '')));
+                    
+                  }, 
                     child: const Padding(
                       padding: EdgeInsets.fromLTRB(27, 10, 27, 10),
                       child: Text(

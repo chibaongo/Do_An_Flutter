@@ -1,35 +1,18 @@
 import 'package:flutter/material.dart';
 import './Model/infoChoiCaNhan.dart';
+import 'GiaoDienQuyenTroGiup.dart';
+import 'TongKetCaNhanThua.dart';
 
-void main() {
-  runApp(const MyApp());
-}
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class ChoiCaNhan extends StatefulWidget {
+  const ChoiCaNhan({super.key, required this.title});
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<ChoiCaNhan> createState() => _ChoiCaNhan();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _ChoiCaNhan extends State<ChoiCaNhan> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -153,7 +136,14 @@ class _MyHomePageState extends State<MyHomePage> {
                                   RoundedRectangleBorder(
                                       borderRadius:
                                           BorderRadius.circular(30.0)))),
-                          onPressed: () => {},
+                            onPressed: ()
+                  {
+                    
+                    Navigator.push(context,
+                    MaterialPageRoute(builder: (context)=>
+                    const QuyenTroGiup(title: '')));
+                    
+                  }, 
                           child: const Padding(
                             padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
                             child: Text('Trợ giúp',
@@ -169,7 +159,14 @@ class _MyHomePageState extends State<MyHomePage> {
                                   RoundedRectangleBorder(
                                       borderRadius:
                                           BorderRadius.circular(30.0)))),
-                          onPressed: () => {},
+                            onPressed: ()
+                  {
+                    
+                    Navigator.push(context,
+                    MaterialPageRoute(builder: (context)=>
+                    const  TongKetThua (title: '')));
+                    
+                  }, 
                           child: const Padding(
                             padding: EdgeInsets.fromLTRB(35, 10, 35, 10),
                             child: Text(
