@@ -81,7 +81,7 @@ flutter:
      - assets/images/icon/add.png
      - assets/images/avatar/lion.png
      - assets/images/icon/swords.png
-     - assets/images/icon/store.png
+     - assets/images/icon/shop.png
      - assets/images/avatar/dogde.png
      - assets/images/icon/home2.png
      - assets/images/cam_xuc/guom.png
@@ -114,6 +114,11 @@ flutter:
      - assets/images/cam_xuc/funny.png
      - assets/images/cam_xuc/choSad.png
      - assets/images/cam_xuc/buon.png
+     - assets/images/icon/log-out.png
+     - assets/images/icon/sword.png
+     - assets/images/icon/history-book.png
+     - assets/images/icon/book.png
+     - assets/images/icon/user.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
