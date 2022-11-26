@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GiaoDienChoiCaNhan.dart';
+import 'package:flutter_application_1/TimPhong.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key, required this.title});
@@ -155,7 +156,13 @@ class _Home extends State<Home> {
                                   RoundedRectangleBorder(
                                       borderRadius:
                                           BorderRadius.circular(30.0)))),
-                          onPressed: () => {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const TimPhong(title: 'Tim phong')));
+                          },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
