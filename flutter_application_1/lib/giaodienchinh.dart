@@ -52,7 +52,7 @@ class _Home extends State<Home> {
                                 shape: CircleBorder(),
                                 minimumSize: Size.square(20),
                               ),
-                              onPressed: (() {}),
+                              onPressed: () {},
                               child: Image.asset("assets/images/icon/add.png",
                                   fit: BoxFit.cover, width: 20))
                         ],

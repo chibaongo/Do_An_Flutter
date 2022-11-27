@@ -58,20 +58,21 @@ class _MyHomePageState extends State<MyHomePage> {
                         minimumSize: Size.square(40),
                       ),
                       onPressed: (() {}),
-                      child: const Icon(Icons.add, size: 60))
+                      child: Image.asset("assets/images/avatar/cat.png",
+                          fit: BoxFit.cover, width: 60)),
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                // ignore: prefer_const_literals_to_create_immutables
+             
                 children: [
                   const Padding(
                     padding: EdgeInsets.only(bottom: 10),
                     child: Text(
-                      'Chọn ảnh đại diện ',
+                      'Ảnh đại diện có sẵn từ hệ thống',
                       style: TextStyle(
                         color: Colors.red,
-                        fontSize: 20,
+                        fontSize: 15,
                         fontWeight: FontWeight.w700,
                       ),
                     ),
@@ -175,6 +176,24 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                   Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      decoration: const BoxDecoration(
+                          border: Border(top: BorderSide(width: 0.5))),
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.all(10),
+                    child: Text(
+                      'Ảnh đại diện bạn đã mua',
+                      style: TextStyle(
+                        color: Colors.red,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ),
+                  Padding(
                     padding: EdgeInsets.all(20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -269,7 +288,6 @@ class _MyHomePageState extends State<MyHomePage> {
                                 "assets/images/avatar/tiger1.png",
                                 fit: BoxFit.cover,
                                 width: 60))
-                     
                       ],
                     ),
                   ),
