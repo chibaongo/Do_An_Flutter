@@ -44,14 +44,13 @@ class _GiaoDienDangKy extends State<GiaoDienDangKy> {
         ),
         ListView(
           children: [
-            Expanded(
-              flex: 2,
-              child: Image.asset(
-                'assets/images/icon/logo1.png',
-                width: 300,
-                height: 300,
-              ),
-            ),
+             Padding(
+                  padding: EdgeInsets.all(20.0),
+                  child: Image.asset(
+                    'assets/images/icon/logo1.png',
+                    width: 120,
+                  )),
+             
             Column(
               children: const [
                 Padding(
