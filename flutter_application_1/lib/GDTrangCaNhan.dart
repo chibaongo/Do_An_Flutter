@@ -1,9 +1,7 @@
-
 import 'package:flutter/material.dart';
 
 import 'GDThayDoiAVT.dart';
-
-
+import 'GDThayDoiMK.dart';
 
 class ThongTinCaNhan extends StatefulWidget {
   const ThongTinCaNhan({super.key, required this.title});
@@ -112,10 +110,11 @@ class _ThongTinCaNhan extends State<ThongTinCaNhan> {
                           ),
                           OutlinedButton(
                             onPressed: () {
-
-                                Navigator.push(context,
-                    MaterialPageRoute(builder: (context)=>
-                    const ThayDoiAVT(title: '')));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const ThayDoiAVT(title: '')));
                             },
                             style: OutlinedButton.styleFrom(
                               padding: EdgeInsets.symmetric(
@@ -205,7 +204,13 @@ class _ThongTinCaNhan extends State<ThongTinCaNhan> {
                       Padding(
                         padding: EdgeInsets.fromLTRB(40, 0, 0, 0),
                         child: OutlinedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const ThayDoiMK(title: '')));
+                          },
                           style: OutlinedButton.styleFrom(
                             padding: EdgeInsets.symmetric(
                                 horizontal: 22, vertical: 8),
@@ -299,8 +304,8 @@ class _ThongTinCaNhan extends State<ThongTinCaNhan> {
                     ),
                   ),
                 ]),
-                 const Padding(padding: EdgeInsets.all(70)),
-                    Container(
+                const Padding(padding: EdgeInsets.all(70)),
+                Container(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -408,10 +413,8 @@ class _ThongTinCaNhan extends State<ThongTinCaNhan> {
                   ),
                 ),
               ],
-              
             ),
           ),
-          
         ]),
       ),
     );
