@@ -1,35 +1,15 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class ThayDoiAVT extends StatefulWidget {
+  const ThayDoiAVT({super.key, required this.title});
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<ThayDoiAVT> createState() => _ThayDoiAVT();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _ThayDoiAVT extends State<ThayDoiAVT> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,7 +44,6 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-             
                 children: [
                   const Padding(
                     padding: EdgeInsets.only(bottom: 10),
@@ -95,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             onPressed: (() {}),
                             child: Image.asset("assets/images/avatar/cat.png",
-                                fit: BoxFit.cover, width: 60)),
+                                fit: BoxFit.cover, width: 50)),
                         ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               elevation: 8,
@@ -104,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             onPressed: (() {}),
                             child: Image.asset("assets/images/avatar/cool.png",
-                                fit: BoxFit.cover, width: 60)),
+                                fit: BoxFit.cover, width: 50)),
                         ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               elevation: 8,
@@ -113,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             onPressed: (() {}),
                             child: Image.asset("assets/images/avatar/corgi.png",
-                                fit: BoxFit.cover, width: 60)),
+                                fit: BoxFit.cover, width: 50)),
                         ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               elevation: 8,
@@ -124,7 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: Image.asset(
                                 "assets/images/avatar/crocodile.png",
                                 fit: BoxFit.cover,
-                                width: 60))
+                                width: 50))
                       ],
                     ),
                   ),
@@ -144,7 +123,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: Image.asset(
                                 "assets/images/avatar/doberman.png",
                                 fit: BoxFit.cover,
-                                width: 60)),
+                                width: 50)),
                         ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               elevation: 8,
@@ -153,7 +132,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             onPressed: (() {}),
                             child: Image.asset("assets/images/avatar/dog.png",
-                                fit: BoxFit.cover, width: 60)),
+                                fit: BoxFit.cover, width: 50)),
                         ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               elevation: 8,
@@ -162,7 +141,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             onPressed: (() {}),
                             child: Image.asset("assets/images/avatar/gojo.png",
-                                fit: BoxFit.cover, width: 60)),
+                                fit: BoxFit.cover, width: 50)),
                         ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               elevation: 8,
@@ -171,7 +150,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             onPressed: (() {}),
                             child: Image.asset("assets/images/avatar/goku.png",
-                                fit: BoxFit.cover, width: 60))
+                                fit: BoxFit.cover, width: 50))
                       ],
                     ),
                   ),
@@ -207,7 +186,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             onPressed: (() {}),
                             child: Image.asset("assets/images/avatar/horse.png",
-                                fit: BoxFit.cover, width: 60)),
+                                fit: BoxFit.cover, width: 50)),
                         ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               elevation: 8,
@@ -218,7 +197,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: Image.asset(
                                 "assets/images/avatar/kingdom.png",
                                 fit: BoxFit.cover,
-                                width: 60)),
+                                width: 50)),
                         ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               elevation: 8,
@@ -227,7 +206,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             onPressed: (() {}),
                             child: Image.asset("assets/images/avatar/lion.png",
-                                fit: BoxFit.cover, width: 60)),
+                                fit: BoxFit.cover, width: 50,),),
                         ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               elevation: 8,
@@ -238,7 +217,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: Image.asset(
                                 "assets/images/avatar/naruto.png",
                                 fit: BoxFit.cover,
-                                width: 60))
+                                width: 50))
                       ],
                     ),
                   ),
@@ -267,7 +246,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             onPressed: (() {}),
                             child: Image.asset("assets/images/avatar/shark.png",
-                                fit: BoxFit.cover, width: 60)),
+                                fit: BoxFit.cover, width: 50)),
                         ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               elevation: 8,
@@ -276,7 +255,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             onPressed: (() {}),
                             child: Image.asset("assets/images/avatar/tiger.png",
-                                fit: BoxFit.cover, width: 60)),
+                                fit: BoxFit.cover, width: 50)),
                         ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               elevation: 8,
@@ -287,7 +266,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             child: Image.asset(
                                 "assets/images/avatar/tiger1.png",
                                 fit: BoxFit.cover,
-                                width: 60))
+                                width: 50))
                       ],
                     ),
                   ),

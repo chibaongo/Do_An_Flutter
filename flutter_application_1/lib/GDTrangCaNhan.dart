@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
 
+import 'GDThayDoiAVT.dart';
+
 
 
 class ThongTinCaNhan extends StatefulWidget {
@@ -109,7 +111,12 @@ class _ThongTinCaNhan extends State<ThongTinCaNhan> {
                             ],
                           ),
                           OutlinedButton(
-                            onPressed: () {},
+                            onPressed: () {
+
+                                Navigator.push(context,
+                    MaterialPageRoute(builder: (context)=>
+                    const ThayDoiAVT(title: '')));
+                            },
                             style: OutlinedButton.styleFrom(
                               padding: EdgeInsets.symmetric(
                                   horizontal: 22, vertical: 8),
