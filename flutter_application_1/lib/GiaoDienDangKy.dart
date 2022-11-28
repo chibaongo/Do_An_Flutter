@@ -26,150 +26,154 @@ class _GiaoDienDangKy extends State<GiaoDienDangKy> {
   }
 
   @override
-  Widget build(BuildContext context) {
+ Widget build(BuildContext context) {
     return Scaffold(
-        // resizeToAvoidBottomInset : false,
-        // appBar: AppBar(
-        //   title: Text(widget.title),
-        // ),
-
-        body: Stack(
-      children: <Widget>[
-        Container(
-          // padding: const EdgeInsets.all(20),
-          decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage('assets/images/nen/nen.jpg'),
-                  fit: BoxFit.cover)),
+      body: Container(
+        padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage("assets/images/nen/nen.jpg"),
+              fit: BoxFit.cover),
         ),
-        ListView(
-          children: [
-             Padding(
-                  padding: EdgeInsets.all(20.0),
-                  child: Image.asset(
-                    'assets/images/icon/logo1.png',
-                    width: 120,
-                  )),
-             
-            Column(
-              children: const [
-                Padding(
-                  padding: EdgeInsets.only(bottom: 10),
-                  child: Text(
-                    'Đăng ký',
+        constraints: const BoxConstraints.expand(),
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              const SizedBox(
+                height: 60,
+              ),
+              Image.asset("assets/images/icon/logo1.png",
+                  width: MediaQuery.of(context).size.width / 3.0),
+              const Padding(
+                padding: EdgeInsets.fromLTRB(0, 30, 0, 6),
+                child: Text("Đăng ký",
                     style: TextStyle(
-                      color: Colors.red,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w700,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.redAccent)),
+              ),
+              const Padding(
+                padding: EdgeInsets.all(10),
+                child: TextField(
+                    style: TextStyle(color: Colors.blueGrey),
+                    decoration: InputDecoration(
+                        labelText: "Tên đăng nhập",
+                        labelStyle: TextStyle(color: Colors.redAccent),
+                        prefixIcon: SizedBox(
+                          width: 50,
+                          child: Icon(Icons.people),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(width: 1, color: Colors.redAccent)),
+                        border: OutlineInputBorder())),
+              ),
+              const Padding(
+                  padding: EdgeInsets.all(10),
+                  child: TextField(
+                      style: TextStyle(color: Colors.blueGrey),
+                      decoration: InputDecoration(
+                        labelText: "Mail",
+                        labelStyle: TextStyle(color: Colors.redAccent),
+                        prefixIcon: SizedBox(
+                          width: 50,
+                          child: Icon(Icons.mail),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(width: 1, color: Colors.redAccent)),
+                        border: OutlineInputBorder(),
+                      ))),
+              const Padding(
+                  padding: EdgeInsets.all(10),
+                  child: TextField(
+                      style: TextStyle(color: Colors.blueGrey),
+                      decoration: InputDecoration(
+                        labelText: "Số điện thoại",
+                        labelStyle: TextStyle(color: Colors.redAccent),
+                        prefixIcon: SizedBox(
+                          width: 50,
+                          child: Icon(Icons.phone),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(width: 1, color: Colors.redAccent)),
+                        border: OutlineInputBorder(),
+                      ))),
+              const Padding(
+                  padding: EdgeInsets.all(10),
+                  child: TextField(
+                      style: TextStyle(color: Colors.blueGrey),
+                      decoration: InputDecoration(
+                        labelText: "Mật khẩu",
+                        labelStyle: TextStyle(color: Colors.redAccent),
+                        prefixIcon: SizedBox(
+                          width: 50,
+                          child: Icon(Icons.lock),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(width: 1, color: Colors.redAccent)),
+                        border: OutlineInputBorder(),
+                      ))),
+              const Padding(
+                  padding: EdgeInsets.all(10),
+                  child: TextField(
+                      style: TextStyle(color: Colors.blueGrey),
+                      decoration: InputDecoration(
+                        labelText: "Xác nhận mật khẩu",
+                        labelStyle: TextStyle(color: Colors.redAccent),
+                        prefixIcon: SizedBox(
+                          width: 50,
+                          child: Icon(Icons.lock),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(width: 1, color: Colors.redAccent)),
+                        border: OutlineInputBorder(),
+                      ))),
+              Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+                Padding(
+                  padding: EdgeInsets.only(top: 20),
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStatePropertyAll<Color>(
+                            const Color.fromARGB(255, 27, 247, 228)
+                                .withOpacity(0.8)),
+                        shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.0)))),
+                    onPressed: () => {},
+                    child: const Padding(
+                      padding: EdgeInsets.all(10),
+                      child: Text('Đăng ký',
+                          style: TextStyle(color: Colors.black)),
                     ),
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(6),
-                  child: TextField(
-                    style: TextStyle(color: Colors.blue),
-                    decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(width: 1, color: Colors.blue),
-                        ),
-                        border: OutlineInputBorder(),
-                        labelText: 'Nhập username',
-                        labelStyle: TextStyle(color: Colors.black)),
+                  padding: EdgeInsets.only(top: 20),
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStatePropertyAll<Color>(
+                            const Color.fromARGB(255, 27, 247, 228)
+                                .withOpacity(0.8)),
+                        shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.0)))),
+                    onPressed:(){
+                      
+                    },
+                    child: const Padding(
+                      padding: EdgeInsets.all(10),
+                      child:
+                          Text('Thoát', style: TextStyle(color: Colors.black)),
+                    ),
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.all(6),
-                  child: TextField(
-                    style: TextStyle(color: Colors.blue),
-                    decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(width: 1, color: Colors.blue),
-                        ),
-                        border: OutlineInputBorder(),
-                        labelText: ' Nhập Mail',
-                        labelStyle: TextStyle(color: Colors.black)),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(6),
-                  child: TextField(
-                    style: TextStyle(color: Colors.blue),
-                    decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(width: 1, color: Colors.blue),
-                        ),
-                        border: OutlineInputBorder(),
-                        labelText: 'Nhập số điện thoại',
-                        labelStyle: TextStyle(color: Colors.black)),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(6),
-                  child: TextField(
-                    style: TextStyle(color: Colors.blue),
-                    decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(width: 1, color: Colors.blue),
-                        ),
-                        border: OutlineInputBorder(),
-                        labelText: 'Nhập password',
-                        labelStyle: TextStyle(color: Colors.black)),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(6),
-                  child: TextField(
-                    style: TextStyle(color: Colors.blue),
-                    decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(width: 1, color: Colors.blue),
-                        ),
-                        border: OutlineInputBorder(),
-                        labelText: 'Nhập lại mật khẩu',
-                        labelStyle: TextStyle(color: Colors.black)),
-                  ),
-                ),
-              ],
-            ),
-            Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-              Padding(
-                padding: EdgeInsets.only(top: 20),
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                      backgroundColor: MaterialStatePropertyAll<Color>(
-                          const Color.fromARGB(255, 27, 247, 228)
-                              .withOpacity(0.8)),
-                      shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0)))),
-                  onPressed: () => {},
-                  child: const Padding(
-                    padding: EdgeInsets.all(10),
-                    child:
-                        Text('Đăng ký', style: TextStyle(color: Colors.black)),
-                  ),
-                ),
-              ),
-             
-              Padding(
-                padding: EdgeInsets.only(top: 20),
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                      backgroundColor: MaterialStatePropertyAll<Color>(
-                          const Color.fromARGB(255, 27, 247, 228)
-                              .withOpacity(0.8)),
-                      shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0)))),
-                  onPressed: () => {},
-                  child: const Padding(
-                    padding: EdgeInsets.all(10),
-                    child: Text('Thoát', style: TextStyle(color: Colors.black)),
-                  ),
-                ),
-              ),
-            ]),
-          ],
+              ]),
+            ],
+          ),
         ),
-      ],
-    ));
+      ),
+    );
   }
 }
