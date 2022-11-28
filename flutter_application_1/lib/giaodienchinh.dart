@@ -179,7 +179,7 @@ class _Home extends State<Home> {
                                 padding: EdgeInsets.fromLTRB(25, 15, 30, 15),
                                 child: Text(
                                   'ĐÁU XẾP HẠNG',
-                                  style: TextStyle(fontSize: 20),
+                                  style: TextStyle(fontSize: 18),
                                 ),
                               ),
                             ],
@@ -223,7 +223,7 @@ class _Home extends State<Home> {
                     ],
                   ),
                 ),
-                const Padding(padding: EdgeInsets.all(5)),
+                const Padding(padding: EdgeInsets.all(70)),
                 Container(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -238,7 +238,7 @@ class _Home extends State<Home> {
                               ),
                               onPressed: (() {}),
                               child: Image.asset("assets/images/icon/user.png",
-                                  fit: BoxFit.cover, width: 40)),
+                                  fit: BoxFit.cover, width: 30)),
                           const Text(
                             'Hồ Sơ',
                             style: TextStyle(
@@ -258,7 +258,7 @@ class _Home extends State<Home> {
                             child: Image.asset(
                                 "assets/images/icon/history-book.png",
                                 fit: BoxFit.cover,
-                                width: 40),
+                                width: 30),
                           ),
                           const Text(
                             'Lịch Sử',
@@ -299,7 +299,7 @@ class _Home extends State<Home> {
                                   child: Image.asset(
                                       "assets/images/icon/book.png",
                                       fit: BoxFit.cover,
-                                      width: 40))
+                                      width: 30))
                             ],
                           ),
                           const Text(
@@ -318,7 +318,7 @@ class _Home extends State<Home> {
                               minimumSize: Size.square(40),
                             ),
                             child: Image.asset("assets/images/icon/shop.png",
-                                fit: BoxFit.cover, width: 45),
+                                fit: BoxFit.cover, width: 40),
                             onPressed: (() {
                               Navigator.push(context,
                               MaterialPageRoute(builder: (context)=>CuaHang()));
