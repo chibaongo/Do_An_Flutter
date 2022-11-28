@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 
 
 
-class QMKNhapMail extends StatefulWidget {
-  const QMKNhapMail({super.key});
+class CaiDat extends StatefulWidget {
+  const CaiDat({super.key});
 
  
   @override
-  State<QMKNhapMail> createState() => _QMKNhapMail();
+  State<CaiDat> createState() => _CaiDat();
 }
 
-class _QMKNhapMail extends State<QMKNhapMail> {
+class _CaiDat extends State<CaiDat> {
   bool sound = true;
   bool music=true;
   @override
@@ -47,7 +47,7 @@ class _QMKNhapMail extends State<QMKNhapMail> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Image.asset(
-                      '- assets/images/icon/speaker.png',
+                      'assets/images/icon/speaker.png',
                       width: MediaQuery.of(context).size.width / 5,
                     ),
                     Switch(
@@ -67,7 +67,7 @@ class _QMKNhapMail extends State<QMKNhapMail> {
                   children: [
                     Padding(padding: EdgeInsets.only(left: 40)),
                     Image.asset(
-                      '- assets/images/icon/music.png',
+                      'assets/images/icon/music.png',
                       width: MediaQuery.of(context).size.width/3,
                     ),
                     Padding(padding: EdgeInsets.only(left:50 )),

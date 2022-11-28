@@ -3,6 +3,7 @@ import 'Components/CuaHang/itemStoreAvatar.dart';
 import 'Components/CuaHang/itemStoteXu.dart';
 import 'package:flutter_application_1/Model/dbcontext.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_application_1/giaodienchinh.dart';
 class CuaHang extends StatefulWidget{
   const CuaHang({super.key});
 
@@ -91,7 +92,7 @@ class _CuaHang extends State<CuaHang>{
                       decoration: BoxDecoration(
                           border: Border.all(width: 1),
                           image: DecorationImage(
-                              image: AssetImage("images/nenStr.jpg"),
+                              image: AssetImage("assets/images/nen/nenStr.jpg"),
                               fit: BoxFit.cover),
                           borderRadius: BorderRadius.circular(10)),
                       child: CarouselSlider(
@@ -168,7 +169,13 @@ class _CuaHang extends State<CuaHang>{
                                   RoundedRectangleBorder(
                                       borderRadius:
                                           BorderRadius.circular(30.0)))),
-                          onPressed: () => {},
+                          onPressed: () => {
+                             Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const Home(title: 'Home')))
+                          },
                           child: const Padding(
                             padding: EdgeInsets.all(10),
                             child: Text('Thoát',

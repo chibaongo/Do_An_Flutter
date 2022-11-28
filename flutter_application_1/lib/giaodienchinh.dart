@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/CaiDat.dart';
+import 'package:flutter_application_1/CuaHang.dart';
 import 'package:flutter_application_1/GiaoDienChoiCaNhan.dart';
 import 'package:flutter_application_1/TimPhong.dart';
 
@@ -63,7 +65,10 @@ class _Home extends State<Home> {
                             shape: CircleBorder(),
                             minimumSize: Size.square(40),
                           ),
-                          onPressed: (() {}),
+                          onPressed: (() {
+                            Navigator.push(context, 
+                            MaterialPageRoute(builder: (context)=>CaiDat()));
+                          }),
                           child: Image.asset(
                               "assets/images/cam_xuc/setting.png",
                               fit: BoxFit.cover,
@@ -314,7 +319,10 @@ class _Home extends State<Home> {
                             ),
                             child: Image.asset("assets/images/icon/shop.png",
                                 fit: BoxFit.cover, width: 45),
-                            onPressed: (() {}),
+                            onPressed: (() {
+                              Navigator.push(context,
+                              MaterialPageRoute(builder: (context)=>CuaHang()));
+                            }),
                           ),
                           const Text(
                             'Cửa Hàng',

@@ -5,7 +5,7 @@ class DuLieuStore{
   final String caption;
   final int price;
   static List<DuLieuStore> lstDuLieuStore=[
-    DuLieuStore(image: 'assets/images/avatar/luffy.png', caption: "Songoku", price: 8),
+    DuLieuStore(image: 'assets/images/avatar/goku.png', caption: "Songoku", price: 8),
     DuLieuStore(image: 'assets/images/avatar/gojo.png', caption: "Gojo", price: 8),
     DuLieuStore(image: 'assets/images/avatar/naruto.png', caption: "Naruto", price: 10),
   ];
