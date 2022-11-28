@@ -1,39 +1,40 @@
 import 'Components/DoiKhang.dart';
 import 'package:flutter/material.dart';
 import 'Model/dbcontext.dart';
+import 'Animation/Animation.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+// void main() {
+//   runApp(const MyApp());
+// }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+// class DauDoiKhang extends StatelessWidget {
+//   const DauDoiKhang({super.key});
 
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
+//   // This widget is the root of your application.
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Flutter Demo',
+//       debugShowCheckedModeBanner: false,
+//       theme: ThemeData(
        
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
+//         primarySwatch: Colors.blue,
+//       ),
+//       home: const MyHomePage(title: 'Flutter Demo Home Page'),
+//     );
+//   }
+// }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class DauDoiKhang extends StatefulWidget {
+  const DauDoiKhang({super.key, required this.title});
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<DauDoiKhang> createState() => _DauDoiKhang();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _DauDoiKhang extends State<DauDoiKhang> {
 
  
 
@@ -48,7 +49,9 @@ class _MyHomePageState extends State<MyHomePage> {
           image: DecorationImage(
               image: AssetImage("assets/images/nen/nen.jpg"), fit: BoxFit.cover),
         ),
-        child: Container(
+        child: 
+        SingleChildScrollView(child: 
+        Container(
 
             // padding: const EdgeInsets.all(20),
             margin: const EdgeInsets.all(20),
@@ -84,7 +87,12 @@ class _MyHomePageState extends State<MyHomePage> {
                             ],
                           ),
                           Padding(padding: EdgeInsets.fromLTRB(0, 10, 0, 0)),
-                          Image.asset("assets/images/icon/clock.png", width: 30),
+                           Container(
+                                width: MediaQuery.of(context).size.width / 7,
+                                height: MediaQuery.of(context).size.height / 15,
+                                child: Lac(image: "assets/images/icon/clock.png"),
+                              ),
+                          // Image.asset("assets/images/icon/clock.png", width: 30),
                              Padding(padding: EdgeInsets.only(top: 10)),
                           Row(children: [
                             Text('10',style: TextStyle(fontSize: 20),),
@@ -104,11 +112,12 @@ class _MyHomePageState extends State<MyHomePage> {
                             ],
                           ),
                           Padding(padding: EdgeInsets.only(bottom: 15)),
-                          Text(
-                            'Vòng 2',
-                            style: TextStyle(
-                                fontSize: 30, fontWeight: FontWeight.bold),
-                          )
+                         Container(
+                                  width:
+                                      MediaQuery.of(context).size.width / 4.1,
+                                  height:
+                                      MediaQuery.of(context).size.height / 15,
+                                  child: DoiMau(text: "Vòng 2"))
                         ],
                       ),
                     ),
@@ -122,7 +131,12 @@ class _MyHomePageState extends State<MyHomePage> {
                               Text("Đối thủ")
                             ],
                           ),
-                          Image.asset("assets/images/avatar/gojo.png", width: 40),
+                          // Image.asset("assets/images/avatar/gojo.png", width: 40),
+                          Container(
+                                width: MediaQuery.of(context).size.width / 7,
+                                height: MediaQuery.of(context).size.height / 15,
+                                child: ToNho(image: "assets/images/avatar/gojo.png"),
+                              ),
                           Text("Player#123455"),
                           Text("13/50")
                         ],
@@ -160,7 +174,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset("assets/images/avatar/goku.png", width: 60),
+                      // Image.asset("assets/images/avatar/goku.png", width: 60),
+                       Container(
+                                width: MediaQuery.of(context).size.width / 7,
+                                height: MediaQuery.of(context).size.height / 15,
+                                child: ToNho(image: "assets/images/avatar/goku.png"),
+                              ),
                       Padding(padding: EdgeInsets.all(5)),
                     Text("Số câu đúng: "),
                     Text("9")
@@ -206,6 +225,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ],
             )),
+        )
       ),
     );
   }

@@ -108,7 +108,7 @@ class ToNho extends StatefulWidget {
   State<ToNho> createState() => _ToNho();
 }
 
-/// AnimationControllers can be created with `vsync: this` because of TickerProviderStateMixin.
+
 class _ToNho extends State<ToNho> with TickerProviderStateMixin {
   late final AnimationController _controller = AnimationController(
     duration: const Duration(seconds: 2),
