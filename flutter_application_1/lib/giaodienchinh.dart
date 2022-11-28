@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/CaiDat.dart';
 import 'package:flutter_application_1/CuaHang.dart';
+import 'package:flutter_application_1/GDTrangCaNhan.dart';
 import 'package:flutter_application_1/GiaoDienChoiCaNhan.dart';
 import 'package:flutter_application_1/TimPhong.dart';
+import 'package:flutter_application_1/GDTrangCaNhan.dart';
+
 
 class Home extends StatefulWidget {
   const Home({super.key, required this.title});
@@ -236,7 +239,10 @@ class _Home extends State<Home> {
                                 shape: CircleBorder(),
                                 minimumSize: Size.square(40),
                               ),
-                              onPressed: (() {}),
+                              onPressed: (() {
+                              Navigator.push(context,
+                              MaterialPageRoute(builder: (context)=>ThongTinCaNhan(title: '',)));
+                            }),
                               child: Image.asset("assets/images/icon/user.png",
                                   fit: BoxFit.cover, width: 30)),
                           const Text(
