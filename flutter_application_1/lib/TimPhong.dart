@@ -151,6 +151,7 @@ class _TimPhongState extends State<TimPhong> {
                               RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30.0)))),
                       onPressed: () {
+                        Navigator.pop(context);
                         Navigator.push(
                             context,
                             MaterialPageRoute(

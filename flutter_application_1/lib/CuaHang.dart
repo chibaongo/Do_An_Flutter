@@ -48,11 +48,14 @@ class _CuaHang extends State<CuaHang>{
                     SizedBox(
                       width: 50,height: 20,
                       child: 
-                   OutlinedButton(
-                   
-                    onPressed: (){}, 
-                   child: Image.asset("assets/images/icon/add.png", fit: BoxFit.cover,  width:20)
-                   )
+                   ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                shape: CircleBorder(),
+                                minimumSize: Size.square(20),
+                              ),
+                              onPressed: () {},
+                              child: Image.asset("assets/images/icon/add.png",
+                                  fit: BoxFit.cover, width: 20))
                     )
                    ),
                   ],
