@@ -149,12 +149,24 @@ class _DauDoiKhang extends State<DauDoiKhang> {
                   child: Column(
                     children: [
                       Text("Câu hỏi thứ 12: "),
-                      Padding(padding: EdgeInsets.fromLTRB(10, 30, 10, 30)),
-                      Text(
-                        "Việt nam có bao nhiêu tỉnh thành?",
-                        style: TextStyle(fontSize: 30),
-                      ),
-                      Padding(padding: EdgeInsets.fromLTRB(10, 30, 10, 30)),
+                      Padding(padding: const EdgeInsets.fromLTRB(10, 10, 10, 10)),
+                          Container(
+                          
+                            width: MediaQuery.of(context).size.width,
+                            height: MediaQuery.of(context).size.height/4.6,
+                            decoration: BoxDecoration(
+                              border: Border.all(width: 2,color: Colors.blue),
+                              borderRadius: BorderRadius.circular(20),
+                                color: Colors.white.withOpacity(0.5),
+                            ),
+                            child:
+                            Padding(padding:EdgeInsets.fromLTRB(10, 10, 10, 10) ,
+                            child: Text(
+                              "Việt nam có bao nhiêu tỉnh thành?",
+                              style: TextStyle(fontSize: 20,
+                            ),)
+                            )
+                          ),
                     ],
                   ),
                 ),

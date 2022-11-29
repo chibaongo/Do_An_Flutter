@@ -17,7 +17,8 @@ class _Lac extends State<Lac>
   )..repeat(reverse: true);
   late final Animation<double> _animation = CurvedAnimation(
     parent: _controller,
-    curve: Curves.easeInCubic,
+   
+     curve: Curves.easeInCubic,
   );
 
   @override

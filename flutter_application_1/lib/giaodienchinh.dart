@@ -93,7 +93,7 @@ class _Home extends State<Home> {
                       ),
                       const Padding(padding: EdgeInsets.all(10)),
                       Image.asset(
-                        "assets/images/avatar/lion.png",
+                        "assets/images/avatar/cool.png",
                         fit: BoxFit.cover,
                         width: 200,
                       ),
