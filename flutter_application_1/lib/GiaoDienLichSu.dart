@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/GiaoDienBangXepHang.dart';
+import 'package:flutter_application_1/giaodienchinh.dart';
 
 class LichSu extends StatefulWidget {
   const LichSu({super.key, required this.title});
@@ -90,7 +92,13 @@ class _LichSuState extends State<LichSu> {
                         border: Border.all(width: 1),
                         borderRadius: BorderRadius.circular(10)),
                     child: OutlinedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const BangXepHang(title: 'Bảng Xếp Hạng')));
+                      },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
@@ -117,7 +125,12 @@ class _LichSuState extends State<LichSu> {
                                 .withOpacity(0.8)),
                         shape: MaterialStateProperty.all(RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30.0)))),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Home(title: 'Home')));
+                    },
                     child: const Padding(
                       padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
                       child: Text('Quay lại'),
