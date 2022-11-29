@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/GiaoDienBangXepHang.dart';
+import 'package:flutter_application_1/GiaoDienHightScore.dart';
 import 'package:flutter_application_1/giaodienchinh.dart';
 
 class LichSu extends StatefulWidget {
@@ -30,7 +31,7 @@ class _LichSuState extends State<LichSu> {
                 children: <Widget>[
                   Image.asset(
                     'assets/images/icon/logo1.png',
-                    width: 100,
+                    width: 300,
                     fit: BoxFit.cover,
                   ),
                   const Padding(padding: EdgeInsets.all(20)),
@@ -66,7 +67,13 @@ class _LichSuState extends State<LichSu> {
                         border: Border.all(width: 1),
                         borderRadius: BorderRadius.circular(10)),
                     child: OutlinedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const HightScore(title: 'Hight Score')));
+                      },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
