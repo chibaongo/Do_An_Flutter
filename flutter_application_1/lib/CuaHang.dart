@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/GiaoDienNapTien.dart';
 import 'Components/CuaHang/itemStoreAvatar.dart';
 import 'Components/CuaHang/itemStoteXu.dart';
 import 'package:flutter_application_1/Model/dbcontext.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_application_1/giaodienchinh.dart';
-class CuaHang extends StatefulWidget{
+
+class CuaHang extends StatefulWidget {
   const CuaHang({super.key});
 
-  @override 
-  State<CuaHang> createState()=> _CuaHang();
-
+  @override
+  State<CuaHang> createState() => _CuaHang();
 }
-class _CuaHang extends State<CuaHang>{
-  Widget build(BuildContext context){
+
+class _CuaHang extends State<CuaHang> {
+  Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
       width: MediaQuery.of(context).size.width,
@@ -42,22 +44,19 @@ class _CuaHang extends State<CuaHang>{
                       ),
                       child: Text('2'),
                     ),
-                   Container(
-                    // width: MediaQuery.of(context).size.width/5,
-                    child: 
-                    SizedBox(
-                      width: 50,height: 20,
-                      child: 
-                   ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                shape: CircleBorder(),
-                                minimumSize: Size.square(20),
-                              ),
-                              onPressed: () {},
-                              child: Image.asset("assets/images/icon/add.png",
-                                  fit: BoxFit.cover, width: 20))
-                    )
-                   ),
+                    // Container(
+                    //     // width: MediaQuery.of(context).size.width/5,
+                    //     child: SizedBox(
+                    //         width: 50,
+                    //         height: 20,
+                    //         child: ElevatedButton(
+                    //             style: ElevatedButton.styleFrom(
+                    //               shape: CircleBorder(),
+                    //               minimumSize: Size.square(20),
+                    //             ),
+                    //             onPressed: () {},
+                    //             child: Image.asset("assets/images/icon/add.png",
+                    //                 fit: BoxFit.cover, width: 20)))),
                   ],
                 ),
                 Padding(padding: EdgeInsets.all(10)),
@@ -156,7 +155,13 @@ class _CuaHang extends State<CuaHang>{
                                   RoundedRectangleBorder(
                                       borderRadius:
                                           BorderRadius.circular(30.0)))),
-                          onPressed: () => {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const NapTien(title: 'Nạp Tiền')));
+                          },
                           child: const Padding(
                             padding: EdgeInsets.all(10),
                             child: Text('Nạp tiền',
@@ -173,11 +178,11 @@ class _CuaHang extends State<CuaHang>{
                                       borderRadius:
                                           BorderRadius.circular(30.0)))),
                           onPressed: () => {
-                             Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    const Home(title: 'Home')))
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const Home(title: 'Home')))
                           },
                           child: const Padding(
                             padding: EdgeInsets.all(10),

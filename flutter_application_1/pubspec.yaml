@@ -93,8 +93,9 @@ flutter:
      - assets/images/avatar/crocodile.png
      - assets/images/avatar/doberman.png
      - assets/images/avatar/dog.png
-   
- 
+     - assets/images/icon/history.png
+     - assets/images/icon/ranking.png
+     - assets/images/icon/solo.png
      - assets/images/avatar/horse.png
      - assets/images/avatar/kingdom.png
      - assets/images/avatar/lion.png
@@ -119,6 +120,11 @@ flutter:
      - assets/images/icon/history-book.png
      - assets/images/icon/book.png
      - assets/images/icon/user.png
+     - assets/images/iconxu/dollar.png
+     - assets/images/iconxu/coins-stack.png
+     - assets/images/iconxu/coin.png
+     - assets/images/iconxu/money-bag.png
+     - assets/images/iconxu/gold (1).png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

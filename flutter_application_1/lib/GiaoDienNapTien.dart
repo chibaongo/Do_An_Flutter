@@ -1,37 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/giaodienchinh.dart';
 import 'Components/CuaHang/NapTien.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class NapTien extends StatefulWidget {
+  const NapTien({super.key, required this.title});
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<NapTien> createState() => _NapTienState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _NapTienState extends State<NapTien> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -100,7 +80,14 @@ class _MyHomePageState extends State<MyHomePage> {
                                 .withOpacity(0.8)),
                         shape: MaterialStateProperty.all(RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30.0)))),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Home(
+                                    title: '',
+                                  )));
+                    },
                     child: const Padding(
                       padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
                       child: Text('Quay lại'),

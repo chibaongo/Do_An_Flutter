@@ -3,9 +3,11 @@ import 'package:flutter_application_1/CaiDat.dart';
 import 'package:flutter_application_1/CuaHang.dart';
 import 'package:flutter_application_1/GDTrangCaNhan.dart';
 import 'package:flutter_application_1/GiaoDienChoiCaNhan.dart';
+import 'package:flutter_application_1/GiaoDienLichSu.dart';
+import 'package:flutter_application_1/GiaoDienNapTien.dart';
 import 'package:flutter_application_1/TimPhong.dart';
 import 'package:flutter_application_1/GDTrangCaNhan.dart';
-
+import 'package:flutter_application_1/GiaoDienNapTien.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key, required this.title});
@@ -57,7 +59,14 @@ class _Home extends State<Home> {
                                 shape: CircleBorder(),
                                 minimumSize: Size.square(20),
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => NapTien(
+                                              title: '',
+                                            )));
+                              },
                               child: Image.asset("assets/images/icon/add.png",
                                   fit: BoxFit.cover, width: 20))
                         ],
@@ -69,8 +78,10 @@ class _Home extends State<Home> {
                             minimumSize: Size.square(40),
                           ),
                           onPressed: (() {
-                            Navigator.push(context, 
-                            MaterialPageRoute(builder: (context)=>CaiDat()));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => CaiDat()));
                           }),
                           child: Image.asset(
                               "assets/images/cam_xuc/setting.png",
@@ -226,7 +237,7 @@ class _Home extends State<Home> {
                     ],
                   ),
                 ),
-                const Padding(padding: EdgeInsets.all(70)),
+                //const Padding(padding: EdgeInsets.all(5)),
                 Container(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -240,9 +251,13 @@ class _Home extends State<Home> {
                                 minimumSize: Size.square(40),
                               ),
                               onPressed: (() {
-                              Navigator.push(context,
-                              MaterialPageRoute(builder: (context)=>ThongTinCaNhan(title: '',)));
-                            }),
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => ThongTinCaNhan(
+                                              title: '',
+                                            )));
+                              }),
                               child: Image.asset("assets/images/icon/user.png",
                                   fit: BoxFit.cover, width: 30)),
                           const Text(
@@ -260,7 +275,14 @@ class _Home extends State<Home> {
                               shape: CircleBorder(),
                               minimumSize: Size.square(40),
                             ),
-                            onPressed: (() {}),
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => LichSu(
+                                            title: '',
+                                          )));
+                            },
                             child: Image.asset(
                                 "assets/images/icon/history-book.png",
                                 fit: BoxFit.cover,
@@ -326,8 +348,10 @@ class _Home extends State<Home> {
                             child: Image.asset("assets/images/icon/shop.png",
                                 fit: BoxFit.cover, width: 40),
                             onPressed: (() {
-                              Navigator.push(context,
-                              MaterialPageRoute(builder: (context)=>CuaHang()));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => CuaHang()));
                             }),
                           ),
                           const Text(
