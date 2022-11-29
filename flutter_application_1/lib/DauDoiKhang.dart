@@ -2,6 +2,7 @@ import 'Components/DoiKhang.dart';
 import 'package:flutter/material.dart';
 import 'Model/dbcontext.dart';
 import 'Animation/Animation.dart';
+import 'GiaoDienQuyenTroGiup.dart';
 
 // void main() {
 //   runApp(const MyApp());
@@ -197,7 +198,11 @@ class _DauDoiKhang extends State<DauDoiKhang> {
                           shape: MaterialStateProperty.all(
                               RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30.0)))),
-                      onPressed: () => {},
+                      onPressed: () => {
+                         Navigator.push(context,
+                    MaterialPageRoute(builder: (context)=>
+                    const  QuyenTroGiup(title: '')))
+                      },
                       child: const Padding(
                         padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
                         child: Text('Trợ giúp',

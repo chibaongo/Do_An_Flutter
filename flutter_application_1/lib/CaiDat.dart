@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_application_1/giaodienchinh.dart';
 
 
 class CaiDat extends StatefulWidget {
@@ -91,7 +91,13 @@ class _CaiDat extends State<CaiDat> {
                               .withOpacity(0.8)),
                       shape: MaterialStateProperty.all(RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30.0)))),
-                  onPressed: () => {},
+                  onPressed: () => {
+                    Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const Home(title: 'Home')))
+                  },
                   child: const Padding(
                     padding: EdgeInsets.all(10),
                     child: Text('Thoát', style: TextStyle(color: Colors.black)),

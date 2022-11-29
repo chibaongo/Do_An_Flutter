@@ -102,11 +102,11 @@ class _DangNhap extends State<DangNhap> {
                   }, 
                   style: OutlinedButton.styleFrom(
               padding: EdgeInsets.symmetric(horizontal: 32, vertical: 8),
-              // foreground border
+           
             ),
                   child: Text("Quên mật khẩu")
                   )
-               // ),
+             
               ),
               const Padding(padding: EdgeInsets.all(6)),
               Row(
