@@ -145,7 +145,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           shape: MaterialStateProperty.all(
                               RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30.0)))),
-                      onPressed: () => {},
+                      onPressed: () {},
                       child: const Padding(
                         padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
                         child: Text('Tạo phòng'),

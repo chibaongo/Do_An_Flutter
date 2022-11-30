@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/DauDoiKhang.dart';
+import 'package:flutter_application_1/GiaoDienPhongCho.dart';
 import 'package:flutter_application_1/giaodienchinh.dart';
 
 class TimPhong extends StatefulWidget {
@@ -56,11 +57,11 @@ class _TimPhongState extends State<TimPhong> {
                       shape: MaterialStateProperty.all(RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30.0)))),
                   onPressed: () => {
-                     Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              DauDoiKhang(title: "Nhập lại mật khẩu")))
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                DauDoiKhang(title: "Nhập lại mật khẩu")))
                   },
                   child: const Padding(
                     padding: EdgeInsets.fromLTRB(50, 10, 50, 10),
@@ -135,7 +136,10 @@ class _TimPhongState extends State<TimPhong> {
                           shape: MaterialStateProperty.all(
                               RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30.0)))),
-                      onPressed: () => {},
+                      onPressed: () {  Navigator.push(context,
+                    MaterialPageRoute(builder: (context)=>
+                    const PhongCho(title: 'Nhập mail')));
+                    },
                       child: const Padding(
                         padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
                         child: Text('Tạo phòng'),
