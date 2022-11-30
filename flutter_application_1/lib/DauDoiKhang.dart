@@ -133,27 +133,55 @@ class _DauDoiKhang extends State<DauDoiKhang> {
                     Container(
                       child: Column(
                         children: [
-                          Text("Câu hỏi thứ 12: "),
-                          Padding(
-                              padding:
-                                  const EdgeInsets.fromLTRB(10, 10, 10, 10)),
+                         Stack(
+                          children: [
+                            
+                          // Padding(padding: const EdgeInsets.fromLTRB(10, 10, 10, 10)),
                           Container(
-                              width: MediaQuery.of(context).size.width,
-                              height: MediaQuery.of(context).size.height / 4.6,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(width: 2, color: Colors.blue),
-                                borderRadius: BorderRadius.circular(20),
-                                color: Colors.white.withOpacity(0.5),
-                              ),
-                              child: Padding(
-                                  padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                  child: Text(
-                                    "Việt nam có bao nhiêu tỉnh thành?",
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                    ),
-                                  ))),
+                              margin: EdgeInsets.only(top: 40),
+                            width: MediaQuery.of(context).size.width,
+                            height: MediaQuery.of(context).size.height/4.7,
+                            decoration: BoxDecoration(
+                              border: Border.all(width: 5,color: Color.fromARGB(255, 147, 41, 41)),
+                              borderRadius: BorderRadius.circular(30),
+                                color: Colors.white.withOpacity(0.3),
+                            ),
+                            child:
+                            Padding(padding:EdgeInsets.fromLTRB(10, 20, 10, 10) ,
+                            child: Text(
+                              "Việt nam có bao nhiêu tỉnh thành?",
+                              style: TextStyle(fontSize: 20,
+                            ),)
+                            )
+                          ),
+                           Container(
+                            margin: EdgeInsets.fromLTRB(110, 15, 0, 0),
+                            padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
+                            width: MediaQuery.of(context).size.width/3,
+                            decoration: BoxDecoration(
+                              border: Border.all(width: 5,color: Color.fromARGB(255, 147, 41, 41)),
+                              borderRadius: BorderRadius.circular(22),
+                              color: Color.fromARGB(255, 132, 188, 234)
+                            ),
+                            child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text("Lv ",
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 36, 34, 29),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15
+                              ),),
+                              Text("12",
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 36, 34, 29),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15
+                              )),
+                            ],
+                          )),
+                          ],
+                         )
                         ],
                       ),
                     ),
