@@ -12,7 +12,7 @@ class inforHightScore extends StatelessWidget {
           children: [
             Text(
               dl.TenPlayer,
-              style: const TextStyle(color: Colors.red, fontSize: 20),
+              style: const TextStyle(color: Colors.red, fontSize: 19),
             ),
             Expanded(child: Container()),
             Padding(

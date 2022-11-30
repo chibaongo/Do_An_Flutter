@@ -201,12 +201,12 @@ class _DauDoiKhang extends State<DauDoiKhang> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            // Image.asset("assets/images/avatar/goku.png", width: 60),
+                          
                             Container(
                               width: MediaQuery.of(context).size.width / 7,
                               height: MediaQuery.of(context).size.height / 15,
                               child:
-                                  ToNho(image: "assets/images/avatar/goku.png"),
+                                  ToNho(image: "assets/images/avatar/cool.png"),
                             ),
                             Padding(padding: EdgeInsets.all(5)),
                             Text("Số câu đúng: "),
@@ -253,6 +253,7 @@ class _DauDoiKhang extends State<DauDoiKhang> {
                                           borderRadius:
                                               BorderRadius.circular(30.0)))),
                               onPressed: () {
+                                Navigator.pop(context);
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(

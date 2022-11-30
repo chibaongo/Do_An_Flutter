@@ -29,6 +29,9 @@ class inforXepHang extends StatelessWidget {
                         dl.images,
                         width: 70,
                       ),
+                      Container(
+                        width: MediaQuery.of(context).size.width/4.4,
+                        child: 
                       Text(
                         dl.giaTri.toString(),
                         style: const TextStyle(
@@ -36,6 +39,7 @@ class inforXepHang extends StatelessWidget {
                             color: Colors.white70,
                             fontSize: 20),
                       ),
+                      )
                     ],
                   )),
             ),

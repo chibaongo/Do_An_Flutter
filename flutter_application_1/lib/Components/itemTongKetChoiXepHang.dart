@@ -12,7 +12,7 @@ class inforTongKetXepHang extends StatelessWidget {
           children: [
             Text(
               dl.tieuDe,
-              style: const TextStyle(color: Colors.red, fontSize: 20),
+              style: const TextStyle(color: Colors.red, fontSize: 18),
             ),
             Expanded(child: Container()),
             Padding(

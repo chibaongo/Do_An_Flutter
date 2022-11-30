@@ -8,6 +8,7 @@ import 'package:flutter_application_1/GiaoDienNapTien.dart';
 import 'package:flutter_application_1/TimPhong.dart';
 import 'package:flutter_application_1/GDTrangCaNhan.dart';
 import 'package:flutter_application_1/GiaoDienNapTien.dart';
+import 'Animation/Animation.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key, required this.title});
@@ -97,13 +98,12 @@ class _Home extends State<Home> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Text(
-                          'Level 1',
-                          style: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.redAccent),
-                        ),
+                        Container(
+                                  width:
+                                      MediaQuery.of(context).size.width / 4,
+                                  height:
+                                      MediaQuery.of(context).size.height / 15,
+                                  child: DoiMau(text: "Level 2")),
                         const Padding(padding: EdgeInsets.all(10)),
                         Image.asset(
                           "assets/images/avatar/cool.png",

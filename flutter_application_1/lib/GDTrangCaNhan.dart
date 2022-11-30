@@ -84,7 +84,7 @@ class _ThongTinCaNhan extends State<ThongTinCaNhan> {
                       children: [
                         CircleAvatar(
                           backgroundImage:
-                              AssetImage('assets/images/avatar/cat.png'),
+                              AssetImage('assets/images/avatar/cool.png'),
                           backgroundColor: Colors.transparent,
                           radius: 30.0,
                         ),
@@ -93,7 +93,7 @@ class _ThongTinCaNhan extends State<ThongTinCaNhan> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Text(
-                              'LEVEL 1',
+                              'LEVEL 2',
                               style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
@@ -102,12 +102,12 @@ class _ThongTinCaNhan extends State<ThongTinCaNhan> {
                             Row(
                               children: [
                                 Text(
-                                  'Layer : ',
+                                  'Player : ',
                                   style: TextStyle(
                                       fontSize: 15, color: Colors.red),
                                 ),
                                 Text(
-                                  '#1111111 ',
+                                  '#123456 ',
                                   style: TextStyle(
                                       fontSize: 15, color: Colors.red),
                                 ),

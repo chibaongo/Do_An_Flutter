@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/TimPhong.dart';
 
 import 'DauDoiKhang.dart';
 
@@ -102,7 +103,7 @@ class _PhongCho extends State<PhongCho> {
                       children: [
                         const CircleAvatar(
                           backgroundImage: AssetImage(
-                            'assets/images/avatar/cat.png',
+                            'assets/images/avatar/cool.png',
                           ),
                           backgroundColor: Colors.transparent,
                         ),
@@ -114,7 +115,7 @@ class _PhongCho extends State<PhongCho> {
                         ),
                         const CircleAvatar(
                           backgroundImage: AssetImage(
-                            'assets/images/avatar/goku.png',
+                            'assets/images/avatar/gojo.png',
                           ),
                           backgroundColor: Colors.transparent,
                         ),
@@ -223,7 +224,14 @@ class _PhongCho extends State<PhongCho> {
                                     RoundedRectangleBorder(
                                         borderRadius:
                                             BorderRadius.circular(30.0)))),
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pop(context);
+                               Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const TimPhong(title: "")));
+                            },
                             child: const Padding(
                               padding: EdgeInsets.all(10),
                               child: Text('Thoát',
