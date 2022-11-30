@@ -66,7 +66,7 @@ class _ThayDoiAVT extends State<ThayDoiAVT> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       // ignore: prefer_const_literals_to_create_immutables
                       children: [
-                        ElevatedButton(
+                        OutlinedButton(
                             style: ElevatedButton.styleFrom(
                               elevation: 8,
                               shape: CircleBorder(),
@@ -75,7 +75,7 @@ class _ThayDoiAVT extends State<ThayDoiAVT> {
                             onPressed: (() {}),
                             child: Image.asset("assets/images/avatar/cat.png",
                                 fit: BoxFit.cover, width: 50)),
-                        ElevatedButton(
+                        OutlinedButton(
                             style: ElevatedButton.styleFrom(
                               elevation: 8,
                               shape: CircleBorder(),
@@ -84,7 +84,7 @@ class _ThayDoiAVT extends State<ThayDoiAVT> {
                             onPressed: (() {}),
                             child: Image.asset("assets/images/avatar/cool.png",
                                 fit: BoxFit.cover, width: 50)),
-                        ElevatedButton(
+                        OutlinedButton(
                             style: ElevatedButton.styleFrom(
                               elevation: 8,
                               shape: CircleBorder(),
@@ -93,7 +93,7 @@ class _ThayDoiAVT extends State<ThayDoiAVT> {
                             onPressed: (() {}),
                             child: Image.asset("assets/images/avatar/corgi.png",
                                 fit: BoxFit.cover, width: 50)),
-                        ElevatedButton(
+                        OutlinedButton(
                             style: ElevatedButton.styleFrom(
                               elevation: 8,
                               shape: CircleBorder(),
@@ -113,7 +113,7 @@ class _ThayDoiAVT extends State<ThayDoiAVT> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       // ignore: prefer_const_literals_to_create_immutables
                       children: [
-                        ElevatedButton(
+                        OutlinedButton(
                             style: ElevatedButton.styleFrom(
                               elevation: 8,
                               shape: CircleBorder(),
@@ -124,7 +124,7 @@ class _ThayDoiAVT extends State<ThayDoiAVT> {
                                 "assets/images/avatar/doberman.png",
                                 fit: BoxFit.cover,
                                 width: 50)),
-                        ElevatedButton(
+                        OutlinedButton(
                             style: ElevatedButton.styleFrom(
                               elevation: 8,
                               shape: CircleBorder(),
@@ -133,7 +133,7 @@ class _ThayDoiAVT extends State<ThayDoiAVT> {
                             onPressed: (() {}),
                             child: Image.asset("assets/images/avatar/dog.png",
                                 fit: BoxFit.cover, width: 50)),
-                        ElevatedButton(
+                        OutlinedButton(
                             style: ElevatedButton.styleFrom(
                               elevation: 8,
                               shape: CircleBorder(),
@@ -142,7 +142,7 @@ class _ThayDoiAVT extends State<ThayDoiAVT> {
                             onPressed: (() {}),
                             child: Image.asset("assets/images/avatar/gojo.png",
                                 fit: BoxFit.cover, width: 50)),
-                        ElevatedButton(
+                        OutlinedButton(
                             style: ElevatedButton.styleFrom(
                               elevation: 8,
                               shape: CircleBorder(),
