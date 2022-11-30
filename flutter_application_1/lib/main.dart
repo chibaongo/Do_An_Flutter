@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/QKMNhapMail.dart';
 import 'GiaoDienDangKy.dart';
 import 'giaodienchinh.dart';
+//import 'package:assets_audio_player/assets_audio_player.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -32,6 +33,10 @@ class DangNhap extends StatefulWidget {
 class _DangNhap extends State<DangNhap> {
   @override
   Widget build(BuildContext context) {
+   //    final assetAudioPlayer= AssetsAudioPlayer();
+  //  assetAudioPlayer.open(
+    //  Audio("assets/audios/j.mp3")
+ //   );
     return Scaffold(
       body: Container(
         padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
