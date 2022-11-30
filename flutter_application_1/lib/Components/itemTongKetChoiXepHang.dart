@@ -48,10 +48,10 @@ class duLieuTongKetXepHang {
   final String tieuDe;
   final int giaTri;
   static List<duLieuTongKetXepHang> lstDuLieuTongKetCaNhan = [
-    const duLieuTongKetXepHang(tieuDe: "Số câu hoàn thành:", giaTri: 30),
-    const duLieuTongKetXepHang(tieuDe: "Số câu đúng:", giaTri: 20),
+    const duLieuTongKetXepHang(tieuDe: "Số câu hoàn thành:", giaTri: 45),
+    const duLieuTongKetXepHang(tieuDe: "Số câu đúng:", giaTri: 37),
     const duLieuTongKetXepHang(tieuDe: "Tổng số điểm:", giaTri: 80),
     const duLieuTongKetXepHang(tieuDe: "Tổng số EXP:", giaTri: 50),
-    const duLieuTongKetXepHang(tieuDe: "HighScore:", giaTri: 10),
+    const duLieuTongKetXepHang(tieuDe: "HighScore:", giaTri: 2000),
   ];
 }

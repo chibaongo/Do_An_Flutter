@@ -96,7 +96,7 @@ class _DangNhap extends State<DangNhap> {
                               color: Colors.redAccent)))),
               Container(
                 
-                  child: OutlinedButton(
+                  child: TextButton(
                     onPressed: ()
                   {
                     

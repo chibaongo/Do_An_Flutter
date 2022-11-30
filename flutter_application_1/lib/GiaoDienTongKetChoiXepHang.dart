@@ -30,7 +30,7 @@ class _TongKetChoiXepHang extends State<TongKetChoiXepHang> {
             children: <Widget>[
               Image.asset(
                 "assets/images/rank/ranking.png",
-                width: 100,
+                width: 150,
               ),
               const Text(
                 'Tổng kết',
