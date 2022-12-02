@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/QKMNhapMail.dart';
 import 'GiaoDienDangKy.dart';
 import 'giaodienchinh.dart';
+
 //import 'package:assets_audio_player/assets_audio_player.dart';
 void main() {
   runApp(const MyApp());
@@ -33,31 +34,34 @@ class DangNhap extends StatefulWidget {
 class _DangNhap extends State<DangNhap> {
   @override
   Widget build(BuildContext context) {
-   //    final assetAudioPlayer= AssetsAudioPlayer();
-  //  assetAudioPlayer.open(
+    //    final assetAudioPlayer= AssetsAudioPlayer();
+    //  assetAudioPlayer.open(
     //  Audio("assets/audios/j.mp3")
- //   );
+    //   );
     return Scaffold(
-      body: Container(
-        padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("assets/images/nen/nen.jpg"), fit: BoxFit.cover),
-        ),
-        constraints: const BoxConstraints.expand(),
-        child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Container(
+          padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("assets/images/nen/nen.jpg"),
+                fit: BoxFit.cover),
+          ),
+          //constraints: const BoxConstraints.expand(),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              const SizedBox(
-                height: 120,
+              const Padding(padding: EdgeInsets.all(20)),
+              Image.asset(
+                "assets/images/icon/logo1.png",
+                width: MediaQuery.of(context).size.width / 2.0,
+                fit: BoxFit.cover,
               ),
-              Image.asset("assets/images/icon/logo1.png",
-                  width: MediaQuery.of(context).size.width / 3.0),
               const Padding(
-                padding: EdgeInsets.fromLTRB(0, 40, 0, 6),
+                padding: EdgeInsets.fromLTRB(0, 40, 0, 15),
                 child: Text("Đăng nhập",
                     style: TextStyle(
-                        fontSize: 30,
+                        fontSize: 50,
                         fontWeight: FontWeight.bold,
                         color: Colors.redAccent)),
               ),
@@ -95,88 +99,90 @@ class _DangNhap extends State<DangNhap> {
                           suffixIcon: Icon(Icons.remove_red_eye,
                               color: Colors.redAccent)))),
               Container(
-                
-                  child: TextButton(
-                    onPressed: ()
-                  {
-                    
-                    Navigator.push(context,
-                    MaterialPageRoute(builder: (context)=>
-                    const QMKNhapMail(title: 'Nhập mail')));
-                    
-                  }, 
-                  style: OutlinedButton.styleFrom(
-              padding: EdgeInsets.symmetric(horizontal: 32, vertical: 8),
-           
-            ),
-                  child: Text("Quên mật khẩu")
-                  )
-             
+                  child: Padding(
+                      padding: const EdgeInsets.fromLTRB(200, 0, 0, 0),
+                      child: TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const QMKNhapMail(title: 'Nhập mail')));
+                          },
+                          child: const Text(
+                            "Quên mật khẩu?",
+                            style: TextStyle(fontSize: 20),
+                          )))),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                child: ElevatedButton(
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStatePropertyAll<Color>(
+                            const Color.fromARGB(255, 27, 247, 228)
+                                .withOpacity(0.8)),
+                        shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.0)))),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Home(title: '')));
+                    },
+                    child: Padding(
+                      padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                      child: const Text(
+                        'Đăng Nhập',
+                        style: TextStyle(fontSize: 30),
+                      ),
+                    )),
               ),
-              const Padding(padding: EdgeInsets.all(6)),
+              Padding(padding: EdgeInsets.all(5)),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ElevatedButton(
-                    style: ButtonStyle(
-                        backgroundColor: MaterialStatePropertyAll<Color>(
-                            const Color.fromARGB(255, 27, 247, 228)
-                                .withOpacity(0.8)),
-                        shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30.0)))),
-                     onPressed: ()
-                  {
-                    
-                    Navigator.push(context,
-                    MaterialPageRoute(builder: (context)=>
-                    const Home(title: '')));
-                    
-                  }, 
-                    child: const Padding(
-                      padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                      child: Text('Đăng Nhập'),
-                    ),
-                  ),
-                  ElevatedButton(
-                    style: ButtonStyle(
-                        backgroundColor: MaterialStatePropertyAll<Color>(
-                            const Color.fromARGB(255, 27, 247, 228)
-                                .withOpacity(0.8)),
-                        shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30.0)))),
-                      onPressed: ()
-                  {
-                    
-                    Navigator.push(context,
-                    MaterialPageRoute(builder: (context)=>
-                    const GiaoDienDangKy(title: '')));
-                    
-                  }, 
-                    child: const Padding(
-                      padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-                      child: Text('Đăng Ký'),
-                    ),
-                  ),
+                  const Text('Bạn chưa có tài khoản?',
+                      style: TextStyle(fontSize: 20)),
+                  TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const GiaoDienDangKy(title: '')));
+                      },
+                      child: Text("Đăng ký", style: TextStyle(fontSize: 26))),
                 ],
               ),
-              const Padding(
-                padding: EdgeInsets.all(10.0),
-                child: Text(
-                  'Bạn có thể đăng nhập bằng',
-                  style: TextStyle(fontSize: 16, color: Colors.redAccent),
-                ),
+              const Padding(padding: EdgeInsets.all(10)),
+              const Text(
+                'Bạn có thể đăng nhập bằng',
+                style: TextStyle(fontSize: 16, color: Colors.redAccent),
               ),
+              const Padding(padding: EdgeInsets.all(10)),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                // ignore: prefer_const_literals_to_create_immutables
                 children: [
-                  Image.asset(
-                    "assets/images/cam_xuc/fb.png",
-                    width: MediaQuery.of(context).size.width / 9.0,
-                  ),
-                  Image.asset(
-                    "assets/images/cam_xuc/gg.png",
-                    width: MediaQuery.of(context).size.width / 9.0,
+                  ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        elevation: 8,
+                        shape: const CircleBorder(),
+                      ),
+                      onPressed: () {},
+                      child: Image.asset(
+                        "assets/images/cam_xuc/fb.png",
+                        fit: BoxFit.cover,
+                        width: MediaQuery.of(context).size.width / 9.0,
+                      )),
+                  OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      elevation: 8,
+                      shape: const CircleBorder(),
+                    ),
+                    child: Image.asset(
+                      "assets/images/cam_xuc/gg.png",
+                      width: MediaQuery.of(context).size.width / 9.0,
+                    ),
+                    onPressed: () {},
                   ),
                 ],
               )

@@ -61,6 +61,7 @@ class _NapTienState extends State<NapTien> {
                         fontWeight: FontWeight.bold,
                         color: Colors.redAccent),
                   ),
+                  Padding(padding: EdgeInsets.all(20)),
                   Container(
                     width: MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.width / 1.0,

@@ -310,7 +310,7 @@ class _ThongTinCaNhan extends State<ThongTinCaNhan> {
                       ),
                     ),
                   ]),
-                  const Padding(padding: EdgeInsets.all(70)),
+                  const Padding(padding: EdgeInsets.all(105)),
                   Container(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -379,12 +379,12 @@ class _ThongTinCaNhan extends State<ThongTinCaNhan> {
                                   minimumSize: Size.square(40),
                                 ),
                                 onPressed: () {
-                                    Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => Home(
-                                              title: '',
-                                            )));
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Home(
+                                                title: '',
+                                              )));
                                 },
                                 child: Image.asset(
                                     "assets/images/icon/home2.png",

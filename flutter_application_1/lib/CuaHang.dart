@@ -6,6 +6,9 @@ import 'package:flutter_application_1/Model/dbcontext.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_application_1/giaodienchinh.dart';
 
+import 'GDTrangCaNhan.dart';
+import 'GiaoDienLichSu.dart';
+
 class CuaHang extends StatefulWidget {
   const CuaHang({super.key});
 
@@ -25,7 +28,7 @@ class _CuaHang extends State<CuaHang> {
       ),
       child: SingleChildScrollView(
         child: Container(
-            margin: const EdgeInsets.fromLTRB(10, 30, 10, 10),
+            margin: const EdgeInsets.fromLTRB(10, 20, 10, 10),
             padding: EdgeInsets.all(10),
             child: Column(
               children: [
@@ -44,19 +47,6 @@ class _CuaHang extends State<CuaHang> {
                       ),
                       child: Text('2'),
                     ),
-                    // Container(
-                    //     // width: MediaQuery.of(context).size.width/5,
-                    //     child: SizedBox(
-                    //         width: 50,
-                    //         height: 20,
-                    //         child: ElevatedButton(
-                    //             style: ElevatedButton.styleFrom(
-                    //               shape: CircleBorder(),
-                    //               minimumSize: Size.square(20),
-                    //             ),
-                    //             onPressed: () {},
-                    //             child: Image.asset("assets/images/icon/add.png",
-                    //                 fit: BoxFit.cover, width: 20)))),
                   ],
                 ),
                 Padding(padding: EdgeInsets.all(10)),
@@ -141,7 +131,7 @@ class _CuaHang extends State<CuaHang> {
                             .toList(),
                       ),
                     )),
-                Padding(padding: EdgeInsets.all(20)),
+                Padding(padding: EdgeInsets.all(5)),
                 Container(
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -168,30 +158,164 @@ class _CuaHang extends State<CuaHang> {
                                 style: TextStyle(color: Colors.black)),
                           ),
                         ),
-                        ElevatedButton(
-                          style: ButtonStyle(
-                              backgroundColor: MaterialStatePropertyAll<Color>(
-                                  const Color.fromARGB(255, 27, 247, 228)
-                                      .withOpacity(0.8)),
-                              shape: MaterialStateProperty.all(
-                                  RoundedRectangleBorder(
-                                      borderRadius:
-                                          BorderRadius.circular(30.0)))),
-                          onPressed: () => {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const Home(title: 'Home')))
-                          },
-                          child: const Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Text('Thoát',
-                                style: TextStyle(color: Colors.black)),
-                          ),
-                        ),
+                        // ElevatedButton(
+                        //   style: ButtonStyle(
+                        //       backgroundColor: MaterialStatePropertyAll<Color>(
+                        //           const Color.fromARGB(255, 27, 247, 228)
+                        //               .withOpacity(0.8)),
+                        //       shape: MaterialStateProperty.all(
+                        //           RoundedRectangleBorder(
+                        //               borderRadius:
+                        //                   BorderRadius.circular(30.0)))),
+                        //   onPressed: () => {
+                        //     Navigator.push(
+                        //         context,
+                        //         MaterialPageRoute(
+                        //             builder: (context) =>
+                        //                 const Home(title: 'Home')))
+                        //   },
+                        //   child: const Padding(
+                        //     padding: EdgeInsets.all(10),
+                        //     child: Text('Thoát',
+                        //         style: TextStyle(color: Colors.black)),
+                        //   ),
+                        // ),
                       ]),
-                )
+                ),
+                const Padding(padding: EdgeInsets.all(5)),
+                Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Column(
+                        children: [
+                          OutlinedButton(
+                              style: OutlinedButton.styleFrom(
+                                elevation: 8,
+                                shape: CircleBorder(),
+                                minimumSize: Size.square(40),
+                              ),
+                              onPressed: (() {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => ThongTinCaNhan(
+                                              title: '',
+                                            )));
+                              }),
+                              child: Image.asset("assets/images/icon/user.png",
+                                  fit: BoxFit.cover, width: 30)),
+                          const Text(
+                            'Hồ Sơ',
+                            style: TextStyle(
+                                fontSize: 16, color: Colors.blueAccent),
+                          )
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          OutlinedButton(
+                            style: OutlinedButton.styleFrom(
+                              elevation: 8,
+                              shape: CircleBorder(),
+                              minimumSize: Size.square(40),
+                            ),
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => LichSu(
+                                            title: '',
+                                          )));
+                            },
+                            child: Image.asset(
+                                "assets/images/icon/history-book.png",
+                                fit: BoxFit.cover,
+                                width: 30),
+                          ),
+                          const Text(
+                            'Lịch Sử',
+                            style: TextStyle(
+                                fontSize: 16, color: Colors.blueAccent),
+                          )
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          OutlinedButton(
+                              style: OutlinedButton.styleFrom(
+                                elevation: 8,
+                                shape: CircleBorder(),
+                                minimumSize: Size.square(40),
+                              ),
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Home(
+                                              title: '',
+                                            )));
+                              },
+                              child: Image.asset("assets/images/icon/home2.png",
+                                  fit: BoxFit.cover, width: 40)),
+                          const Text(
+                            'Home',
+                            style: TextStyle(
+                                fontSize: 16, color: Colors.blueAccent),
+                          )
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Row(
+                            children: [
+                              OutlinedButton(
+                                  style: OutlinedButton.styleFrom(
+                                    elevation: 8,
+                                    shape: CircleBorder(),
+                                    minimumSize: Size.square(40),
+                                  ),
+                                  onPressed: (() {}),
+                                  child: Image.asset(
+                                      "assets/images/icon/book.png",
+                                      fit: BoxFit.cover,
+                                      width: 30))
+                            ],
+                          ),
+                          const Text(
+                            'Thể Lệ',
+                            style: TextStyle(
+                                fontSize: 16, color: Colors.blueAccent),
+                          )
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          OutlinedButton(
+                            style: OutlinedButton.styleFrom(
+                              elevation: 8,
+                              shape: CircleBorder(),
+                              minimumSize: Size.square(40),
+                            ),
+                            child: Image.asset("assets/images/icon/shop.png",
+                                fit: BoxFit.cover, width: 40),
+                            onPressed: (() {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => CuaHang()));
+                            }),
+                          ),
+                          const Text(
+                            'Cửa Hàng',
+                            style: TextStyle(
+                                fontSize: 16, color: Colors.blueAccent),
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
               ],
             )),
       ),
