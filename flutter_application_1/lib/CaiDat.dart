@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/giaodienchinh.dart';
-
+import 'package:assets_audio_player/assets_audio_player.dart';
 
 class CaiDat extends StatefulWidget {
   const CaiDat({super.key});
@@ -15,13 +15,21 @@ class _CaiDat extends State<CaiDat> {
   bool music=true;
   @override
   Widget build(BuildContext context) {
+       AssetsAudioPlayer playMusic=AssetsAudioPlayer();
+
+     playMusic.open(Audio("assets/audios/TheAvengers.mp3"));
+   
+
+
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
               image: AssetImage("assets/images/nen/nen.jpg"), fit: BoxFit.cover),
         ),
-        child: Container(
+        child: 
+        SingleChildScrollView(child: 
+        Container(
           padding: const EdgeInsets.all(10),
           margin: const EdgeInsets.all(10),
           child: Column(
@@ -77,6 +85,15 @@ class _CaiDat extends State<CaiDat> {
                         onChanged: (bool value) {
                           setState(() {
                             music = value;
+                            // if(music==true)
+                            // {
+                            //   playMusic.pause();
+                            //     playMusic.play();
+                            // }
+                            // else 
+                            // {
+                            //   playMusic.pause();
+                            // }
                           });
                         }),
                   ],
@@ -107,6 +124,7 @@ class _CaiDat extends State<CaiDat> {
             ],
           ),
         ),
+        )
       ),
     );
   }
