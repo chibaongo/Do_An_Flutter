@@ -72,11 +72,11 @@ class _DangNhap extends State<DangNhap> {
                 child: TextField(
                     style: TextStyle(color: Colors.blueGrey),
                     decoration: InputDecoration(
-                        labelText: "Tên đăng nhập",
+                        labelText: "Email",
                         labelStyle: TextStyle(color: Colors.redAccent),
                         prefixIcon: SizedBox(
                           width: 50,
-                          child: Icon(Icons.people),
+                          child: Icon(Icons.email),
                         ),
                         enabledBorder: OutlineInputBorder(
                             borderSide:
@@ -102,7 +102,7 @@ class _DangNhap extends State<DangNhap> {
                               color: Colors.redAccent)))),
               Container(
                   child: Padding(
-                      padding: const EdgeInsets.fromLTRB(200, 0, 0, 0),
+                      padding: const EdgeInsets.fromLTRB(150, 0, 0, 0),
                       child: TextButton(
                           onPressed: () {
                             Navigator.push(

@@ -52,22 +52,22 @@ class _GiaoDienDangKy extends State<GiaoDienDangKy> {
                         fontWeight: FontWeight.bold,
                         color: Colors.redAccent)),
               ),
-              const Padding(
-                padding: EdgeInsets.all(10),
-                child: TextField(
-                    style: TextStyle(color: Colors.blueGrey),
-                    decoration: InputDecoration(
-                        labelText: "Tên đăng nhập",
-                        labelStyle: TextStyle(color: Colors.redAccent),
-                        prefixIcon: SizedBox(
-                          width: 50,
-                          child: Icon(Icons.people),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(width: 1, color: Colors.redAccent)),
-                        border: OutlineInputBorder())),
-              ),
+              // const Padding(
+              //   padding: EdgeInsets.all(10),
+              //   child: TextField(
+              //       style: TextStyle(color: Colors.blueGrey),
+              //       decoration: InputDecoration(
+              //           labelText: "Tên đăng nhập",
+              //           labelStyle: TextStyle(color: Colors.redAccent),
+              //           prefixIcon: SizedBox(
+              //             width: 50,
+              //             child: Icon(Icons.people),
+              //           ),
+              //           enabledBorder: OutlineInputBorder(
+              //               borderSide:
+              //                   BorderSide(width: 1, color: Colors.redAccent)),
+              //           border: OutlineInputBorder())),
+              // ),
               const Padding(
                   padding: EdgeInsets.all(10),
                   child: TextField(
