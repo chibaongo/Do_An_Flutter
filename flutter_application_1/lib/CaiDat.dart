@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/giaodienchinh.dart';
-import 'package:assets_audio_player/assets_audio_player.dart';
+//import 'package:assets_audio_player/assets_audio_player.dart';
 
 class CaiDat extends StatefulWidget {
   const CaiDat({super.key});
@@ -15,9 +15,9 @@ class _CaiDat extends State<CaiDat> {
   bool music=true;
   @override
   Widget build(BuildContext context) {
-       AssetsAudioPlayer playMusic=AssetsAudioPlayer();
+    //    AssetsAudioPlayer playMusic=AssetsAudioPlayer();
 
-     playMusic.open(Audio("assets/audios/TheAvengers.mp3"));
+    //  playMusic.open(Audio("assets/audios/TheAvengers.mp3"));
    
 
 

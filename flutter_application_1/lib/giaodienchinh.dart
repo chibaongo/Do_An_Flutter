@@ -232,7 +232,7 @@ class _Home extends State<Home> {
                   ],
                 ),
               ),
-              const Padding(padding: EdgeInsets.all(75)),
+              const Padding(padding: EdgeInsets.all(70)),
               Container(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,

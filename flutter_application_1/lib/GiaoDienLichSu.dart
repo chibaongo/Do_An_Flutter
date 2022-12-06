@@ -127,7 +127,7 @@ class _LichSuState extends State<LichSu> {
                       ),
                     ),
                   ),
-                  const Padding(padding: EdgeInsets.all(105)),
+                  const Padding(padding: EdgeInsets.all(95)),
                   Container(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -247,7 +247,7 @@ class _LichSuState extends State<LichSu> {
                                 minimumSize: Size.square(40),
                               ),
                               child: Image.asset("assets/images/icon/shop.png",
-                                  fit: BoxFit.cover, width: 40),
+                                  fit: BoxFit.cover, width: 33),
                               onPressed: (() {
                                 Navigator.push(
                                     context,

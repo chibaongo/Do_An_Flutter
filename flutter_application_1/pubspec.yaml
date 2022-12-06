@@ -37,7 +37,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   carousel_slider: ^4.1.1
-  assets_audio_player: ^3.0.6
+ # assets_audio_player: ^3.0.6
 
 dev_dependencies:
   flutter_test:
@@ -128,7 +128,7 @@ flutter:
      - assets/images/iconxu/gold (1).png
      - assets/images/icon/Winner.png
      - assets/images/rank/rank bk.png
-     - assets/audios/TheAvengers.mp3
+   #  - assets/audios/TheAvengers.mp3
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

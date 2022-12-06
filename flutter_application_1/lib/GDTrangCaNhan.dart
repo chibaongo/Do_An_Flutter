@@ -310,7 +310,7 @@ class _ThongTinCaNhan extends State<ThongTinCaNhan> {
                       ),
                     ),
                   ]),
-                  const Padding(padding: EdgeInsets.all(105)),
+                  const Padding(padding: EdgeInsets.all(95)),
                   Container(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
