@@ -33,7 +33,7 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 10, 50, 10),
+                      padding: const EdgeInsets.fromLTRB(0,0, 50, 10),
                       child: Column(
                         children: [
                           Row(
@@ -61,7 +61,7 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 10, 30, 10),
+                      padding: const EdgeInsets.fromLTRB(0, 20, 30, 10),
                       child: Column(
                         children: [
                           Row(
@@ -71,7 +71,7 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                               const Text("1/5")
                             ],
                           ),
-                          const Padding(padding: EdgeInsets.only(bottom: 15)),
+                          const Padding(padding: EdgeInsets.only(bottom: 13)),
                           Container(
                               width: MediaQuery.of(context).size.width / 4.1,
                               height: MediaQuery.of(context).size.height / 15,
@@ -101,31 +101,61 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                     ),
                   ],
                 )),
-                Container(
-                  child: Column(
-                    children: [
-                      Text("Câu hỏi thứ 12: "),
-                      Padding(
-                          padding: const EdgeInsets.fromLTRB(10, 10, 10, 10)),
-                      Container(
-                          width: MediaQuery.of(context).size.width,
-                          height: MediaQuery.of(context).size.height / 4.6,
-                          decoration: BoxDecoration(
-                            border: Border.all(width: 2, color: Colors.blue),
-                            borderRadius: BorderRadius.circular(20),
-                            color: Colors.white.withOpacity(0.5),
+                   Container(
+                      child: Column(
+                        children: [
+                         Stack(
+                          children: [
+                            
+                          // Padding(padding: const EdgeInsets.fromLTRB(10, 10, 10, 10)),
+                          Container(
+                              margin: EdgeInsets.only(top: 40),
+                            width: MediaQuery.of(context).size.width,
+                            height: MediaQuery.of(context).size.height/4.7,
+                            decoration: BoxDecoration(
+                              border: Border.all(width: 5,color: Color.fromARGB(255, 147, 41, 41)),
+                              borderRadius: BorderRadius.circular(30),
+                                color: Colors.white.withOpacity(0.3),
+                            ),
+                            child:
+                            Padding(padding:EdgeInsets.fromLTRB(10, 20, 10, 10) ,
+                            child: Text(
+                              "Biển số xe 62 của tỉnh nào ?",
+                              style: TextStyle(fontSize: 20,
+                            ),)
+                            )
                           ),
-                          child: Padding(
-                              padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                              child: Text(
-                                "Biển số xe 62 là của tỉnh thành nào?",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                ),
-                              ))),
-                    ],
-                  ),
-                ),
+                           Container(
+                            margin: EdgeInsets.fromLTRB(110, 15, 0, 0),
+                            padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
+                            width: MediaQuery.of(context).size.width/3,
+                            decoration: BoxDecoration(
+                              border: Border.all(width: 5,color: Color.fromARGB(255, 147, 41, 41)),
+                              borderRadius: BorderRadius.circular(22),
+                              color: Color.fromARGB(255, 132, 188, 234)
+                            ),
+                            child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text("Lv ",
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 36, 34, 29),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15
+                              ),),
+                              Text("12",
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 36, 34, 29),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15
+                              )),
+                            ],
+                          )),
+                          ],
+                         )
+                        ],
+                      ),
+                    ),
                 Container(
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height / 2.5,
