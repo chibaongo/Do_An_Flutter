@@ -4,7 +4,6 @@ import 'GiaoDienDangKy.dart';
 import 'giaodienchinh.dart';
 //import 'CaiDat.dart';
 
-
 class DangNhap extends StatefulWidget {
   const DangNhap({super.key, required this.title});
 
@@ -17,12 +16,11 @@ class DangNhap extends StatefulWidget {
 class _DangNhap extends State<DangNhap> {
   @override
   Widget build(BuildContext context) {
-  
     //    final assetAudioPlayer= AssetsAudioPlayer();
     //  assetAudioPlayer.open(
     //  Audio("assets/audios/j.mp3")
     //   );
-  
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
@@ -130,10 +128,18 @@ class _DangNhap extends State<DangNhap> {
                   TextButton(
                       onPressed: () {
                         Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    const GiaoDienDangKy(title: '')));
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                 GiaoDienDangKy(),
+                          ),
+                        ).then((value) {
+                          if (value != null) {
+                            final snackBar = SnackBar(content: Text(value));
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(snackBar);
+                          }
+                        });
                       },
                       child: Text("Đăng ký", style: TextStyle(fontSize: 26))),
                 ],

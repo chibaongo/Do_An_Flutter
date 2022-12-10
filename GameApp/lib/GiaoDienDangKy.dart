@@ -1,32 +1,20 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-
-
 class GiaoDienDangKy extends StatefulWidget {
-  const GiaoDienDangKy({super.key, required this.title});
-  final String title;
-
   @override
-  State<GiaoDienDangKy> createState() => _GiaoDienDangKy();
+  State<GiaoDienDangKy> createState() {
+    return GiaoDienDangKyState();
+  }
 }
 
-class _GiaoDienDangKy extends State<GiaoDienDangKy> {
-  var username = "";
-  var mail = "";
-  var numberphone = "";
-  var password = "";
-  var confirmpass = "";
-  var dulieu = "";
-  TextEditingController txt_username = TextEditingController();
-  TextEditingController txt_password = TextEditingController();
-  void _dangKy() {
-    setState(() {
-      dulieu = "đăng ký thành công";
-    });
-  }
-
+class GiaoDienDangKyState extends State<GiaoDienDangKy> {
+  TextEditingController txtEmail = TextEditingController();
+  TextEditingController txtPassword = TextEditingController();
+  TextEditingController txtConfirmPassword = TextEditingController();
+  final _auth = FirebaseAuth.instance;
   @override
- Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
@@ -68,12 +56,14 @@ class _GiaoDienDangKy extends State<GiaoDienDangKy> {
               //                   BorderSide(width: 1, color: Colors.redAccent)),
               //           border: OutlineInputBorder())),
               // ),
-              const Padding(
+              Padding(
                   padding: EdgeInsets.all(10),
                   child: TextField(
+                      controller: txtEmail,
+                      keyboardType: TextInputType.emailAddress,
                       style: TextStyle(color: Colors.blueGrey),
                       decoration: InputDecoration(
-                        labelText: "Mail",
+                        labelText: "Email",
                         labelStyle: TextStyle(color: Colors.redAccent),
                         prefixIcon: SizedBox(
                           width: 50,
@@ -84,25 +74,27 @@ class _GiaoDienDangKy extends State<GiaoDienDangKy> {
                                 BorderSide(width: 1, color: Colors.redAccent)),
                         border: OutlineInputBorder(),
                       ))),
-              const Padding(
+              // const Padding(
+              //     padding: EdgeInsets.all(10),
+              //     child: TextField(
+              //         style: TextStyle(color: Colors.blueGrey),
+              //         decoration: InputDecoration(
+              //           labelText: "Số điện thoại",
+              //           labelStyle: TextStyle(color: Colors.redAccent),
+              //           prefixIcon: SizedBox(
+              //             width: 50,
+              //             child: Icon(Icons.phone),
+              //           ),
+              //           enabledBorder: OutlineInputBorder(
+              //               borderSide:
+              //                   BorderSide(width: 1, color: Colors.redAccent)),
+              //           border: OutlineInputBorder(),
+              //         ))),
+              Padding(
                   padding: EdgeInsets.all(10),
                   child: TextField(
-                      style: TextStyle(color: Colors.blueGrey),
-                      decoration: InputDecoration(
-                        labelText: "Số điện thoại",
-                        labelStyle: TextStyle(color: Colors.redAccent),
-                        prefixIcon: SizedBox(
-                          width: 50,
-                          child: Icon(Icons.phone),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(width: 1, color: Colors.redAccent)),
-                        border: OutlineInputBorder(),
-                      ))),
-              const Padding(
-                  padding: EdgeInsets.all(10),
-                  child: TextField(
+                      controller: txtPassword,
+                      obscureText: true,
                       style: TextStyle(color: Colors.blueGrey),
                       decoration: InputDecoration(
                         labelText: "Mật khẩu",
@@ -116,9 +108,11 @@ class _GiaoDienDangKy extends State<GiaoDienDangKy> {
                                 BorderSide(width: 1, color: Colors.redAccent)),
                         border: OutlineInputBorder(),
                       ))),
-              const Padding(
+              Padding(
                   padding: EdgeInsets.all(10),
                   child: TextField(
+                      controller: txtConfirmPassword,
+                      obscureText: true,
                       style: TextStyle(color: Colors.blueGrey),
                       decoration: InputDecoration(
                         labelText: "Xác nhận mật khẩu",
@@ -142,7 +136,29 @@ class _GiaoDienDangKy extends State<GiaoDienDangKy> {
                                 .withOpacity(0.8)),
                         shape: MaterialStateProperty.all(RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30.0)))),
-                    onPressed: () => {},
+                    onPressed: () async {
+                      if (txtPassword.text == txtConfirmPassword.text) {
+                        try {
+                          final newUser = _auth.createUserWithEmailAndPassword(
+                              email: txtEmail.text,
+                              password: txtConfirmPassword.text);
+                          if (newUser != null) {
+                            Navigator.pop(context, 'Bạn Đăng Ký Thành Công !');
+                          } else {
+                            final snackBar = SnackBar(
+                                content: Text('Tài Khoản Này Không Hợp Lệ'));
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(snackBar);
+                          }
+                        } catch (e) {
+                          final snackBar =
+                              SnackBar(content: Text('Đã có lỗi xảy ra'));
+                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                        }
+                      } else {
+                        Navigator.pop(context, 'Xác nhận mật khẩu không đúng');
+                      }
+                    },
                     child: const Padding(
                       padding: EdgeInsets.all(10),
                       child: Text('Đăng ký',
@@ -159,9 +175,7 @@ class _GiaoDienDangKy extends State<GiaoDienDangKy> {
                                 .withOpacity(0.8)),
                         shape: MaterialStateProperty.all(RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30.0)))),
-                    onPressed:(){
-                      
-                    },
+                    onPressed: () {Navigator.pop(context);},
                     child: const Padding(
                       padding: EdgeInsets.all(10),
                       child:
