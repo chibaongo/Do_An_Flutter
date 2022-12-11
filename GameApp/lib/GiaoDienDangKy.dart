@@ -13,6 +13,8 @@ class GiaoDienDangKyState extends State<GiaoDienDangKy> {
   TextEditingController txtPassword = TextEditingController();
   TextEditingController txtConfirmPassword = TextEditingController();
   final _auth = FirebaseAuth.instance;
+  bool _showpass = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,10 +93,13 @@ class GiaoDienDangKyState extends State<GiaoDienDangKy> {
               //           border: OutlineInputBorder(),
               //         ))),
               Padding(
-                  padding: EdgeInsets.all(10),
-                  child: TextField(
+                padding: EdgeInsets.all(10),
+                child: Stack(
+                  alignment: AlignmentDirectional.centerEnd,
+                  children: <Widget>[
+                    TextField(
                       controller: txtPassword,
-                      obscureText: true,
+                      obscureText: !_showpass,
                       style: TextStyle(color: Colors.blueGrey),
                       decoration: InputDecoration(
                         labelText: "Mật khẩu",
@@ -107,25 +112,45 @@ class GiaoDienDangKyState extends State<GiaoDienDangKy> {
                             borderSide:
                                 BorderSide(width: 1, color: Colors.redAccent)),
                         border: OutlineInputBorder(),
-                      ))),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
               Padding(
                   padding: EdgeInsets.all(10),
-                  child: TextField(
-                      controller: txtConfirmPassword,
-                      obscureText: true,
-                      style: TextStyle(color: Colors.blueGrey),
-                      decoration: InputDecoration(
-                        labelText: "Xác nhận mật khẩu",
-                        labelStyle: TextStyle(color: Colors.redAccent),
-                        prefixIcon: SizedBox(
-                          width: 50,
-                          child: Icon(Icons.lock),
+                  child: Stack(
+                    alignment: AlignmentDirectional.centerEnd,
+                    children: <Widget>[
+                      TextField(
+                        controller: txtConfirmPassword,
+                        obscureText: !_showpass,
+                        style: TextStyle(color: Colors.blueGrey),
+                        decoration: InputDecoration(
+                          labelText: "Xác nhận mật khẩu",
+                          labelStyle: TextStyle(color: Colors.redAccent),
+                          prefixIcon: SizedBox(
+                            width: 50,
+                            child: Icon(Icons.lock),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  width: 1, color: Colors.redAccent)),
+                          border: OutlineInputBorder(),
                         ),
-                        enabledBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(width: 1, color: Colors.redAccent)),
-                        border: OutlineInputBorder(),
-                      ))),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(0, 0, 15, 0),
+                        child: GestureDetector(
+                            onTap: onToppleShowPass,
+                            child: _showpass
+                                ? Icon(Icons.visibility,
+                                    color: Colors.redAccent)
+                                : Icon(Icons.visibility_off,
+                                    color: Colors.redAccent)),
+                      ),
+                    ],
+                  )),
               Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
                 Padding(
                   padding: EdgeInsets.only(top: 20),
@@ -175,7 +200,9 @@ class GiaoDienDangKyState extends State<GiaoDienDangKy> {
                                 .withOpacity(0.8)),
                         shape: MaterialStateProperty.all(RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30.0)))),
-                    onPressed: () {Navigator.pop(context);},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                     child: const Padding(
                       padding: EdgeInsets.all(10),
                       child:
@@ -189,5 +216,11 @@ class GiaoDienDangKyState extends State<GiaoDienDangKy> {
         ),
       ),
     );
+  }
+
+  void onToppleShowPass() {
+    setState(() {
+      _showpass = !_showpass;
+    });
   }
 }
