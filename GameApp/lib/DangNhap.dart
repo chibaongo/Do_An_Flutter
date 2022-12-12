@@ -276,8 +276,9 @@ class _DangNhap extends State<DangNhap> {
         await FirebaseAuth.instance.signInWithEmailAndPassword(
             email: txtEmail.text.trim(), password: txtPassword.text.trim());
         Navigator.of(context).pop();
-        _auth.authStateChanges().listen(
-          (event) {
+
+        FirebaseAuth.instance.authStateChanges().listen((event) {
+          {
             if (event != null) {
               txtEmail.clear();
               txtPassword.clear();
@@ -288,8 +289,24 @@ class _DangNhap extends State<DangNhap> {
                   SnackBar(content: Text('Email hoặc mật khẩu không đúng'));
               ScaffoldMessenger.of(context).showSnackBar(snackBar);
             }
-          },
-        );
+          }
+          ;
+        });
+
+        // _auth.authStateChanges().listen(
+        //   (event) {
+        //     if (event != null) {
+        //       txtEmail.clear();
+        //       txtPassword.clear();
+        //    Navigator.push(
+        //       context, MaterialPageRoute(builder: (context) => Home()));
+        //     } else {
+        //       final snackBar =
+        //           SnackBar(content: Text('Email hoặc mật khẩu không đúng'));
+        //       ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        //     }
+        //   },
+        // );
       } on FirebaseAuthException catch (e) {
         final snackBar =
             SnackBar(content: Text('Email hoặc mật khẩu không đúng'));
