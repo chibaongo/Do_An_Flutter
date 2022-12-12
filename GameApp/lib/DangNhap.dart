@@ -267,9 +267,15 @@ class _DangNhap extends State<DangNhap> {
     }
     if (!_emailIsvalid && !_passIsvalid) {
       try {
+        showDialog(
+            context: context,
+            barrierDismissible: false,
+            builder: (context) {
+              return const Center(child: CircularProgressIndicator());
+            });
         await FirebaseAuth.instance.signInWithEmailAndPassword(
             email: txtEmail.text.trim(), password: txtPassword.text.trim());
-
+        Navigator.of(context).pop();
         _auth.authStateChanges().listen(
           (event) {
             if (event != null) {
@@ -284,17 +290,12 @@ class _DangNhap extends State<DangNhap> {
             }
           },
         );
-        showDialog(
-            context: context,
-            barrierDismissible: false,
-            builder: ((context) => Center(child: CircularProgressIndicator())));
-        // ignore: use_build_context_synchronously
-        Navigator.pop(context);
       } on FirebaseAuthException catch (e) {
         final snackBar =
             SnackBar(content: Text('Email hoặc mật khẩu không đúng'));
         ScaffoldMessenger.of(context).showSnackBar(snackBar);
       }
+      Navigator.of(context).pop();
     }
   }
 }
