@@ -63,7 +63,7 @@ class _DangNhap extends State<DangNhap> {
                 padding: EdgeInsets.fromLTRB(0, 10, 0, 15),
                 child: Text("Đăng nhập",
                     style: TextStyle(
-                        fontSize: 50,
+                        fontSize: 40,
                         fontWeight: FontWeight.bold,
                         color: Colors.redAccent)),
               ),
@@ -134,8 +134,7 @@ class _DangNhap extends State<DangNhap> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        const QMKNhapMail(title: 'Nhập mail')));
+                                    builder: (context) => QMKNhapMail()));
                           },
                           child: const Text(
                             "Quên mật khẩu?",
@@ -254,17 +253,20 @@ class _DangNhap extends State<DangNhap> {
   }
 
   Future login() async {
-    if (txtEmail.text.length < 11 || !txtEmail.text.contains("@gmail.com")) {
-      _emailIsvalid = true;
-      //txtEmail.clear();
-    } else {
-      _emailIsvalid = false;
-    }
-    if (txtPassword.text.length < 6) {
-      _passIsvalid = true;
-    } else {
-      _passIsvalid = false;
-    }
+    setState(() {
+      if (txtEmail.text.length < 11 || !txtEmail.text.contains("@gmail.com")) {
+        _emailIsvalid = true;
+        //txtEmail.clear();
+      } else {
+        _emailIsvalid = false;
+      }
+      if (txtPassword.text.length < 6) {
+        _passIsvalid = true;
+      } else {
+        _passIsvalid = false;
+      }
+    });
+
     if (!_emailIsvalid && !_passIsvalid) {
       try {
         showDialog(
