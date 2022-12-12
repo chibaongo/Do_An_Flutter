@@ -5,12 +5,10 @@ import 'giaodienchinh.dart';
 //import 'CaiDat.dart';
 
 class DangNhap extends StatefulWidget {
-  const DangNhap({super.key, required this.title});
-
-  final String title;
-
   @override
-  State<DangNhap> createState() => _DangNhap();
+  State<DangNhap> createState() {
+    return _DangNhap();
+  }
 }
 
 class _DangNhap extends State<DangNhap> {
@@ -130,8 +128,7 @@ class _DangNhap extends State<DangNhap> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) =>
-                                 GiaoDienDangKy(),
+                            builder: (context) => GiaoDienDangKy(),
                           ),
                         ).then((value) {
                           if (value != null) {

@@ -17,9 +17,7 @@ class MyApp extends StatelessWidget {
       initialRoute: 'home',
       routes: {
         //'welcome': (context) => WelcomeScreen(),
-        'home': (context) => const DangNhap(
-              title: 'man hinh dang',
-            ),
+        'home': (context) => DangNhap(),
       },
     );
   }
