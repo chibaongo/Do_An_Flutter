@@ -3,7 +3,6 @@ import 'package:flutter_application_2/TimPhong.dart';
 import 'package:flutter_application_2/giaodienchinh.dart';
 import 'Components/itemTongKetChoiXepHang.dart';
 
-
 class TongKetChoiXepHang extends StatefulWidget {
   const TongKetChoiXepHang({super.key, required this.title});
 
@@ -21,7 +20,8 @@ class _TongKetChoiXepHang extends State<TongKetChoiXepHang> {
         padding: const EdgeInsets.fromLTRB(30, 20, 30, 20),
         decoration: const BoxDecoration(
           image: DecorationImage(
-              image: AssetImage("assets/images/nen/nen.jpg"), fit: BoxFit.cover),
+              image: AssetImage("assets/images/nen/nen.jpg"),
+              fit: BoxFit.cover),
         ),
         child: Container(
           padding: const EdgeInsets.all(20),
@@ -80,13 +80,11 @@ class _TongKetChoiXepHang extends State<TongKetChoiXepHang> {
                                 .withOpacity(0.8)),
                         shape: MaterialStateProperty.all(RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30.0)))),
-                    onPressed: ()  {
-
-                          Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                const TimPhong(title: "")));
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const TimPhong(title: "")));
                     },
                     child: const Padding(
                       padding: EdgeInsets.all(10),
@@ -102,11 +100,8 @@ class _TongKetChoiXepHang extends State<TongKetChoiXepHang> {
                         shape: MaterialStateProperty.all(RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30.0)))),
                     onPressed: () {
-                        Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                const Home(title: "")));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Home()));
                     },
                     child: const Padding(
                       padding: EdgeInsets.fromLTRB(20, 10, 20, 10),

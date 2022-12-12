@@ -16,7 +16,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: 'home',
       routes: {
-        //'welcome': (context) => WelcomeScreen(),
         'home': (context) => DangNhap(),
       },
     );

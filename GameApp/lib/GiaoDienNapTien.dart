@@ -82,12 +82,8 @@ class _NapTienState extends State<NapTien> {
                         shape: MaterialStateProperty.all(RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30.0)))),
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Home(
-                                    title: '',
-                                  )));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Home()));
                     },
                     child: const Padding(
                       padding: EdgeInsets.fromLTRB(30, 10, 30, 10),

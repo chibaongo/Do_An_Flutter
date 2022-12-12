@@ -199,9 +199,7 @@ class _LichSuState extends State<LichSu> {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Home(
-                                                title: '',
-                                              )));
+                                          builder: (context) => Home()));
                                 },
                                 child: Image.asset(
                                     "assets/images/icon/home2.png",

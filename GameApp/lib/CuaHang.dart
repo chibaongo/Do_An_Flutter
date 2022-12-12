@@ -252,9 +252,7 @@ class _CuaHang extends State<CuaHang> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => Home(
-                                              title: '',
-                                            )));
+                                        builder: (context) => Home()));
                               },
                               child: Image.asset("assets/images/icon/home2.png",
                                   fit: BoxFit.cover, width: 40)),

@@ -136,10 +136,13 @@ class _TimPhongState extends State<TimPhong> {
                           shape: MaterialStateProperty.all(
                               RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30.0)))),
-                      onPressed: () {  Navigator.push(context,
-                    MaterialPageRoute(builder: (context)=>
-                    const PhongCho(title: 'Nhập mail')));
-                    },
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const PhongCho(title: 'Nhập mail')));
+                      },
                       child: const Padding(
                         padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
                         child: Text('Tạo phòng'),
@@ -156,11 +159,8 @@ class _TimPhongState extends State<TimPhong> {
                                   borderRadius: BorderRadius.circular(30.0)))),
                       onPressed: () {
                         Navigator.pop(context);
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    const Home(title: 'Home')));
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Home()));
                       },
                       child: const Padding(
                         padding: EdgeInsets.fromLTRB(30, 10, 30, 10),

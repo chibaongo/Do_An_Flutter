@@ -11,12 +11,10 @@ import 'package:flutter_application_2/GiaoDienNapTien.dart';
 import 'Animation/Animation.dart';
 
 class Home extends StatefulWidget {
-  const Home({super.key, required this.title});
-
-  final String title;
-
   @override
-  State<Home> createState() => _Home();
+  State<Home> createState() {
+    return _Home();
+  }
 }
 
 class _Home extends State<Home> {
