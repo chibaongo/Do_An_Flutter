@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/DangNhap.dart';
+import 'Model/dulieuUser.dart';
 
 class GiaoDienDangKy extends StatefulWidget {
   @override
@@ -53,17 +54,16 @@ class GiaoDienDangKyState extends State<GiaoDienDangKy> {
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              const Padding(padding: EdgeInsets.all(20)),
-              Image.asset(
-                "assets/images/icon/logo1.png",
-                width: MediaQuery.of(context).size.width / 2.0,
-                fit: BoxFit.cover,
+              const SizedBox(
+                height: 60,
               ),
+              Image.asset("assets/images/icon/logo1.png",
+                  width: MediaQuery.of(context).size.width / 3.0),
               const Padding(
-                padding: EdgeInsets.fromLTRB(0, 10, 0, 15),
+                padding: EdgeInsets.fromLTRB(0, 30, 0, 6),
                 child: Text("Đăng ký",
                     style: TextStyle(
-                        fontSize: 40,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: Colors.redAccent)),
               ),
@@ -177,29 +177,6 @@ class GiaoDienDangKyState extends State<GiaoDienDangKy> {
                         shape: MaterialStateProperty.all(RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30.0)))),
                     onPressed: checkregister,
-                    //  () async {
-                    // if (txtPassword.text == txtConfirmPassword.text) {
-                    //   try {
-                    //     final newUser = _auth.createUserWithEmailAndPassword(
-                    //         email: txtEmail.text,
-                    //         password: txtConfirmPassword.text);
-                    //     if (newUser != null) {
-                    //       Navigator.pop(context, 'Bạn Đăng Ký Thành Công !');
-                    //     } else {
-                    //       final snackBar = SnackBar(
-                    //           content: Text('Tài Khoản Này Không Hợp Lệ'));
-                    //       ScaffoldMessenger.of(context)
-                    //           .showSnackBar(snackBar);
-                    //     }
-                    //   } catch (e) {
-                    //     final snackBar =
-                    //         SnackBar(content: Text('Đã có lỗi xảy ra'));
-                    //     ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                    //   }
-                    // } else {
-                    //   Navigator.pop(context, 'Xác nhận mật khẩu không đúng');
-                    // }
-
                     child: const Padding(
                       padding: EdgeInsets.all(10),
                       child: Text('Đăng ký',
@@ -270,31 +247,22 @@ class GiaoDienDangKyState extends State<GiaoDienDangKy> {
         !_passIsvalid &&
         !_confirmPassIsvalid &&
         !_phoneIsvalid) {
-      // Navigator.push(
-      //     context, MaterialPageRoute(builder: (context) => DangNhap()));
       try {
         await FirebaseAuth.instance.createUserWithEmailAndPassword(
             email: txtEmail.text, password: txtConfirmPassword.text);
-        addNumberPhone(
-            txtEmail.text.trim(), int.parse(txtNumberPhone.text.trim()));
+        var data = FirebaseFirestore.instance.collection("users").doc();
+        var id = data.id;
+        var a = Usera(
+            id: id, email: txtEmail.text, phone: txtNumberPhone.text, name: "");
+        await data.set(a.toJson());
+
         Navigator.pop(context, 'Bạn Đăng Ký Thành Công !');
-        // if (newUser != null) {
-        // } else {
-        //   final snackBar =
-        //       SnackBar(content: Text('Tài Khoản Này Không Hợp Lệ'));
-        //   ScaffoldMessenger.of(context).showSnackBar(snackBar);
-        // }
+
+      
       } on FirebaseAuthException catch (e) {
         final snackBar = SnackBar(content: Text('Email đã được đăng ký'));
         ScaffoldMessenger.of(context).showSnackBar(snackBar);
       }
     }
-  }
-
-  Future addNumberPhone(String email, int numberPhone) async {
-    await FirebaseFirestore.instance.collection('users').add({
-      'email': txtEmail.text,
-      'phone': txtNumberPhone.text,
-    });
   }
 }

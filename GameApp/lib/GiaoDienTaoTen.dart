@@ -1,136 +1,171 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/ChonAvt.dart';
+import 'package:flutter_application_2/Model/dulieuUser.dart';
+import 'package:flutter_application_2/giaodienchinh.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+class TaoTen extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
+  State<TaoTen> createState() {
+    return _TaoTen();
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class _TaoTen extends State<TaoTen> {
+  final txtName = TextEditingController();
 
-  final String title;
+  var _nameErr = "Vui lòng nhập tên của bạn vào !";
+  var _nameIsvalid = false;
 
+  List<Usera> ls = [];
+  CollectionReference users = FirebaseFirestore.instance.collection('users');
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  var tenNhanVat = "";
-  var duLieu = "";
-  TextEditingController txt_tenNV = TextEditingController();
-  void _taoten() {
-    setState(() {
-      duLieu = "tạo tên thành công";
-    });
+  void dispose() {
+    txtName.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text(widget.title),
-      // ),
-      body: Stack(
-        children: <Widget>[
-          Container(
-            decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage('assets/images/nen/nen.jpg'),
-                    fit: BoxFit.cover)),
-          ),
-          ListView(
-            children: [
-              Expanded(
-                  flex: 2,
-                  child: Image.asset(
-                    'assets/images/icon/dog.png',
-                    width: 300,
-                    height: 300,
-                  )),
-              Column(
-                children: const [
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 30),
-                    child: Text(
-                      'Tạo tên của bạn',
+        body: StreamBuilder<QuerySnapshot>(
+      stream: FirebaseFirestore.instance.collection("users").snapshots(),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          final data = snapshot.data!.docs;
+          for (var row in data) {
+            final r = row.data() as Map<String, dynamic>;
+            var a = Usera(
+                id: r['id'],
+                name: r['name'],
+                email: r['email'],
+                phone: r['phone']);
+
+            ls.add(a);
+          }
+        }
+
+        return Stack(
+          children: <Widget>[
+            Container(
+              decoration: const BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('assets/images/nen/nen.jpg'),
+                      fit: BoxFit.cover)),
+            ),
+            SingleChildScrollView(
+                child: Column(
+              children: <Widget>[
+                const SizedBox(
+                  height: 60,
+                ),
+                Image.asset("assets/images/icon/dog.png", width: 200),
+                const Padding(
+                  padding: EdgeInsets.fromLTRB(0, 30, 0, 6),
+                  child: Text("Tạo tên của bạn",
                       style: TextStyle(
-                        color: Colors.red,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(6),
-                    child: TextField(
-                      style: TextStyle(color: Colors.blue),
-                      decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(width: 1, color: Colors.blue),
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.redAccent)),
+                ),
+                Column(
+                  children: [
+                    Padding(
+                        padding: EdgeInsets.all(10),
+                        child: TextField(
+                            controller: txtName,
+                            style: TextStyle(color: Colors.blueGrey),
+                            decoration: InputDecoration(
+                              labelText: 'Nhập tên',
+                              errorText: _nameIsvalid ? _nameErr : null,
+                              errorStyle: const TextStyle(
+                                  fontSize: 13, color: Colors.redAccent),
+                              labelStyle: const TextStyle(color: Colors.blue),
+                              enabledBorder: const OutlineInputBorder(
+                                  borderSide:
+                                      BorderSide(width: 1, color: Colors.blue)),
+                              border: OutlineInputBorder(),
+                            ))),
+                  ],
+                ),
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(top: 20),
+                        child: ElevatedButton(
+                          style: ButtonStyle(
+                              backgroundColor: MaterialStatePropertyAll<Color>(
+                                  const Color.fromARGB(255, 27, 247, 228)
+                                      .withOpacity(0.8)),
+                              shape: MaterialStateProperty.all(
+                                  RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(30.0)))),
+                          onPressed: createUserName,
+                          child: const Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Text('Xác nhận',
+                                style: TextStyle(color: Colors.black)),
                           ),
-                          border: OutlineInputBorder(),
-                          labelText: 'Nhập tên',
-                          labelStyle: TextStyle(color: Colors.black)),
-                    ),
-                  ),
-                ],
-              ),
-              Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-                Padding(
-                  padding: const EdgeInsets.all(50),
-                  child: ElevatedButton(
-                    style: ButtonStyle(
-                        backgroundColor: MaterialStatePropertyAll<Color>(
-                            const Color.fromARGB(255, 27, 247, 228)
-                                .withOpacity(0.8)),
-                        shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30.0)))),
-                    onPressed: () => {},
-                    child: const Padding(
-                      padding: EdgeInsets.all(10),
-                      child: Text('Đăng ký',
-                          style: TextStyle(color: Colors.black)),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(50),
-                  child: ElevatedButton(
-                    style: ButtonStyle(
-                        backgroundColor: MaterialStatePropertyAll<Color>(
-                            const Color.fromARGB(255, 27, 247, 228)
-                                .withOpacity(0.8)),
-                        shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30.0)))),
-                    onPressed: () => {},
-                    child: const Padding(
-                      padding: EdgeInsets.all(10),
-                      child:
-                          Text('Thoát', style: TextStyle(color: Colors.black)),
-                    ),
-                  ),
-                ),
-              ]),
-            ],
-          )
-        ],
-      ),
-    );
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20),
+                        child: ElevatedButton(
+                          style: ButtonStyle(
+                              backgroundColor: MaterialStatePropertyAll<Color>(
+                                  const Color.fromARGB(255, 27, 247, 228)
+                                      .withOpacity(0.8)),
+                              shape: MaterialStateProperty.all(
+                                  RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(30.0)))),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: const Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Text('Trở lại',
+                                style: TextStyle(color: Colors.black)),
+                          ),
+                        ),
+                      ),
+                    ]),
+              ],
+            )),
+          ],
+        );
+      },
+    ));
+  }
+
+  Future createUserName() async {
+    setState(() {
+      if (txtName.text.length < 3) {
+        _nameIsvalid = true;
+      } else {
+        _nameIsvalid = false;
+      }
+     
+    });
+
+    if (!_nameIsvalid) {
+      try {
+        for (int i = 0; i < ls.length; i++) {
+          if (ls[i].email == FirebaseAuth.instance.currentUser!.email) {
+            FirebaseFirestore.instance
+                .collection("users")
+                .doc(ls[i].id)
+                .update({'name': txtName.text});
+          }
+           Navigator.push(
+          context, MaterialPageRoute(builder: (context) => Home()));
+        }
+      } on FirebaseException catch (e) {
+        print(e);
+      }
+    }
   }
 }
