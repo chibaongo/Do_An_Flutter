@@ -5,6 +5,8 @@ import 'package:flutter_application_2/ChonAvt.dart';
 import 'package:flutter_application_2/Model/dulieuUser.dart';
 import 'package:flutter_application_2/giaodienchinh.dart';
 
+import 'DangNhap.dart';
+
 class TaoTen extends StatefulWidget {
   @override
   State<TaoTen> createState() {
@@ -123,7 +125,10 @@ class _TaoTen extends State<TaoTen> {
                                       borderRadius:
                                           BorderRadius.circular(30.0)))),
                           onPressed: () {
-                            Navigator.pop(context);
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => DangNhap()));
                           },
                           child: const Padding(
                             padding: EdgeInsets.all(10),
@@ -148,7 +153,6 @@ class _TaoTen extends State<TaoTen> {
       } else {
         _nameIsvalid = false;
       }
-     
     });
 
     if (!_nameIsvalid) {
@@ -160,8 +164,8 @@ class _TaoTen extends State<TaoTen> {
                 .doc(ls[i].id)
                 .update({'name': txtName.text});
           }
-           Navigator.push(
-          context, MaterialPageRoute(builder: (context) => Home()));
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => Home()));
         }
       } on FirebaseException catch (e) {
         print(e);
