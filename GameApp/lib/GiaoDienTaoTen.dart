@@ -1,11 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/ChonAvt.dart';
+
+import 'package:flutter_application_2/DangNhap.dart';
 import 'package:flutter_application_2/Model/dulieuUser.dart';
 import 'package:flutter_application_2/giaodienchinh.dart';
-
-import 'DangNhap.dart';
 
 class TaoTen extends StatefulWidget {
   @override
@@ -38,6 +37,7 @@ class _TaoTen extends State<TaoTen> {
           final data = snapshot.data!.docs;
           for (var row in data) {
             final r = row.data() as Map<String, dynamic>;
+            
             var a = Usera(
                 id: r['id'],
                 name: r['name'],
@@ -124,12 +124,12 @@ class _TaoTen extends State<TaoTen> {
                                   RoundedRectangleBorder(
                                       borderRadius:
                                           BorderRadius.circular(30.0)))),
-                          onPressed: () {
+                          onPressed: (() {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => DangNhap()));
-                          },
+                          }),
                           child: const Padding(
                             padding: EdgeInsets.all(10),
                             child: Text('Trở lại',
@@ -164,11 +164,13 @@ class _TaoTen extends State<TaoTen> {
                 .doc(ls[i].id)
                 .update({'name': txtName.text});
           }
+
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => Home()));
         }
       } on FirebaseException catch (e) {
-        print(e);
+        final snackBar = SnackBar(content: Text('Lỗi'));
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
       }
     }
   }

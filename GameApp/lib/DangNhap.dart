@@ -63,7 +63,7 @@ class _DangNhap extends State<DangNhap> {
                 padding: EdgeInsets.fromLTRB(0, 10, 0, 15),
                 child: Text("Đăng nhập",
                     style: TextStyle(
-                        fontSize: 40,
+                        fontSize: 50,
                         fontWeight: FontWeight.bold,
                         color: Colors.redAccent)),
               ),
@@ -136,8 +136,8 @@ class _DangNhap extends State<DangNhap> {
                                 MaterialPageRoute(
                                     builder: (context) => QMKNhapMail()));
                           },
-                          child: const Text(
-                            "Quên mật khẩu?",
+                          child: Text(
+                            "Quên mật khẩu ?",
                             style: TextStyle(fontSize: 20),
                           )))),
               SizedBox(
@@ -285,7 +285,7 @@ class _DangNhap extends State<DangNhap> {
               txtEmail.clear();
               txtPassword.clear();
               Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Home()));
+                  context, MaterialPageRoute(builder: (context) => TaoTen()));
             } else {
               final snackBar =
                   SnackBar(content: Text('Email hoặc mật khẩu không đúng'));
