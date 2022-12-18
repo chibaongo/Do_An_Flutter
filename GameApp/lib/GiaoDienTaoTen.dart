@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_application_2/TaoAvt.dart';
 import 'package:flutter_application_2/DangNhap.dart';
 import 'package:flutter_application_2/Model/dulieuUser.dart';
 import 'package:flutter_application_2/giaodienchinh.dart';
@@ -37,12 +37,12 @@ class _TaoTen extends State<TaoTen> {
           final data = snapshot.data!.docs;
           for (var row in data) {
             final r = row.data() as Map<String, dynamic>;
-            
             var a = Usera(
                 id: r['id'],
                 name: r['name'],
                 email: r['email'],
-                phone: r['phone']);
+                phone: r['phone'],
+                avatar: r['avatar']);
 
             ls.add(a);
           }
@@ -105,7 +105,11 @@ class _TaoTen extends State<TaoTen> {
                                   RoundedRectangleBorder(
                                       borderRadius:
                                           BorderRadius.circular(30.0)))),
-                          onPressed: createUserName,
+                          onPressed: () {
+                            createUserName(
+                              txtName.text,
+                            );
+                          },
                           child: const Padding(
                             padding: EdgeInsets.all(10),
                             child: Text('Xác nhận',
@@ -146,7 +150,7 @@ class _TaoTen extends State<TaoTen> {
     ));
   }
 
-  Future createUserName() async {
+  Future createUserName(String name) async {
     setState(() {
       if (txtName.text.length < 3) {
         _nameIsvalid = true;
@@ -157,16 +161,28 @@ class _TaoTen extends State<TaoTen> {
 
     if (!_nameIsvalid) {
       try {
+        var check = 0;
         for (int i = 0; i < ls.length; i++) {
-          if (ls[i].email == FirebaseAuth.instance.currentUser!.email) {
-            FirebaseFirestore.instance
-                .collection("users")
-                .doc(ls[i].id)
-                .update({'name': txtName.text});
-          }
+          if (ls[i].name == name) check = 1;
+        }
+        if (check == 1) {
+          final snackBar = SnackBar(
+            content: Text('Tên này đã được sử dụng'),
+          );
+          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        }
+         else {
+          for (int i = 0; i < ls.length; i++) {
+            if (ls[i].email == FirebaseAuth.instance.currentUser!.email) {
+              FirebaseFirestore.instance
+                  .collection("users")
+                  .doc(ls[i].id)
+                  .update({'name': txtName.text});
+            }
 
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => Home()));
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => TaoAvt()));
+          }
         }
       } on FirebaseException catch (e) {
         final snackBar = SnackBar(content: Text('Lỗi'));

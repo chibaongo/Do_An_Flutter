@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -58,15 +60,16 @@ class GiaoDienDangKyState extends State<GiaoDienDangKy> {
                 height: 60,
               ),
               Image.asset("assets/images/icon/logo1.png",
-                  width: MediaQuery.of(context).size.width / 3.0),
+                  width: MediaQuery.of(context).size.width / 2.4),
               const Padding(
-                padding: EdgeInsets.fromLTRB(0, 30, 0, 6),
+                padding: EdgeInsets.fromLTRB(0, 20, 0, 6),
                 child: Text("Đăng ký",
                     style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 50,
                         fontWeight: FontWeight.bold,
                         color: Colors.redAccent)),
               ),
+              SizedBox(height: 30,),
               Padding(
                   padding: EdgeInsets.all(10),
                   child: TextField(
@@ -253,7 +256,7 @@ class GiaoDienDangKyState extends State<GiaoDienDangKy> {
         var data = FirebaseFirestore.instance.collection("users").doc();
         var id = data.id;
         var a = Usera(
-            id: id, email: txtEmail.text, phone: txtNumberPhone.text, name: "");
+            id: id, email: txtEmail.text, phone: txtNumberPhone.text, name:"", avatar: "");
         await data.set(a.toJson());
 
         Navigator.pop(context, 'Bạn Đăng Ký Thành Công !');

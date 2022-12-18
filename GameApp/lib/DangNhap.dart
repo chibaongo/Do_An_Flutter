@@ -1,9 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/GiaoDienTaoTen.dart';
 import 'package:flutter_application_2/QKMNhapMail.dart';
+import 'package:flutter_application_2/TaoAvt.dart';
 import 'GiaoDienDangKy.dart';
+import 'Model/dulieuUser.dart';
 import 'giaodienchinh.dart';
 import 'main.dart';
 //import 'CaiDat.dart';
@@ -25,7 +28,7 @@ class _DangNhap extends State<DangNhap> {
   var _passErr = "Mật khẩu không hợp lệ";
   var _emailIsvalid = false;
   var _passIsvalid = false;
-
+  List<Usera> ls = [];
   @override
   void dispose() {
     txtEmail.dispose();
@@ -146,7 +149,10 @@ class _DangNhap extends State<DangNhap> {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 5.0),
                 child: GestureDetector(
-                  onTap: login,
+                  // onTap: login,
+                  onTap: () {
+                    login(txtEmail.text, txtPassword.text);
+                  },
                   child: Container(
                       padding: EdgeInsets.all(10),
                       decoration: BoxDecoration(
@@ -252,7 +258,18 @@ class _DangNhap extends State<DangNhap> {
     });
   }
 
-  Future login() async {
+  Future kiemtra() async {
+    List<String> docID = [];
+
+    await FirebaseFirestore.instance
+        .collection("users")
+        .get()
+        .then((value) => value.docs.forEach((element) {
+              docID.add(element.reference.id);
+            }));
+  }
+
+  Future login(String name, String avatar) async {
     setState(() {
       if (txtEmail.text.length < 11 || !txtEmail.text.contains("@gmail.com")) {
         _emailIsvalid = true;
@@ -278,22 +295,25 @@ class _DangNhap extends State<DangNhap> {
         await FirebaseAuth.instance.signInWithEmailAndPassword(
             email: txtEmail.text.trim(), password: txtPassword.text.trim());
         Navigator.of(context).pop();
+      
 
-        FirebaseAuth.instance.authStateChanges().listen((event) {
-          {
-            if (event != null) {
-              txtEmail.clear();
-              txtPassword.clear();
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => TaoTen()));
-            } else {
-              final snackBar =
-                  SnackBar(content: Text('Email hoặc mật khẩu không đúng'));
-              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        FirebaseAuth.instance.authStateChanges().listen(
+          (event) {
+            {
+              if (event != null) {
+                txtEmail.clear();
+                txtPassword.clear();
+
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => TaoTen()));
+              } else {
+                final snackBar =
+                    SnackBar(content: Text('Email hoặc mật khẩu không đúng'));
+                ScaffoldMessenger.of(context).showSnackBar(snackBar);
+              }
             }
-          }
-          ;
-        });
+          },
+        );
 
         // _auth.authStateChanges().listen(
         //   (event) {
