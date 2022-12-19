@@ -4,13 +4,12 @@ import 'package:flutter_application_2/giaodienchinh.dart';
 import 'Model/dbcontext.dart';
 import 'Components/itemTongKetCaNhan.dart';
 
+
 class TongKetThua extends StatefulWidget {
-  const TongKetThua({super.key, required this.title});
-
-  final String title;
-
   @override
-  State<TongKetThua> createState() => _TongKetThua();
+  State<TongKetThua> createState() {
+    return _TongKetThua();
+  }
 }
 
 class _TongKetThua extends State<TongKetThua> {
@@ -94,7 +93,7 @@ class _TongKetThua extends State<TongKetThua> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) =>
-                                    const ChoiCaNhan(title: '')));
+                                     ChoiCaNhan()));
                       },
                       child: const Padding(
                         padding: EdgeInsets.all(10),
