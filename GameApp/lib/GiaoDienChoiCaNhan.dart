@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/TongKetCaNhanWin.dart';
 import './Model/infoChoiCaNhan.dart';
@@ -9,6 +10,12 @@ import 'GiaoDienQuyenTroGiup.dart';
 import 'TongKetCaNhanThua.dart';
 import 'Model/dbcontext.dart';
 
+// factory Question.fromQueryDocumentSnapshot(QueryDocumentSnapshot snapshot){
+//   final data=snapshot.data() as Map<String,dynamic>;
+//   final id=snapshot.id;
+//   data['id']=id;
+//   return Question.fromMap(data);
+// }
 class ChoiCaNhan extends StatefulWidget {
   const ChoiCaNhan({super.key, required this.title});
   final String title;
@@ -27,7 +34,7 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
   bool _isLocked = false;
   //thời gian
   late Timer _timer;
-  int _thoiGianTraLoi = 10;
+  int _thoiGianTraLoi = 20;
   // firebase
   final _fireStore=FirebaseFirestore.instance;
   @override
@@ -40,7 +47,7 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
 
           if (_thoiGianTraLoi == 0) {
             if (_questionNumber < questions.length) {
-              _thoiGianTraLoi = 10;
+              _thoiGianTraLoi = 20;
               _controller.nextPage(
                 duration: const Duration(milliseconds: 250),
                 curve: Curves.bounceIn,
@@ -70,7 +77,19 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: 
+      // StreamBuilder<QuerySnapshot>(
+      //   stream: FirebaseFirestore.instance.collection("Questions").snapshots(),
+      //   builder: (context,snapshot){
+      //     if(!snapshot.hasData){
+      //       return Center(
+      //         child: CircularProgressIndicator(),
+      //       );
+      //     }
+      //     final doc=snapshot.data!.docs;
+      //     final lstQuestions=doc.map((e) => Question.fromQueryDocumentSnapshot(e)).toList();
+      //     return 
+          Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: const BoxDecoration(
@@ -246,6 +265,8 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
               ],
             )),
       ),
+      //   },
+      // )
     );
   }
 
@@ -322,13 +343,24 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                     setState(() {
                       question.isLocked = true;
                       question.selectedoption = option;
+                      _thoiGianTraLoi=_thoiGianTraLoi;
                     });
                     _isLocked = question.isLocked;
                     if (question.selectedoption!.isCorrect) {
                       _numberComplete++;
                       _numberCorrect++;
                       _exp++;
-                      _score += 5;
+                        if(_thoiGianTraLoi<=20 && _thoiGianTraLoi>10)
+                        {
+                          _score=_score+4;
+                        }
+                        if(_thoiGianTraLoi<=10 && _thoiGianTraLoi>5)
+                        {
+                          _score+=3;
+                        }
+                        else {
+                          _score++;
+                          }
                     } else {
                       _numberComplete++;
                     }
@@ -344,7 +376,7 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
     return ElevatedButton(
         onPressed: () {
           if (_questionNumber < questions.length) {
-            _thoiGianTraLoi = 10;
+            _thoiGianTraLoi = 20;
             
             _controller.nextPage(
               duration: const Duration(milliseconds: 250),

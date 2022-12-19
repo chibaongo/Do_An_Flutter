@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_application_2/GiaoDienChoiCaNhan.dart';
 // dữ liệu cửa hàng
 class DuLieuStore {
@@ -70,16 +71,9 @@ class Question {
     this.selectedoption,
   });
 
-  // const Question({required this.dapan});
-  // final String dapan;
+ 
 
-  // static List<Question> lstQuestions = [
-  //   const Question(dapan: "A.Long An"),
-  //   const Question(dapan: "B.Bạc Liêu"),
-  //   const Question(dapan: "C.Cần Thơ"),
-  //   const Question(dapan: "D.Bình Dương."),
 
-  // ];
 }
 
 class Option {
@@ -95,7 +89,7 @@ final questions = [
     const Option(text: '65', isCorrect: false),
     const Option(text: '62', isCorrect: false)
   ]),
-  Question(text: 'Bình Dương thuộc vùng nào của Việt Name?', options: [
+  Question(text: 'Bình Dương thuộc vùng nào của Việt Nam?', options: [
     const Option(text: 'Bắc Trung Bộ', isCorrect: false),
     const Option(text: 'Nam Bộ', isCorrect: false),
     const Option(text: 'Đông Nam Bộ', isCorrect: true),
