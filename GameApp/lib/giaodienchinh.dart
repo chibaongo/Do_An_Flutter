@@ -164,7 +164,7 @@ class _Home extends State<Home> {
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  ChoiCaNhan()));
+                                                  ChoiCaNhan(title: "",)));
                                     },
                                     child: Row(
                                       mainAxisAlignment:

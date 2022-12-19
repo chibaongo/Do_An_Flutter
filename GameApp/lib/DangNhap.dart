@@ -21,6 +21,7 @@ class DangNhap extends StatefulWidget {
 class _DangNhap extends State<DangNhap> {
   TextEditingController txtEmail = TextEditingController();
   TextEditingController txtPassword = TextEditingController();
+  
   final _auth = FirebaseAuth.instance;
   bool _showpass = false;
 
@@ -103,6 +104,7 @@ class _DangNhap extends State<DangNhap> {
                         style: TextStyle(color: Colors.blueGrey),
                         decoration: InputDecoration(
                           labelText: "Mật khẩu",
+                        
                           errorText: _passIsvalid ? _passErr : null,
                           errorStyle:
                               TextStyle(fontSize: 13, color: Colors.redAccent),

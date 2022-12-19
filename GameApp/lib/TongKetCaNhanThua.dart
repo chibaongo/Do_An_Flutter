@@ -6,6 +6,8 @@ import 'Components/itemTongKetCaNhan.dart';
 
 
 class TongKetThua extends StatefulWidget {
+  const TongKetThua({super.key,required this.score});
+  final score;
   @override
   State<TongKetThua> createState() {
     return _TongKetThua();
@@ -93,7 +95,7 @@ class _TongKetThua extends State<TongKetThua> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) =>
-                                     ChoiCaNhan()));
+                                     ChoiCaNhan(title: "",)));
                       },
                       child: const Padding(
                         padding: EdgeInsets.all(10),

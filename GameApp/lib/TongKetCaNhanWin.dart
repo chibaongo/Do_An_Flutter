@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/Model/dbcontext.dart';
 import 'Components/itemTongKetCaNhan.dart';
+import 'GiaoDienChoiCaNhan.dart';
+import 'giaodienchinh.dart';
+class TongKetThang extends StatelessWidget {
+   TongKetThang({Key? key,required this.Correct,required this.Complete,required this.score,required this.exp}):super(key: key);
+  final int Correct;
+  final int Complete;
+  final int  score;
+  final int exp;
 
-class TongKetThang extends StatefulWidget {
-  const TongKetThang({super.key, required this.title});
+//   @override
+//   State<TongKetThang> createState() => _TongKetThang();
+// }
 
-  final String title;
+// class _TongKetThang extends State<TongKetThang> {
 
-  @override
-  State<TongKetThang> createState() => _TongKetThang();
-}
-
-class _TongKetThang extends State<TongKetThang> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +42,7 @@ class _TongKetThang extends State<TongKetThang> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Image.asset('- assets/images/cam_xuc/funny.png', width: 40),
+                    Image.asset('assets/images/cam_xuc/funny.png', width: 40),
                     const Text(
                       'Tổng kết',
                       style: TextStyle(
@@ -64,14 +68,150 @@ class _TongKetThang extends State<TongKetThang> {
                     borderRadius: BorderRadius.circular(20)),
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height / 3,
-                child: ListView.builder(
-                  itemCount: duLieuTongKetCaNhan.lstDuLieuTongKetCaNhan.length,
-                  itemBuilder: ((BuildContext context, int index) {
-                    return inforTongKetCaNhan(
-                        dl: duLieuTongKetCaNhan.lstDuLieuTongKetCaNhan[index]);
-                  }),
+                child: Container(
+        child: Column(
+      children: [
+        Row(
+          children: [
+            Padding(padding: EdgeInsets.only(top: 50)),
+            Text(
+              "Số câu hoàn thành: ",
+              style: TextStyle(color: Colors.red,
+              fontSize: 20),
+
+            ),
+            Expanded(child: Container()),
+            Padding(
+              padding: EdgeInsets.all(5),
+              child: Container(
+                padding: EdgeInsets.fromLTRB(30, 5, 30, 5),
+                decoration: BoxDecoration(
+                  color:Color.fromARGB(255, 139, 196, 242),
+                  // border: Border.all(color: Colors.black),
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(0),
+                  child: Text(
+                    Complete.toString(),
+                    style: TextStyle(
+                      backgroundColor: Color.fromARGB(255, 139, 196, 242),
+                      color: Colors.red,
+                      fontSize: 20
+                    ),
+                  ),
                 ),
               ),
+            ),
+          ],
+        ),
+        Row(
+          children: [
+             Padding(padding: EdgeInsets.only(top: 50)),
+            Text(
+              "Số câu đúng: ",
+              style: TextStyle(color: Colors.red,
+              fontSize: 20),
+
+            ),
+            Expanded(child: Container()),
+            Padding(
+              padding: EdgeInsets.all(5),
+              child: Container(
+                padding: EdgeInsets.fromLTRB(30, 5, 30, 5),
+                decoration: BoxDecoration(
+                  color:Color.fromARGB(255, 139, 196, 242),
+                  // border: Border.all(color: Colors.black),
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(0),
+                  child: Text(
+                    Correct.toString(),
+                    style: TextStyle(
+                      backgroundColor: Color.fromARGB(255, 139, 196, 242),
+                      color: Colors.red,
+                      fontSize: 20
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+         Row(
+          children: [
+            Padding(padding: EdgeInsets.only(top: 50)),
+            Text(
+              "Tổng số điểm ",
+              style: TextStyle(color: Colors.red,
+              fontSize: 20),
+
+            ),
+            Expanded(child: Container()),
+            Padding(
+              padding: EdgeInsets.all(5),
+              child: Container(
+                padding: EdgeInsets.fromLTRB(30, 5, 30, 5),
+                decoration: BoxDecoration(
+                  color:Color.fromARGB(255, 139, 196, 242),
+                  // border: Border.all(color: Colors.black),
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(0),
+                  child: Text(
+                    score.toString(),
+                    style: TextStyle(
+                      backgroundColor: Color.fromARGB(255, 139, 196, 242),
+                      color: Colors.red,
+                      fontSize: 20
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+        Row(
+          
+          children: [
+            Padding(padding: EdgeInsets.only(top: 50)),
+            Text(
+              "Tổng số EXP ",
+              style: TextStyle(color: Colors.red,
+              fontSize: 20),
+
+            ),
+            Expanded(child: Container()),
+            Padding(
+              padding: EdgeInsets.all(5),
+              child: Container(
+                padding: EdgeInsets.fromLTRB(30, 5, 30, 5),
+                decoration: BoxDecoration(
+                  color:Color.fromARGB(255, 139, 196, 242),
+                  // border: Border.all(color: Colors.black),
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(0),
+                  child: Text(
+                    exp.toString(),
+                    style: TextStyle(
+                      backgroundColor: Color.fromARGB(255, 139, 196, 242),
+                      color: Colors.red,
+                      fontSize: 20
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        )
+      ],
+    ))
+                ),
+
               Padding(padding: EdgeInsets.all(20)),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -83,7 +223,13 @@ class _TongKetThang extends State<TongKetThang> {
                                 .withOpacity(0.8)),
                         shape: MaterialStateProperty.all(RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30.0)))),
-                    onPressed: () => {},
+                    onPressed: () => {
+                       Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                     ChoiCaNhan(title: "",))),
+                    },
                     child: const Padding(
                       padding: EdgeInsets.all(10),
                       child: Text('Chơi tiếp',
@@ -97,7 +243,10 @@ class _TongKetThang extends State<TongKetThang> {
                                 .withOpacity(0.8)),
                         shape: MaterialStateProperty.all(RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30.0)))),
-                    onPressed: () => {},
+                    onPressed: () => {
+                       Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Home())),
+                    },
                     child: const Padding(
                       padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
                       child:
@@ -109,7 +258,7 @@ class _TongKetThang extends State<TongKetThang> {
             ],
           ),
         ),
-      ),
+      )
     );
   }
 }

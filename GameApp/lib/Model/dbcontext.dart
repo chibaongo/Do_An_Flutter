@@ -1,3 +1,4 @@
+import 'package:flutter_application_2/GiaoDienChoiCaNhan.dart';
 // dữ liệu cửa hàng
 class DuLieuStore {
   const DuLieuStore(
