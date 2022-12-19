@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/TongKetCaNhanWin.dart';
 import './Model/infoChoiCaNhan.dart';
@@ -21,10 +23,44 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
   int _numberCorrect=0;
   int _exp=0;
   bool _isLocked=false;
+  //thời gian
+  late Timer _timer;
+  int _thoiGianTraLoi=10;
   @override
   void initState(){
+    
     super.initState();
+    _timer=Timer.periodic(Duration(seconds: 1),(timer){
+      if(this.mounted)
+      {
+        setState(() {
+        _thoiGianTraLoi--;
+        
+    if(_thoiGianTraLoi==0)
+        {
+          if(_questionNumber<questions.length){
+            _thoiGianTraLoi=10;
+      _controller.nextPage(
+        duration: const Duration(milliseconds: 250),
+        curve:Curves.bounceIn,
+      );
+     
+        _questionNumber++;
+        _isLocked=false; 
+    
+    }
+    else{
+      Navigator.pop(context);
+      Navigator.pushReplacement(context, 
+      MaterialPageRoute(
+        builder:(context)=>TongKetThang(Complete: _numberComplete,Correct: _numberCorrect,score:_score,exp: _exp,)
+      ));
+    }}
+      });
+      }
+    });
     _controller=PageController(initialPage: 0);
+    
   }
 
   @override
@@ -105,7 +141,7 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                         Row(
                           children: [
                             Text(
-                              '10',
+                              _thoiGianTraLoi.toString(),
                               style: TextStyle(fontSize: 20),
                             ),
                             Text('s', style: TextStyle(fontSize: 20))
@@ -144,8 +180,8 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                           child: ToNho(image: "assets/images/avatar/goku.png"),
                         ),
                         Padding(padding: EdgeInsets.all(5)),
-                        Text("Số câu : "),
-                        Text("$_questionNumber/${questions.length}"),
+                        Text("Số câu đúng: "),
+                        Text("$_numberCorrect/${questions.length}"),
                  
                       ],
                     )),
@@ -247,13 +283,13 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                             child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text("Lv ",
+                              Text("Câu ",
                               style: TextStyle(
                                 color: Color.fromARGB(255, 36, 34, 29),
                                 fontWeight: FontWeight.bold,
                                 fontSize: 15
                               ),),
-                              Text("12",
+                              Text(_questionNumber.toString(),
                               style: TextStyle(
                                 color: Color.fromARGB(255, 36, 34, 29),
                                 fontWeight: FontWeight.bold,
@@ -306,6 +342,7 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
 {
   return ElevatedButton(onPressed: (){
     if(_questionNumber<questions.length){
+      _thoiGianTraLoi=10;
       _controller.nextPage(
         duration: const Duration(milliseconds: 250),
         curve:Curves.bounceIn,
