@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_2/Model/dbcontext.dart';
 import 'Components/itemTongKetCaNhan.dart';
 import 'GiaoDienChoiCaNhan.dart';
+import 'WaitCaNhan.dart';
 import 'giaodienchinh.dart';
 class TongKetThang extends StatelessWidget {
    TongKetThang({Key? key,required this.Correct,required this.Complete,required this.score,required this.exp}):super(key: key);
@@ -228,7 +229,7 @@ class TongKetThang extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                                 builder: (context) =>
-                                     ChoiCaNhan(title: "",))),
+                                     Wait())),
                     },
                     child: const Padding(
                       padding: EdgeInsets.all(10),
