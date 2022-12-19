@@ -16,6 +16,7 @@ import 'package:flutter_application_2/GDTrangCaNhan.dart';
 import 'package:flutter_application_2/GiaoDienNapTien.dart';
 import 'Animation/Animation.dart';
 import 'Model/dulieuUser.dart';
+import 'WaitCaNhan.dart';
 
 
 class Home extends StatefulWidget {
@@ -164,7 +165,7 @@ class _Home extends State<Home> {
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  ChoiCaNhan(title: "",)));
+                                                  Wait()));
                                     },
                                     child: Row(
                                       mainAxisAlignment:

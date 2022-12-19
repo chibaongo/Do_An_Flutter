@@ -455,15 +455,14 @@ class OptionsWidget extends StatelessWidget {
   }
 }
 
-class ResultPage extends StatelessWidget {
-  const ResultPage({Key? key, required this.score}) : super(key: key);
-  final int score;
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text('Yot got $score/${questions.length}'),
-      ),
-    );
-  }
-}
+// StreamBuilder<QuerySnapshot>(
+      // //   stream: FirebaseFirestore.instance
+      // //   .collection('Questions')
+      // //   .snapshots(),
+      // //   builder: (context,AsyncSnapshot<QuerySnapshot> snapshot){
+      // //     if(snapshot.hasData){
+      // //       return ListView.builder(
+      // //         itemCount: snapshot.data!.docs.length,
+      // //         itemBuilder: (context,i){
+      // //           final data=snapshot.data!.docs[i];
+      // //           return 

@@ -131,6 +131,7 @@ flutter:
      - assets/images/iconxu/gold (1).png
      - assets/images/icon/Winner.png
      - assets/images/rank/rank bk.png
+     - assets/gif/Pikachu.gif
    #  - assets/audios/TheAvengers.mp3
 
   # An image asset can refer to one or more resolution-specific "variants", see

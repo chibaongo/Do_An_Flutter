@@ -57,7 +57,6 @@ class DoiMau extends StatefulWidget {
   State<DoiMau> createState() => _DoiMau();
 }
 
-/// AnimationControllers can be created with `vsync: this` because of TickerProviderStateMixin.
 class _DoiMau extends State<DoiMau> with TickerProviderStateMixin {
   late AnimationController _controller;
   late TextStyleTween _styleTween;
@@ -141,6 +140,56 @@ class _ToNho extends State<ToNho> with TickerProviderStateMixin {
               ),
             )),
       
+    );
+  }
+}
+
+// Đổi màu thời gian chờ
+class DoiMauSo extends StatefulWidget {
+  const DoiMauSo({super.key, required this.text});
+  final String text;
+  @override
+  State<DoiMauSo> createState() => _DoiMauSo();
+}
+
+class _DoiMauSo extends State<DoiMauSo> with TickerProviderStateMixin {
+  late AnimationController _controller;
+  late TextStyleTween _styleTween;
+  late CurvedAnimation _curvedAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 100),
+      vsync: this,
+    )..repeat(reverse: true);
+    _styleTween = TextStyleTween(
+      begin: const TextStyle(
+          fontSize: 60, color: Colors.yellow, fontWeight: FontWeight.w900),
+      end: const TextStyle(
+          fontSize: 20, color: Colors.red, fontWeight: FontWeight.w100),
+    );
+    _curvedAnimation = CurvedAnimation(
+      parent: _controller,
+      curve: Curves.elasticInOut,
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: DefaultTextStyleTransition(
+        style: _styleTween.animate(_curvedAnimation),
+        child: Text(widget.text,
+            style: TextStyle(fontSize: 120, fontWeight: FontWeight.bold)),
+      ),
     );
   }
 }
