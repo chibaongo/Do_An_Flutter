@@ -1,20 +1,25 @@
 // dữ liệu cửa hàng
-class DuLieuStore{
-  const DuLieuStore({required this.image, required this.caption, required this.price});
+class DuLieuStore {
+  const DuLieuStore(
+      {required this.image, required this.caption, required this.price});
   final String image;
   final String caption;
   final int price;
-  static List<DuLieuStore> lstDuLieuStore=[
-    DuLieuStore(image: 'assets/images/avatar/goku.png', caption: "Songoku", price: 8),
-    DuLieuStore(image: 'assets/images/avatar/gojo.png', caption: "Gojo", price: 8),
-    DuLieuStore(image: 'assets/images/avatar/naruto.png', caption: "Naruto", price: 10),
+  static List<DuLieuStore> lstDuLieuStore = [
+    DuLieuStore(
+        image: 'assets/images/avatar/goku.png', caption: "Songoku", price: 8),
+    DuLieuStore(
+        image: 'assets/images/avatar/gojo.png', caption: "Gojo", price: 8),
+    DuLieuStore(
+        image: 'assets/images/avatar/naruto.png', caption: "Naruto", price: 10),
   ];
 }
-class DuLieuStoreXu{
+
+class DuLieuStoreXu {
   const DuLieuStoreXu({required this.xu, required this.price});
   final int xu;
   final int price;
-  static List<DuLieuStoreXu> lstDuLieuStoreXu=[
+  static List<DuLieuStoreXu> lstDuLieuStoreXu = [
     DuLieuStoreXu(xu: 8, price: 10000),
     DuLieuStoreXu(xu: 20, price: 20000),
     DuLieuStoreXu(xu: 70, price: 50000),
@@ -49,3 +54,56 @@ class duLieuTongKetCaNhan {
     duLieuTongKetCaNhan(tieuDe: "HighScore:", giaTri: 1),
   ];
 }
+// dữ liệu chơi cá nhân
+
+class Question {
+  final String text;
+  final List<Option> options;
+  bool isLocked;
+  Option? selectedoption;
+
+  Question({
+    required this.text,
+    required this.options,
+    this.isLocked = false,
+    this.selectedoption,
+  });
+
+  // const Question({required this.dapan});
+  // final String dapan;
+
+  // static List<Question> lstQuestions = [
+  //   const Question(dapan: "A.Long An"),
+  //   const Question(dapan: "B.Bạc Liêu"),
+  //   const Question(dapan: "C.Cần Thơ"),
+  //   const Question(dapan: "D.Bình Dương."),
+
+  // ];
+}
+
+class Option {
+  final String text;
+  final bool isCorrect;
+  const Option({required this.text, required this.isCorrect});
+}
+
+final questions = [
+  Question(text: 'Việt nam có bao nhiêu tỉnh thành?', options: [
+    const Option(text: '63', isCorrect: true),
+    const Option(text: '64', isCorrect: false),
+    const Option(text: '65', isCorrect: false),
+    const Option(text: '62', isCorrect: false)
+  ]),
+  Question(text: 'Bình Dương thuộc vùng nào của Việt Name?', options: [
+    const Option(text: 'Bắc Trung Bộ', isCorrect: false),
+    const Option(text: 'Nam Bộ', isCorrect: false),
+    const Option(text: 'Đông Nam Bộ', isCorrect: true),
+    const Option(text: 'Tây Nam Bộ', isCorrect: false)
+  ]),
+   Question(text: 'Tỉnh nào rộng nhất Việt Nam ', options: [
+    const Option(text: 'Sơn La', isCorrect: false),
+    const Option(text: 'Đăk Lăk', isCorrect: false),
+    const Option(text: 'Gia Lai', isCorrect: false),
+    const Option(text: 'Nghệ An', isCorrect: true)
+  ]),
+];
