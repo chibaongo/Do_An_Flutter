@@ -26,6 +26,7 @@ class ChoiCaNhan extends StatefulWidget {
 
 class _ChoiCaNhan extends State<ChoiCaNhan> {
 //List<Question> questions=[];
+  int _round=1;
   int _life=3;
   int _questionNumber = 1;
   late PageController _controller;
@@ -50,6 +51,9 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
           if (_thoiGianTraLoi == 0) {
             _life--;
             if (_questionNumber < questions.length && _life>0) {
+              if(_questionNumber%10==0){
+                _round++;
+              }
               _thoiGianTraLoi = 20;
               _controller.nextPage(
                 duration: const Duration(milliseconds: 250),
@@ -169,7 +173,7 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                           Container(
                               width: MediaQuery.of(context).size.width / 4.1,
                               height: MediaQuery.of(context).size.height / 15,
-                              child: DoiMau(text: "Vòng 2"))
+                              child: DoiMau(text: "Vòng $_round"))
                         ],
                       ),
                     ),
@@ -401,7 +405,9 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
         onPressed: () {
           if (_questionNumber < questions.length &&_life>0) {
             _thoiGianTraLoi = 20;
-            
+            if(_questionNumber%10==0){
+                _round++;
+              }
             _controller.nextPage(
               duration: const Duration(milliseconds: 250),
               curve: Curves.linear,
