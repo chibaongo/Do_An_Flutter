@@ -48,10 +48,10 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
       if (this.mounted) {
         setState(() {
           _thoiGianTraLoi--;
-
+//xử lí điều kiện qua từng trang
           if (_thoiGianTraLoi == 0) {
             _life--;
-            if (_questionNumber < questions.length && _life>0 && _questionNumber<=50) {
+            if (_questionNumber <=50 && _life>0 && _questionNumber<=50) {
               if(_questionNumber%10==0){
                 _round++;
                   _exp+=10;
@@ -223,7 +223,8 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height / 1.65,
                   child: PageView.builder(
-                    itemCount: questions.length,
+ //Lấy 50 câu hỏi
+                    itemCount: questions.take(50).length,
                     controller: _controller,
                     physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) {
@@ -398,7 +399,7 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                     if (question.selectedoption!.isCorrect) {
                       _numberComplete++;
                       _numberCorrect++;
-                      
+//TÍnh điểm
                         if(_thoiGianTraLoi<=20 && _thoiGianTraLoi>10)
                         {
                           _score=_score+4;
@@ -425,7 +426,7 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
   ElevatedButton buildElevatedButton() {
     return ElevatedButton(
         onPressed: () {
-          if (_questionNumber < questions.length &&_life>0 && _questionNumber<=50) {
+          if (_questionNumber <= 50 &&_life>0 && _questionNumber<=50) {
             _thoiGianTraLoi = 20;
             if(_questionNumber%10==0){
                 _round++;
