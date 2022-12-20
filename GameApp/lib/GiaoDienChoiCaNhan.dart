@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -25,7 +26,7 @@ class ChoiCaNhan extends StatefulWidget {
 }
 
 class _ChoiCaNhan extends State<ChoiCaNhan> {
-  
+  var lstQuestions=questions.take(50);
   
   int _round=1;
   int _life=3;
@@ -42,6 +43,7 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
   // firebase
  // final _fireStore=FirebaseFirestore.instance;
   @override
+  
   void initState() {
     super.initState();
     _timer = Timer.periodic(Duration(seconds: 1), (timer) {
@@ -51,7 +53,7 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
 //xử lí điều kiện qua từng trang
           if (_thoiGianTraLoi == 0) {
             _life--;
-            if (_questionNumber <=50 && _life>0 && _questionNumber<=50) {
+            if (_questionNumber <50 && _life>0 ) {
               if(_questionNumber%10==0){
                 _round++;
                   _exp+=10;
@@ -222,7 +224,7 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                 Container(
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height / 1.65,
-                  child: PageView.builder(
+                  child: PageView.builder( 
  //Lấy 50 câu hỏi
                     itemCount: questions.take(50).length,
                     controller: _controller,
@@ -426,7 +428,7 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
   ElevatedButton buildElevatedButton() {
     return ElevatedButton(
         onPressed: () {
-          if (_questionNumber <= 50 &&_life>0 && _questionNumber<=50) {
+          if (_questionNumber < 50 &&_life>0 ) {
             _thoiGianTraLoi = 20;
             if(_questionNumber%10==0){
                 _round++;
