@@ -1,30 +1,44 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/giaodienchinh.dart';
-//import 'package:assets_audio_player/assets_audio_player.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 class CaiDat extends StatefulWidget {
-  const CaiDat({super.key});
-
   @override
-  State<CaiDat> createState() => _CaiDat();
+  _CaiDat createState() {
+    return _CaiDat();
+  }
 }
 
 class _CaiDat extends State<CaiDat> {
-  bool sound = true;
-  bool music = true;
+  bool sound = false;
+  bool music = false;
+  final player = AudioPlayer();
+  //final audioPlayer = AudioPlayer();
+  //bool isPlaying = false;
+  // playSound() async {
+  //   AssetsAudioPlayer audioPlayer = AssetsAudioPlayer();
+  //   audioPlayer.open(Audio('assets/TheAvengers.mp3'));
+  // }
+
+  @override
+  void initState() {
+    super.initState();
+
+    player.onPlayerStateChanged.listen((state) {});
+  }
+
   @override
   Widget build(BuildContext context) {
-    //    AssetsAudioPlayer playMusic=AssetsAudioPlayer();
-
-    //  playMusic.open(Audio("assets/audios/TheAvengers.mp3"));
-
     return Scaffold(
       body: Container(
+          padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
           decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage("assets/images/nen/nen.jpg"),
                 fit: BoxFit.cover),
           ),
+          constraints: const BoxConstraints.expand(),
           child: SingleChildScrollView(
             child: Container(
               padding: const EdgeInsets.all(10),
@@ -69,27 +83,23 @@ class _CaiDat extends State<CaiDat> {
                   Container(
                     child: Row(
                       children: [
-                        Padding(padding: EdgeInsets.only(left: 40)),
+                        Padding(padding: EdgeInsets.only(left: 20)),
                         Image.asset(
                           'assets/images/icon/music.png',
                           width: MediaQuery.of(context).size.width / 3,
                         ),
-                        Padding(padding: EdgeInsets.only(left: 50)),
+                        Padding(padding: EdgeInsets.only(left: 30)),
                         Switch(
                             value: music,
                             activeColor: Color.fromARGB(255, 80, 93, 234),
                             onChanged: (bool value) {
                               setState(() {
                                 music = value;
-                                // if(music==true)
-                                // {
-                                //   playMusic.pause();
-                                //     playMusic.play();
-                                // }
-                                // else
-                                // {
-                                //   playMusic.pause();
-                                // }
+                                if (music == true) {
+                                  player.play(AssetSource('TheAvengers.mp3'));
+                                } else {
+                                  player.stop();
+                                }
                               });
                             }),
                       ],
@@ -106,12 +116,11 @@ class _CaiDat extends State<CaiDat> {
                               RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30.0)))),
                       onPressed: () => {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Home()))
+                        Navigator.of(context).pop()
                       },
                       child: const Padding(
                         padding: EdgeInsets.all(10),
-                        child: Text('Thoát',
+                        child: Text('Trở lại',
                             style: TextStyle(color: Colors.black)),
                       ),
                     ),

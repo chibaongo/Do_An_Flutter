@@ -1,29 +1,46 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/TaoAvt.dart';
-import 'package:flutter_application_2/DangNhap.dart';
-import 'package:flutter_application_2/Model/dulieuUser.dart';
-import 'package:flutter_application_2/giaodienchinh.dart';
+import 'GDTrangCaNhan.dart';
+import 'Model/avatar_model.dart';
+import 'Model/dulieuUser.dart';
 
-class TaoTen extends StatefulWidget {
+List<Avatar> avatarImages = [
+  Avatar(image: "assets/images/avatar/cat.png", id: "1"),
+  Avatar(image: "assets/images/avatar/cool.png", id: "2"),
+  Avatar(image: "assets/images/avatar/corgi.png", id: "3"),
+  Avatar(image: "assets/images/avatar/crocodile.png", id: "4"),
+  Avatar(image: "assets/images/avatar/doberman.png", id: "5"),
+  Avatar(image: "assets/images/avatar/dog.png", id: "6"),
+  Avatar(image: "assets/images/avatar/dogde.png", id: "7"),
+  Avatar(image: "assets/images/avatar/kingdom.png", id: "8"),
+  Avatar(image: "assets/images/avatar/shark.png", id: "9"),
+  Avatar(image: "assets/images/avatar/tiger.png", id: "10"),
+  Avatar(image: "assets/images/avatar/lion.png", id: "11"),
+  Avatar(image: "assets/images/avatar/racoon.png", id: "12"),
+];
+
+class ThayDoiInfo extends StatefulWidget {
   @override
-  State<TaoTen> createState() {
-    return _TaoTen();
+  State<ThayDoiInfo> createState() {
+    return _ThayDoiAVT();
   }
 }
 
-class _TaoTen extends State<TaoTen> {
-  final txtName = TextEditingController();
-
-  var _nameErr = "Vui lòng nhập tên của bạn vào !";
+class _ThayDoiAVT extends State<ThayDoiInfo> {
+  final txtNewname = TextEditingController();
+  var _nameErr = "Tên của bạn không hợp lệ !";
   var _nameIsvalid = false;
 
+  var selectedIndex = "";
+  String avatar = "";
+  var avatarerr = "Vui lòng chọn Avatar ";
+  var avataris = false;
   List<Usera> ls = [];
   CollectionReference users = FirebaseFirestore.instance.collection('users');
   @override
   void dispose() {
-    txtName.dispose();
+    txtNewname.dispose();
     super.dispose();
   }
 
@@ -48,14 +65,6 @@ class _TaoTen extends State<TaoTen> {
             );
 
             ls.add(a);
-
-            for (int i = 0; i < ls.length; i++) {
-              if (ls[i].email == FirebaseAuth.instance.currentUser!.email) {
-                if (ls[i].name != " " && ls[i].avatar != " ") {
-                  return Home();
-                }
-              }
-            }
           }
         }
 
@@ -71,12 +80,11 @@ class _TaoTen extends State<TaoTen> {
                 child: Column(
               children: <Widget>[
                 const SizedBox(
-                  height: 60,
+                  height: 30,
                 ),
-                Image.asset("assets/images/icon/dog.png", width: 200),
                 const Padding(
                   padding: EdgeInsets.fromLTRB(0, 30, 0, 6),
-                  child: Text("Tạo tên của bạn",
+                  child: Text("Thay đổi name và avt của bạn",
                       style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -87,10 +95,10 @@ class _TaoTen extends State<TaoTen> {
                     Padding(
                         padding: EdgeInsets.all(10),
                         child: TextField(
-                            controller: txtName,
+                            controller: txtNewname,
                             style: TextStyle(color: Colors.blueGrey),
                             decoration: InputDecoration(
-                              labelText: 'Nhập tên',
+                              labelText: 'New name',
                               errorText: _nameIsvalid ? _nameErr : null,
                               errorStyle: const TextStyle(
                                   fontSize: 13, color: Colors.redAccent),
@@ -101,6 +109,48 @@ class _TaoTen extends State<TaoTen> {
                               border: OutlineInputBorder(),
                             ))),
                   ],
+                ),
+                SingleChildScrollView(
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    child: Column(
+                      children: [
+                        Wrap(
+                            children: avatarImages
+                                .map((item) => Container(
+                                      margin: const EdgeInsets.all(4),
+                                      decoration: BoxDecoration(
+                                          border: Border.all(
+                                              width: 10,
+                                              color: selectedIndex == item.id
+                                                  ? Colors.pink
+                                                  : Colors.grey)),
+                                      child: IconButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            selectedIndex = item.id;
+                                            avatar = item.image;
+                                          });
+                                        },
+                                        icon: Image.asset(item.image),
+                                        iconSize: 60,
+                                      ),
+                                    ))
+                                .toList()),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Text(avataris ? avatarerr.toString() : "",
+                            style: TextStyle(
+                                color: Colors.red,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold)),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
                 Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -117,9 +167,7 @@ class _TaoTen extends State<TaoTen> {
                                       borderRadius:
                                           BorderRadius.circular(30.0)))),
                           onPressed: () {
-                            createUserName(
-                              txtName.text,
-                            );
+                            updateNameAndAvt(txtNewname.text);
                           },
                           child: const Padding(
                             padding: EdgeInsets.all(10),
@@ -143,7 +191,7 @@ class _TaoTen extends State<TaoTen> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => DangNhap()));
+                                    builder: (context) => ThongTinCaNhan()));
                           }),
                           child: const Padding(
                             padding: EdgeInsets.all(10),
@@ -161,16 +209,20 @@ class _TaoTen extends State<TaoTen> {
     ));
   }
 
-  Future createUserName(String name) async {
+  Future updateNameAndAvt(String name) async {
     setState(() {
-      if (txtName.text.length < 3) {
+      if (txtNewname.text.length < 3 || txtNewname.text.length >= 20) {
         _nameIsvalid = true;
       } else {
         _nameIsvalid = false;
       }
+      if (selectedIndex.isEmpty) {
+        avataris = true;
+      } else
+        avataris = false;
     });
 
-    if (!_nameIsvalid) {
+    if (!_nameIsvalid && avataris == false) {
       try {
         var check = 0;
         for (int i = 0; i < ls.length; i++) {
@@ -187,11 +239,11 @@ class _TaoTen extends State<TaoTen> {
               FirebaseFirestore.instance
                   .collection("users")
                   .doc(ls[i].id)
-                  .update({'name': txtName.text});
+                  .update({'name': txtNewname.text.trim(), 'avatar': avatar});
             }
 
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => TaoAvt()));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => ThongTinCaNhan()));
           }
         }
       } on FirebaseException catch (e) {

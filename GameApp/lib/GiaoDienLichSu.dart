@@ -144,9 +144,8 @@ class _LichSuState extends State<LichSu> {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => ThongTinCaNhan(
-                                                title: '',
-                                              )));
+                                          builder: (context) =>
+                                              ThongTinCaNhan()));
                                 }),
                                 child: Image.asset(
                                     "assets/images/icon/user.png",
@@ -168,12 +167,7 @@ class _LichSuState extends State<LichSu> {
                                 minimumSize: Size.square(40),
                               ),
                               onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => LichSu(
-                                              title: '',
-                                            )));
+                              
                               },
                               child: Image.asset(
                                   "assets/images/icon/history-book.png",

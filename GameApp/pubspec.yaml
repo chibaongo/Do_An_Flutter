@@ -41,6 +41,8 @@ dependencies:
   cloud_firestore: ^4.2.0
   firebase_core: ^2.4.0
   http: ^0.13.5
+  audioplayers: ^1.1.1
+  assets_audio_player: ^3.0.6
 
 dev_dependencies:
   flutter_test:
@@ -132,6 +134,7 @@ flutter:
      - assets/images/icon/Winner.png
      - assets/images/rank/rank bk.png
      - assets/gif/Pikachu.gif
+     - assets/TheAvengers.mp3
    #  - assets/audios/TheAvengers.mp3
 
   # An image asset can refer to one or more resolution-specific "variants", see

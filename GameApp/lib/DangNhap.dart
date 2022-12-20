@@ -1,3 +1,4 @@
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -21,7 +22,6 @@ class DangNhap extends StatefulWidget {
 class _DangNhap extends State<DangNhap> {
   TextEditingController txtEmail = TextEditingController();
   TextEditingController txtPassword = TextEditingController();
-  
   final _auth = FirebaseAuth.instance;
   bool _showpass = false;
 
@@ -104,7 +104,6 @@ class _DangNhap extends State<DangNhap> {
                         style: TextStyle(color: Colors.blueGrey),
                         decoration: InputDecoration(
                           labelText: "Mật khẩu",
-                        
                           errorText: _passIsvalid ? _passErr : null,
                           errorStyle:
                               TextStyle(fontSize: 13, color: Colors.redAccent),
@@ -297,7 +296,6 @@ class _DangNhap extends State<DangNhap> {
         await FirebaseAuth.instance.signInWithEmailAndPassword(
             email: txtEmail.text.trim(), password: txtPassword.text.trim());
         Navigator.of(context).pop();
-      
 
         FirebaseAuth.instance.authStateChanges().listen(
           (event) {
@@ -305,7 +303,6 @@ class _DangNhap extends State<DangNhap> {
               if (event != null) {
                 txtEmail.clear();
                 txtPassword.clear();
-
                 Navigator.push(
                     context, MaterialPageRoute(builder: (context) => TaoTen()));
               } else {

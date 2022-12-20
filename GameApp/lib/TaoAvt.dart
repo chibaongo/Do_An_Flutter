@@ -45,44 +45,11 @@ class _TaoAvtState extends State<TaoAvt> {
                 .collection("users")
                 .doc(lsUsers[i].id)
                 .update({'avatar': avatar});
-            // return Home(
-            //     //  nickName: lsUsers[i].name,
-            //     //  avatar: lsUsers[i].avatar,
-            //     );
           }
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => Home()));
         }
       }
-
-      // var check = 0;
-      // // for (int i = 0; i < lsUsers.length; i++) {
-      // //   if (lsUsers[i].name == name) check = 1;
-      // // }
-      // // if (check == 1) {
-      // //   final snackBar = SnackBar(
-      // //     content: Text('Đâ tồn tại name này'),
-      // //   );
-      // //   ScaffoldMessenger.of(context).showSnackBar(snackBar);
-      // // }
-      // if (avataris == false && check == 0) {
-      //   var a = FirebaseAuth.instance.currentUser!;
-      //   final data = FirebaseFirestore.instance.collection('users').doc();
-      //   var id = data.id;
-      //   final json =
-      //       Usera(id: id, name: "", avatar: avatar, phone: "", email: a.email!);
-
-      //   data.set(json.toJson());
-      //   Navigator.of(context).popUntil((route) => route.isFirst);
-      //   Navigator.push(
-      //       context,
-      //       MaterialPageRoute(
-      //           builder: (context) => Home(
-      //               // nickName: nickName.text,
-      //               // avatar: avatar,
-      //               // age: txtage.text)
-      //               )));
-      // }
     } on FirebaseAuthException catch (e) {
       print(e);
     }
@@ -123,6 +90,8 @@ class _TaoAvtState extends State<TaoAvt> {
                 name: r['name'],
                 avatar: r['avatar'],
                 phone: r['phone'],
+                password: r['password'],
+                coin: r['coin'],
               );
               lsUsers.add(a);
             }
@@ -248,41 +217,6 @@ class _TaoAvtState extends State<TaoAvt> {
                                     ),
                                   ),
                                 ]),
-                            // Row(
-                            //   mainAxisAlignment: MainAxisAlignment.center,
-                            //   children: [
-                            //     Padding(
-                            //       padding: EdgeInsets.zero,
-                            //       child: ElevatedButton(
-                            //         style: ButtonStyle(
-                            //           backgroundColor:
-                            //               MaterialStatePropertyAll<Color>(
-                            //             const Color.fromARGB(255, 247, 224, 224)
-                            //                 .withOpacity(0.8),
-                            //           ),
-                            //           shape: MaterialStateProperty.all(
-                            //             RoundedRectangleBorder(
-                            //                 borderRadius:
-                            //                     BorderRadius.circular(20.0)),
-                            //           ),
-                            //         ),
-                            //         onPressed: () {
-                            //           createData(avatar);
-                            //         },
-                            //         child: const Padding(
-                            //           padding: EdgeInsets.all(10),
-                            //           child: Text(
-                            //             "Done",
-                            //             style: TextStyle(
-                            //               color:
-                            //                   Color.fromARGB(255, 61, 46, 38),
-                            //             ),
-                            //           ),
-                            //         ),
-                            //       ),
-                            //     ),
-                            //   ],
-                            // ),
                           ],
                         ),
                       ),

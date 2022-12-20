@@ -252,11 +252,11 @@ class GiaoDienDangKyState extends State<GiaoDienDangKy> {
         !_phoneIsvalid) {
       try {
         await FirebaseAuth.instance.createUserWithEmailAndPassword(
-            email: txtEmail.text, password: txtConfirmPassword.text);
+            email: txtEmail.text, password: txtPassword.text);
         var data = FirebaseFirestore.instance.collection("users").doc();
         var id = data.id;
         var a = Usera(
-            id: id, email: txtEmail.text, phone: txtNumberPhone.text, name:"", avatar: "");
+            id: id, email: txtEmail.text.trim(), phone: txtNumberPhone.text.trim(), name:" ", avatar: " ", password: txtPassword.text.trim(), coin: "0");
         await data.set(a.toJson());
 
         Navigator.pop(context, 'Bạn Đăng Ký Thành Công !');
