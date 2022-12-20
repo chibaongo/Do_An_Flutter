@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_application_2/GiaoDienChoiCaNhan.dart';
+import 'package:http/http.dart';
 // dữ liệu cửa hàng
 class DuLieuStore {
   const DuLieuStore(
@@ -59,21 +60,35 @@ class duLieuTongKetCaNhan {
 // dữ liệu chơi cá nhân
 
 class Question {
+ // final String id;
   final String text;
   final List<Option> options;
+ // final int correct;
+
   bool isLocked;
   Option? selectedoption;
 
   Question({
+   // required this.id,
     required this.text,
     required this.options,
+ //   required this.correct,
+
     this.isLocked = false,
     this.selectedoption,
   });
-
- 
-
-
+//   factory Question.fromQueryDocumentSnapshot(QueryDocumentSnapshot snapshot){
+//   final data=snapshot.data() as Map<String,dynamic>;
+//   final id=snapshot.id;
+//   data['id']=id;
+//   return Question.fromMap(data);
+// }
+// factory Question.fromMap(Map<String,dynamic> map){
+//   return Question(id: map['id'],
+//          text: map['questions'],
+//           options: List<String>.from(map['Answer']),
+//            correct: map['correctAnswer']);
+// }
 }
 
 class Option {
@@ -96,6 +111,12 @@ final questions = [
     const Option(text: 'Tây Nam Bộ', isCorrect: false)
   ]),
    Question(text: 'Tỉnh nào rộng nhất Việt Nam ', options: [
+    const Option(text: 'Sơn La', isCorrect: false),
+    const Option(text: 'Đăk Lăk', isCorrect: false),
+    const Option(text: 'Gia Lai', isCorrect: false),
+    const Option(text: 'Nghệ An', isCorrect: true)
+  ]),
+  Question(text: 'Tỉnh nào rộng nhất Việt Nam ', options: [
     const Option(text: 'Sơn La', isCorrect: false),
     const Option(text: 'Đăk Lăk', isCorrect: false),
     const Option(text: 'Gia Lai', isCorrect: false),

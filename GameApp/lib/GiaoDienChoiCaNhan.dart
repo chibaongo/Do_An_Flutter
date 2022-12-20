@@ -25,6 +25,8 @@ class ChoiCaNhan extends StatefulWidget {
 }
 
 class _ChoiCaNhan extends State<ChoiCaNhan> {
+//List<Question> questions=[];
+  int _life=3;
   int _questionNumber = 1;
   late PageController _controller;
   int _score = 0;
@@ -46,7 +48,8 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
           _thoiGianTraLoi--;
 
           if (_thoiGianTraLoi == 0) {
-            if (_questionNumber < questions.length) {
+            _life--;
+            if (_questionNumber < questions.length && _life>0) {
               _thoiGianTraLoi = 20;
               _controller.nextPage(
                 duration: const Duration(milliseconds: 250),
@@ -73,7 +76,7 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
     });
     _controller = PageController(initialPage: 0);
   }
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -89,7 +92,25 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
       //     final doc=snapshot.data!.docs;
       //     final lstQuestions=doc.map((e) => Question.fromQueryDocumentSnapshot(e)).toList();
       //     return 
-          Container(
+        //  StreamBuilder<QuerySnapshot>(
+        // stream: FirebaseFirestore.instance.collection("Questions").snapshots(),
+        // builder: (context, snapshot) {
+        //   if (snapshot.hasData) {
+        //     final data = snapshot.data!.docs;
+
+        //     for (var row in data) {
+        //       final r = row.data() as Map<String, dynamic>;
+        //       var a = Question(
+        //           text: r['questions'],
+        //           options: r['Answer'],
+        //           id: r['id'],
+        //           correct: r['correctAnswer']
+        //          );
+        //       questions.add(a);
+        //     }
+        //   }
+        //   return  
+           Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: const BoxDecoration(
@@ -141,7 +162,7 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                             children: [
                               Image.asset("assets/images/icon/xuongcho.png",
                                   width: 20),
-                              const Text("1/5")
+                               Text("$_life/3")
                             ],
                           ),
                           const Padding(padding: EdgeInsets.only(bottom: 13)),
@@ -242,6 +263,7 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                                       borderRadius:
                                           BorderRadius.circular(30.0)))),
                           onPressed: () {
+                            Navigator.pop(context);
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -264,7 +286,8 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                 ),
               ],
             )),
-      ),
+      )
+     //   })
       //   },
       // )
     );
@@ -293,7 +316,7 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                       child: Padding(
                           padding: EdgeInsets.fromLTRB(10, 20, 10, 10),
                           child: Text(
-                            question.text,
+                            questions[0].text,
                             style: TextStyle(
                               fontSize: 20,
                             ),
@@ -362,6 +385,7 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                           _score++;
                           }
                     } else {
+                      _life--;
                       _numberComplete++;
                     }
                   }
@@ -375,7 +399,7 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
   ElevatedButton buildElevatedButton() {
     return ElevatedButton(
         onPressed: () {
-          if (_questionNumber < questions.length) {
+          if (_questionNumber < questions.length &&_life>0) {
             _thoiGianTraLoi = 20;
             
             _controller.nextPage(
@@ -444,6 +468,7 @@ class OptionsWidget extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.fromLTRB(5, 15, 5, 15),
                 child: Text(
+                  // questions[0],  
                   option.text,
                   style: TextStyle(color: Colors.black),
                   textAlign: TextAlign.center,
@@ -487,14 +512,184 @@ class OptionsWidget extends StatelessWidget {
   }
 }
 
-// StreamBuilder<QuerySnapshot>(
-      // //   stream: FirebaseFirestore.instance
-      // //   .collection('Questions')
-      // //   .snapshots(),
-      // //   builder: (context,AsyncSnapshot<QuerySnapshot> snapshot){
-      // //     if(snapshot.hasData){
-      // //       return ListView.builder(
-      // //         itemCount: snapshot.data!.docs.length,
-      // //         itemBuilder: (context,i){
-      // //           final data=snapshot.data!.docs[i];
-      // //           return 
+
+
+
+
+//  Container(
+//         width: MediaQuery.of(context).size.width,
+//         height: MediaQuery.of(context).size.height,
+//         decoration: const BoxDecoration(
+//           image: DecorationImage(
+//               image: AssetImage("assets/images/nen/nen.jpg"),
+//               fit: BoxFit.cover),
+//         ),
+//         child: Container(
+//             margin: const EdgeInsets.all(20),
+//             child: Column(
+//               children: [
+//                 Container(
+//                     child: Row(
+//                   mainAxisAlignment: MainAxisAlignment.start,
+//                   children: [
+//                     Padding(
+//                       padding: const EdgeInsets.fromLTRB(0, 0, 50, 10),
+//                       child: Column(
+//                         children: [
+//                           Row(
+//                             children: [
+//                               Image.asset(
+//                                 "assets/images/iconxu/star.png",
+//                                 fit: BoxFit.cover,
+//                                 width: 20,
+//                               ),
+//                               Container(
+//                                 padding:
+//                                     const EdgeInsets.fromLTRB(15, 0, 15, 0),
+//                                 decoration: BoxDecoration(
+//                                   border:
+//                                       Border.all(width: 1, color: Colors.black),
+//                                   borderRadius: BorderRadius.circular(8),
+//                                 ),
+//                                 child: const Text('8'),
+//                               ),
+//                               Image.asset("assets/images/icon/add.png",
+//                                   fit: BoxFit.cover, width: 20)
+//                             ],
+//                           ),
+//                         ],
+//                       ),
+//                     ),
+//                     Padding(
+//                       padding: const EdgeInsets.fromLTRB(0, 20, 30, 10),
+//                       child: Column(
+//                         children: [
+//                           Row(
+//                             children: [
+//                               Image.asset("assets/images/icon/xuongcho.png",
+//                                   width: 20),
+//                               const Text("1/5")
+//                             ],
+//                           ),
+//                           const Padding(padding: EdgeInsets.only(bottom: 13)),
+//                           Container(
+//                               width: MediaQuery.of(context).size.width / 4.1,
+//                               height: MediaQuery.of(context).size.height / 15,
+//                               child: DoiMau(text: "Vòng 2"))
+//                         ],
+//                       ),
+//                     ),
+//                     Column(
+//                       children: [
+//                         Padding(padding: EdgeInsets.fromLTRB(0, 20, 80, 0)),
+//                         Container(
+//                           width: MediaQuery.of(context).size.width / 7,
+//                           height: MediaQuery.of(context).size.height / 15,
+//                           child: Lac(image: "assets/images/icon/clock.png"),
+//                         ),
+//                         Row(
+//                           children: [
+//                             Text(
+//                               _thoiGianTraLoi.toString(),
+//                               style: TextStyle(fontSize: 20),
+//                             ),
+//                             Text('s', style: TextStyle(fontSize: 20))
+//                           ],
+//                         ),
+//                       ],
+//                     ),
+//                   ],
+//                 )),
+//                 Container(
+//                   width: MediaQuery.of(context).size.width,
+//                   height: MediaQuery.of(context).size.height / 1.65,
+//                   child: PageView.builder(
+//                     itemCount: questions.length,
+//                     controller: _controller,
+//                     physics: const NeverScrollableScrollPhysics(),
+//                     itemBuilder: (context, index) {
+//                       final _question = questions[index];
+//                       return buildQuestion(_question);
+//                     },
+//                   ),
+//                 ),
+//                 _isLocked ? buildElevatedButton() : const SizedBox.shrink(),
+//                 const SizedBox(
+//                   height: 0,
+//                 ),
+//                 Container(
+//                     margin: EdgeInsets.all(10),
+//                     child: Row(
+//                       mainAxisAlignment: MainAxisAlignment.center,
+//                       children: [
+//                         // Image.asset("assets/images/avatar/goku.png", width: 60),
+//                         Container(
+//                           width: MediaQuery.of(context).size.width / 7,
+//                           height: MediaQuery.of(context).size.height / 15,
+//                           child: ToNho(image: "assets/images/avatar/goku.png"),
+//                         ),
+//                         Padding(padding: EdgeInsets.all(5)),
+//                         Text("Số câu đúng: "),
+//                         Text("$_numberCorrect/${questions.length}"),
+//                       ],
+//                     )),
+//                 Container(
+//                   child: Row(
+//                       mainAxisAlignment: MainAxisAlignment.spaceAround,
+//                       children: [
+//                         ElevatedButton(
+//                           style: ButtonStyle(
+//                               backgroundColor: MaterialStatePropertyAll<Color>(
+//                                   const Color.fromARGB(255, 27, 247, 228)
+//                                       .withOpacity(0.8)),
+//                               shape: MaterialStateProperty.all(
+//                                   RoundedRectangleBorder(
+//                                       borderRadius:
+//                                           BorderRadius.circular(30.0)))),
+//                           onPressed: () {
+//                             Navigator.push(
+//                                 context,
+//                                 MaterialPageRoute(
+//                                     builder: (context) =>
+//                                         const QuyenTroGiup(title: '')));
+//                           },
+//                           child: const Padding(
+//                             padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
+//                             child: Text('Trợ giúp',
+//                                 style: TextStyle(color: Colors.black)),
+//                           ),
+//                         ),
+//                         ElevatedButton(
+//                           style: ButtonStyle(
+//                               backgroundColor: MaterialStatePropertyAll<Color>(
+//                                   const Color.fromARGB(255, 27, 247, 228)
+//                                       .withOpacity(0.8)),
+//                               shape: MaterialStateProperty.all(
+//                                   RoundedRectangleBorder(
+//                                       borderRadius:
+//                                           BorderRadius.circular(30.0)))),
+//                           onPressed: () {
+//                             Navigator.pop(context);
+//                             Navigator.push(
+//                                 context,
+//                                 MaterialPageRoute(
+//                                     builder: (context) => TongKetThang(
+//                                           Complete: _numberComplete,
+//                                           Correct: _numberCorrect,
+//                                           score: _score,
+//                                           exp: _exp,
+//                                         )));
+//                           },
+//                           child: const Padding(
+//                             padding: EdgeInsets.fromLTRB(35, 10, 35, 10),
+//                             child: Text(
+//                               'Thoát',
+//                               style: TextStyle(color: Colors.black),
+//                             ),
+//                           ),
+//                         ),
+//                       ]),
+//                 ),
+//               ],
+//             )),
+//       ),
