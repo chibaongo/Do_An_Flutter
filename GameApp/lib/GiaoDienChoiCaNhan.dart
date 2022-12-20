@@ -66,16 +66,34 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
               _questionNumber++;
               _isLocked = false;
             } else {
-              Navigator.pop(context);
-              Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => TongKetThang(
-                            Complete: _numberComplete,
-                            Correct: _numberCorrect,
-                            score: _score,
-                            exp: _exp,
-                          )));
+              if(_numberComplete==50)
+              {
+                Navigator.pop(context);
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => TongKetThang(
+                                            Complete: _numberComplete,
+                                            Correct: _numberCorrect,
+                                            score: _score,
+                                            exp: _exp,
+                                          )));
+              }
+              else
+              {
+                 Navigator.pop(context);
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => TongKetThua(
+                                            Complete: _numberComplete,
+                                            Correct: _numberCorrect,
+                                            score: _score,
+                                            exp: _exp,
+                                          )));
+              }
+              
+              
             }
           }
         });
@@ -425,16 +443,32 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
           } else {
             if (this.mounted) {
               setState(() {
+                if(_numberComplete==50)
+              {
                 Navigator.pop(context);
-                Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => TongKetThang(
-                              Complete: _numberComplete,
-                              Correct: _numberCorrect,
-                              score: _score,
-                              exp: _exp,
-                            )));
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => TongKetThang(
+                                            Complete: _numberComplete,
+                                            Correct: _numberCorrect,
+                                            score: _score,
+                                            exp: _exp,
+                                          )));
+              }
+              else
+              {
+                 Navigator.pop(context);
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => TongKetThua(
+                                            Complete: _numberComplete,
+                                            Correct: _numberCorrect,
+                                            score: _score,
+                                            exp: _exp,
+                                          )));
+              }
               });
             }
           }

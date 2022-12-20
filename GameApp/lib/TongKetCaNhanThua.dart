@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/GiaoDienChoiCaNhan.dart';
+import 'package:flutter_application_2/WaitCaNhan.dart';
 import 'package:flutter_application_2/giaodienchinh.dart';
 import 'Model/dbcontext.dart';
 import 'Components/itemTongKetCaNhan.dart';
 
 
-class TongKetThua extends StatefulWidget {
-  const TongKetThua({super.key,required this.score});
-  final score;
-  @override
-  State<TongKetThua> createState() {
-    return _TongKetThua();
-  }
-}
+class TongKetThua extends StatelessWidget {
+      TongKetThua({Key? key,required this.Correct,required this.Complete,required this.score,required this.exp}):super(key: key);
+      final int Correct;
+      final int Complete;
+      final int  score;
+      final int exp;
+//   @override
+//   State<TongKetThua> createState() {
+//     return _TongKetThua();
+//   }
+// }
 
-class _TongKetThua extends State<TongKetThua> {
+// class _TongKetThua extends State<TongKetThua> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,28 +60,151 @@ class _TongKetThua extends State<TongKetThua> {
                 ),
                 Container(
                   child: Text(
-                    "Chúc mừng bạn đã hoàn thành lượt chơi",
+                    "Cố gắng hoàn thành 50 câu ở lần sau nhé",
                     style: TextStyle(color: Colors.red, fontSize: 15),
                   ),
                 ),
                 Padding(padding: EdgeInsets.all(5)),
-                Container(
-                  padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
-                  decoration: BoxDecoration(
-                      border: Border.all(width: 2, color: Colors.red),
-                      borderRadius: BorderRadius.circular(20)),
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height / 3,
-                  child: ListView.builder(
-                    itemCount:
-                        duLieuTongKetCaNhan.lstDuLieuTongKetCaNhan.length,
-                    itemBuilder: ((BuildContext context, int index) {
-                      return inforTongKetCaNhan(
-                          dl: duLieuTongKetCaNhan
-                              .lstDuLieuTongKetCaNhan[index]);
-                    }),
-                  ),
-                ),
+                 Container(
+                padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
+                decoration: BoxDecoration(
+                    border: Border.all(width: 2, color: Colors.red),
+                    borderRadius: BorderRadius.circular(20)),
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height / 3,
+                child: Container(
+                    child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Padding(padding: EdgeInsets.only(top: 50)),
+                        Text(
+                          "Số câu hoàn thành: ",
+                          style: TextStyle(color: Colors.red, fontSize: 20),
+                        ),
+                        Expanded(child: Container()),
+                        Padding(
+                          padding: EdgeInsets.all(5),
+                          child: Container(
+                            padding: EdgeInsets.fromLTRB(30, 5, 30, 5),
+                            decoration: BoxDecoration(
+                              color: Color.fromARGB(255, 139, 196, 242),
+                              // border: Border.all(color: Colors.black),
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.all(0),
+                              child: Text(
+                                Complete.toString(),
+                                style: TextStyle(
+                                    backgroundColor:
+                                        Color.fromARGB(255, 139, 196, 242),
+                                    color: Colors.red,
+                                    fontSize: 20),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Padding(padding: EdgeInsets.only(top: 50)),
+                        Text(
+                          "Số câu đúng: ",
+                          style: TextStyle(color: Colors.red, fontSize: 20),
+                        ),
+                        Expanded(child: Container()),
+                        Padding(
+                          padding: EdgeInsets.all(5),
+                          child: Container(
+                            padding: EdgeInsets.fromLTRB(30, 5, 30, 5),
+                            decoration: BoxDecoration(
+                              color: Color.fromARGB(255, 139, 196, 242),
+                              // border: Border.all(color: Colors.black),
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.all(0),
+                              child: Text(
+                                Correct.toString(),
+                                style: TextStyle(
+                                    backgroundColor:
+                                        Color.fromARGB(255, 139, 196, 242),
+                                    color: Colors.red,
+                                    fontSize: 20),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Padding(padding: EdgeInsets.only(top: 50)),
+                        Text(
+                          "Tổng số điểm ",
+                          style: TextStyle(color: Colors.red, fontSize: 20),
+                        ),
+                        Expanded(child: Container()),
+                        Padding(
+                          padding: EdgeInsets.all(5),
+                          child: Container(
+                            padding: EdgeInsets.fromLTRB(30, 5, 30, 5),
+                            decoration: BoxDecoration(
+                              color: Color.fromARGB(255, 139, 196, 242),
+                              // border: Border.all(color: Colors.black),
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.all(0),
+                              child: Text(
+                                score.toString(),
+                                style: TextStyle(
+                                    backgroundColor:
+                                        Color.fromARGB(255, 139, 196, 242),
+                                    color: Colors.red,
+                                    fontSize: 20),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Padding(padding: EdgeInsets.only(top: 50)),
+                        Text(
+                          "Tổng số EXP ",
+                          style: TextStyle(color: Colors.red, fontSize: 20),
+                        ),
+                        Expanded(child: Container()),
+                        Padding(
+                          padding: EdgeInsets.all(5),
+                          child: Container(
+                            padding: EdgeInsets.fromLTRB(30, 5, 30, 5),
+                            decoration: BoxDecoration(
+                              color: Color.fromARGB(255, 139, 196, 242),
+                              // border: Border.all(color: Colors.black),
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.all(0),
+                              child: Text(
+                                exp.toString(),
+                                style: TextStyle(
+                                    backgroundColor:
+                                        Color.fromARGB(255, 139, 196, 242),
+                                    color: Colors.red,
+                                    fontSize: 20),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ))),
                 Padding(padding: EdgeInsets.all(20)),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -91,11 +218,12 @@ class _TongKetThua extends State<TongKetThua> {
                               RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30.0)))),
                       onPressed: () {
+                        Navigator.pop(context);
                         Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) =>
-                                     ChoiCaNhan(title: "",)));
+                                     Wait()));
                       },
                       child: const Padding(
                         padding: EdgeInsets.all(10),
