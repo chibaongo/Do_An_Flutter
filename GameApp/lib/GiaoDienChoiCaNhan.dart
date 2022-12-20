@@ -25,7 +25,8 @@ class ChoiCaNhan extends StatefulWidget {
 }
 
 class _ChoiCaNhan extends State<ChoiCaNhan> {
-//List<Question> questions=[];
+  
+  
   int _round=1;
   int _life=3;
   int _questionNumber = 1;
@@ -39,7 +40,7 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
   late Timer _timer;
   int _thoiGianTraLoi = 20;
   // firebase
-  final _fireStore=FirebaseFirestore.instance;
+ // final _fireStore=FirebaseFirestore.instance;
   @override
   void initState() {
     super.initState();
@@ -50,9 +51,11 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
 
           if (_thoiGianTraLoi == 0) {
             _life--;
-            if (_questionNumber < questions.length && _life>0) {
+            if (_questionNumber < questions.length && _life>0 && _questionNumber<=50) {
               if(_questionNumber%10==0){
                 _round++;
+                  _exp+=10;
+                
               }
               _thoiGianTraLoi = 20;
               _controller.nextPage(
@@ -207,6 +210,7 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                     physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) {
                       final _question = questions[index];
+                      
                       return buildQuestion(_question);
                     },
                   ),
@@ -320,7 +324,7 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                       child: Padding(
                           padding: EdgeInsets.fromLTRB(10, 20, 10, 10),
                           child: Text(
-                            questions[0].text,
+                            question.text,
                             style: TextStyle(
                               fontSize: 20,
                             ),
@@ -376,7 +380,7 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                     if (question.selectedoption!.isCorrect) {
                       _numberComplete++;
                       _numberCorrect++;
-                      _exp++;
+                      
                         if(_thoiGianTraLoi<=20 && _thoiGianTraLoi>10)
                         {
                           _score=_score+4;
@@ -403,10 +407,11 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
   ElevatedButton buildElevatedButton() {
     return ElevatedButton(
         onPressed: () {
-          if (_questionNumber < questions.length &&_life>0) {
+          if (_questionNumber < questions.length &&_life>0 && _questionNumber<=50) {
             _thoiGianTraLoi = 20;
             if(_questionNumber%10==0){
                 _round++;
+                _exp+=10;
               }
             _controller.nextPage(
               duration: const Duration(milliseconds: 250),
@@ -521,181 +526,3 @@ class OptionsWidget extends StatelessWidget {
 
 
 
-
-//  Container(
-//         width: MediaQuery.of(context).size.width,
-//         height: MediaQuery.of(context).size.height,
-//         decoration: const BoxDecoration(
-//           image: DecorationImage(
-//               image: AssetImage("assets/images/nen/nen.jpg"),
-//               fit: BoxFit.cover),
-//         ),
-//         child: Container(
-//             margin: const EdgeInsets.all(20),
-//             child: Column(
-//               children: [
-//                 Container(
-//                     child: Row(
-//                   mainAxisAlignment: MainAxisAlignment.start,
-//                   children: [
-//                     Padding(
-//                       padding: const EdgeInsets.fromLTRB(0, 0, 50, 10),
-//                       child: Column(
-//                         children: [
-//                           Row(
-//                             children: [
-//                               Image.asset(
-//                                 "assets/images/iconxu/star.png",
-//                                 fit: BoxFit.cover,
-//                                 width: 20,
-//                               ),
-//                               Container(
-//                                 padding:
-//                                     const EdgeInsets.fromLTRB(15, 0, 15, 0),
-//                                 decoration: BoxDecoration(
-//                                   border:
-//                                       Border.all(width: 1, color: Colors.black),
-//                                   borderRadius: BorderRadius.circular(8),
-//                                 ),
-//                                 child: const Text('8'),
-//                               ),
-//                               Image.asset("assets/images/icon/add.png",
-//                                   fit: BoxFit.cover, width: 20)
-//                             ],
-//                           ),
-//                         ],
-//                       ),
-//                     ),
-//                     Padding(
-//                       padding: const EdgeInsets.fromLTRB(0, 20, 30, 10),
-//                       child: Column(
-//                         children: [
-//                           Row(
-//                             children: [
-//                               Image.asset("assets/images/icon/xuongcho.png",
-//                                   width: 20),
-//                               const Text("1/5")
-//                             ],
-//                           ),
-//                           const Padding(padding: EdgeInsets.only(bottom: 13)),
-//                           Container(
-//                               width: MediaQuery.of(context).size.width / 4.1,
-//                               height: MediaQuery.of(context).size.height / 15,
-//                               child: DoiMau(text: "Vòng 2"))
-//                         ],
-//                       ),
-//                     ),
-//                     Column(
-//                       children: [
-//                         Padding(padding: EdgeInsets.fromLTRB(0, 20, 80, 0)),
-//                         Container(
-//                           width: MediaQuery.of(context).size.width / 7,
-//                           height: MediaQuery.of(context).size.height / 15,
-//                           child: Lac(image: "assets/images/icon/clock.png"),
-//                         ),
-//                         Row(
-//                           children: [
-//                             Text(
-//                               _thoiGianTraLoi.toString(),
-//                               style: TextStyle(fontSize: 20),
-//                             ),
-//                             Text('s', style: TextStyle(fontSize: 20))
-//                           ],
-//                         ),
-//                       ],
-//                     ),
-//                   ],
-//                 )),
-//                 Container(
-//                   width: MediaQuery.of(context).size.width,
-//                   height: MediaQuery.of(context).size.height / 1.65,
-//                   child: PageView.builder(
-//                     itemCount: questions.length,
-//                     controller: _controller,
-//                     physics: const NeverScrollableScrollPhysics(),
-//                     itemBuilder: (context, index) {
-//                       final _question = questions[index];
-//                       return buildQuestion(_question);
-//                     },
-//                   ),
-//                 ),
-//                 _isLocked ? buildElevatedButton() : const SizedBox.shrink(),
-//                 const SizedBox(
-//                   height: 0,
-//                 ),
-//                 Container(
-//                     margin: EdgeInsets.all(10),
-//                     child: Row(
-//                       mainAxisAlignment: MainAxisAlignment.center,
-//                       children: [
-//                         // Image.asset("assets/images/avatar/goku.png", width: 60),
-//                         Container(
-//                           width: MediaQuery.of(context).size.width / 7,
-//                           height: MediaQuery.of(context).size.height / 15,
-//                           child: ToNho(image: "assets/images/avatar/goku.png"),
-//                         ),
-//                         Padding(padding: EdgeInsets.all(5)),
-//                         Text("Số câu đúng: "),
-//                         Text("$_numberCorrect/${questions.length}"),
-//                       ],
-//                     )),
-//                 Container(
-//                   child: Row(
-//                       mainAxisAlignment: MainAxisAlignment.spaceAround,
-//                       children: [
-//                         ElevatedButton(
-//                           style: ButtonStyle(
-//                               backgroundColor: MaterialStatePropertyAll<Color>(
-//                                   const Color.fromARGB(255, 27, 247, 228)
-//                                       .withOpacity(0.8)),
-//                               shape: MaterialStateProperty.all(
-//                                   RoundedRectangleBorder(
-//                                       borderRadius:
-//                                           BorderRadius.circular(30.0)))),
-//                           onPressed: () {
-//                             Navigator.push(
-//                                 context,
-//                                 MaterialPageRoute(
-//                                     builder: (context) =>
-//                                         const QuyenTroGiup(title: '')));
-//                           },
-//                           child: const Padding(
-//                             padding: EdgeInsets.fromLTRB(30, 10, 30, 10),
-//                             child: Text('Trợ giúp',
-//                                 style: TextStyle(color: Colors.black)),
-//                           ),
-//                         ),
-//                         ElevatedButton(
-//                           style: ButtonStyle(
-//                               backgroundColor: MaterialStatePropertyAll<Color>(
-//                                   const Color.fromARGB(255, 27, 247, 228)
-//                                       .withOpacity(0.8)),
-//                               shape: MaterialStateProperty.all(
-//                                   RoundedRectangleBorder(
-//                                       borderRadius:
-//                                           BorderRadius.circular(30.0)))),
-//                           onPressed: () {
-//                             Navigator.pop(context);
-//                             Navigator.push(
-//                                 context,
-//                                 MaterialPageRoute(
-//                                     builder: (context) => TongKetThang(
-//                                           Complete: _numberComplete,
-//                                           Correct: _numberCorrect,
-//                                           score: _score,
-//                                           exp: _exp,
-//                                         )));
-//                           },
-//                           child: const Padding(
-//                             padding: EdgeInsets.fromLTRB(35, 10, 35, 10),
-//                             child: Text(
-//                               'Thoát',
-//                               style: TextStyle(color: Colors.black),
-//                             ),
-//                           ),
-//                         ),
-//                       ]),
-//                 ),
-//               ],
-//             )),
-//       ),

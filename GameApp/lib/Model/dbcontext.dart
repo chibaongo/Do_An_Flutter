@@ -824,4 +824,15 @@ final questions = [
       const Option(text: 'tiểu tư sản trí thức.', isCorrect: false)
     ],
   ),
+  Question(
+    level: 5,
+    text:
+        'Luận cương chính trị (10/1930) của Đảng Cộng sản Đông Dương xác định giai cấp lãnh đạo cách mạng là',
+    options: [
+      const Option(text: 'nông dân.', isCorrect: false),
+      const Option(text: 'công nhân.', isCorrect: true),
+      const Option(text: 'tư sản dân tộc.', isCorrect: false),
+      const Option(text: 'tiểu tư sản trí thức.', isCorrect: false)
+    ],
+  ),
 ];
