@@ -37,9 +37,11 @@ class _ThongTinCaNhan extends State<ThongTinCaNhan> {
                 final data = snapshot.data!.docs[i];
 
                 return Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage("assets/images/nen/nen.jpg"),
+                        image: AssetImage("assets/gif/abc.gif"),
                         fit: BoxFit.cover),
                   ),
                   child: Container(
@@ -74,7 +76,7 @@ class _ThongTinCaNhan extends State<ThongTinCaNhan> {
                                             borderRadius:
                                                 BorderRadius.circular(8),
                                           ),
-                                          child:  Text(data['coin']),
+                                          child: Text(data['coin']),
                                         ),
                                         GestureDetector(
                                           child: Image.asset(

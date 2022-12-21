@@ -75,16 +75,16 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
             } else {
               if (_numberComplete == 50) {
                 for (int i = 0; i < lsUsers.length; i++) {
-                    if (lsUsers[i].email ==
-                        FirebaseAuth.instance.currentUser!.email) {
-                      if (_score > int.parse(lsUsers[i].highscore)) {
-                        FirebaseFirestore.instance
-                            .collection('users')
-                            .doc(lsUsers[i].id)
-                            .update({'highscore': _score.toString()});
-                      }
+                  if (lsUsers[i].email ==
+                      FirebaseAuth.instance.currentUser!.email) {
+                    if (_score > int.parse(lsUsers[i].highscore)) {
+                      FirebaseFirestore.instance
+                          .collection('users')
+                          .doc(lsUsers[i].id)
+                          .update({'highscore': _score.toString()});
                     }
                   }
+                }
 
                 Navigator.pop(context);
                 Navigator.pushReplacement(
@@ -97,19 +97,18 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                               exp: _exp,
                             )));
               } else {
-                
-                  for (int i = 0; i < lsUsers.length; i++) {
-                    if (lsUsers[i].email ==
-                        FirebaseAuth.instance.currentUser!.email) {
-                      if (_score > int.parse(lsUsers[i].highscore)) {
-                        FirebaseFirestore.instance
-                            .collection('users')
-                            .doc(lsUsers[i].id)
-                            .update({'highscore': _score.toString()});
-                      }
+                for (int i = 0; i < lsUsers.length; i++) {
+                  if (lsUsers[i].email ==
+                      FirebaseAuth.instance.currentUser!.email) {
+                    if (_score > int.parse(lsUsers[i].highscore)) {
+                      FirebaseFirestore.instance
+                          .collection('users')
+                          .doc(lsUsers[i].id)
+                          .update({'highscore': _score.toString()});
                     }
                   }
-                
+                }
+
                 Navigator.pop(context);
                 Navigator.pushReplacement(
                     context,
@@ -140,30 +139,29 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                 .snapshots(),
             builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
               if (snapshot.hasData) {
-                
                 return ListView.builder(
                     itemCount: snapshot.data!.docs.length,
                     shrinkWrap: true,
                     itemBuilder: (context, i) {
                       final data = snapshot.data!.docs[i];
-                     var a = Usera(
-                          id: data['id'],
-                          email: data['email'],
-                          name: data['name'],
-                          avatar: data['avatar'],
-                          phone: data['phone'],
-                          password: data['password'],
-                          coin: data['coin'],
-                          highscore: data['highscore'],
-                          lv: data['lv'],
-              );
-              lsUsers.add(a);
+                      var a = Usera(
+                        id: data['id'],
+                        email: data['email'],
+                        name: data['name'],
+                        avatar: data['avatar'],
+                        phone: data['phone'],
+                        password: data['password'],
+                        coin: data['coin'],
+                        highscore: data['highscore'],
+                        lv: data['lv'],
+                      );
+                      lsUsers.add(a);
                       return Container(
                         width: MediaQuery.of(context).size.width,
                         height: MediaQuery.of(context).size.height,
                         decoration: const BoxDecoration(
                           image: DecorationImage(
-                              image: AssetImage("assets/images/nen/nen.jpg"),
+                              image: AssetImage("assets/gif/abc.gif"),
                               fit: BoxFit.cover),
                         ),
                         child: Container(
@@ -364,18 +362,25 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                                                               30.0)))),
                                           onPressed: () {
                                             if (_numberComplete == 50) {
-
-                                              for (int i = 0; i < lsUsers.length; i++) {
-                    if (lsUsers[i].email ==
-                        FirebaseAuth.instance.currentUser!.email) {
-                      if (_score > int.parse(lsUsers[i].highscore)) {
-                        FirebaseFirestore.instance
-                            .collection('users')
-                            .doc(lsUsers[i].id)
-                            .update({'highscore': _score.toString()});
-                      }
-                    }
-                  }
+                                              for (int i = 0;
+                                                  i < lsUsers.length;
+                                                  i++) {
+                                                if (lsUsers[i].email ==
+                                                    FirebaseAuth.instance
+                                                        .currentUser!.email) {
+                                                  if (_score >
+                                                      int.parse(lsUsers[i]
+                                                          .highscore)) {
+                                                    FirebaseFirestore.instance
+                                                        .collection('users')
+                                                        .doc(lsUsers[i].id)
+                                                        .update({
+                                                      'highscore':
+                                                          _score.toString()
+                                                    });
+                                                  }
+                                                }
+                                              }
                                               Navigator.pop(context);
                                               Navigator.pushReplacement(
                                                   context,
@@ -391,17 +396,25 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                                                           )));
                                             } else {
                                               //  Navigator.pop(context);
-                                              for (int i = 0; i < lsUsers.length; i++) {
-                    if (lsUsers[i].email ==
-                        FirebaseAuth.instance.currentUser!.email) {
-                      if (_score > int.parse(lsUsers[i].highscore)) {
-                        FirebaseFirestore.instance
-                            .collection('users')
-                            .doc(lsUsers[i].id)
-                            .update({'highscore': _score.toString()});
-                      }
-                    }
-                  }
+                                              for (int i = 0;
+                                                  i < lsUsers.length;
+                                                  i++) {
+                                                if (lsUsers[i].email ==
+                                                    FirebaseAuth.instance
+                                                        .currentUser!.email) {
+                                                  if (_score >
+                                                      int.parse(lsUsers[i]
+                                                          .highscore)) {
+                                                    FirebaseFirestore.instance
+                                                        .collection('users')
+                                                        .doc(lsUsers[i].id)
+                                                        .update({
+                                                      'highscore':
+                                                          _score.toString()
+                                                    });
+                                                  }
+                                                }
+                                              }
                                               Navigator.pushReplacement(
                                                   context,
                                                   MaterialPageRoute(
@@ -594,7 +607,7 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                                 exp: _exp,
                               )));
                 } else {
-                for (int i = 0; i < lsUsers.length; i++) {
+                  for (int i = 0; i < lsUsers.length; i++) {
                     if (lsUsers[i].email ==
                         FirebaseAuth.instance.currentUser!.email) {
                       if (_score > int.parse(lsUsers[i].highscore)) {
