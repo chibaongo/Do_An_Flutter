@@ -50,10 +50,15 @@ class _DangNhap extends State<DangNhap> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
           padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
           decoration: const BoxDecoration(
+            
             image: DecorationImage(
+              
                 image: AssetImage("assets/gif/abc.gif"),
+                
                 fit: BoxFit.cover),
           ),
           //constraints: const BoxConstraints.expand(),

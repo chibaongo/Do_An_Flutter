@@ -32,10 +32,12 @@ class _CaiDat extends State<CaiDat> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
           padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
           decoration: const BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("assets/images/nen/nen.jpg"),
+                image: AssetImage("assets/gif/abc.gif"),
                 fit: BoxFit.cover),
           ),
           constraints: const BoxConstraints.expand(),
