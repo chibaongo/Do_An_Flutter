@@ -28,6 +28,7 @@ class AuthMethods {
             'username': user.displayName,
             'uid': user.uid,
             'profilePhoto': user.photoURL,
+            
           });
         }
         result = true;

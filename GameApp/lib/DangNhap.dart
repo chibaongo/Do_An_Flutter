@@ -222,37 +222,51 @@ class _DangNhap extends State<DangNhap> {
                 style: TextStyle(fontSize: 16, color: Colors.redAccent),
               ),
               const Padding(padding: EdgeInsets.all(10)),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        elevation: 8,
-                        shape: const CircleBorder(),
-                      ),
-                      onPressed: () {},
-                      child: Image.asset(
-                        "assets/images/cam_xuc/fb.png",
-                        fit: BoxFit.cover,
-                        width: MediaQuery.of(context).size.width / 9.0,
-                      )),
-                  OutlinedButton(
-                    style: OutlinedButton.styleFrom(
-                      elevation: 8,
-                      shape: const CircleBorder(),
+              Container(
+                width: MediaQuery.of(context).size.width / 1.5,
+                decoration: BoxDecoration(boxShadow: [
+                  BoxShadow(
+                      color: Colors.black,
+                      offset: Offset(2.5, 4),
+                      blurRadius: 1)
+                ], borderRadius: BorderRadius.circular(30)),
+                child: ElevatedButton(
+                  onPressed: () async {
+                    bool result = await _authMethods.signInWithGoogle();
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomeGG()));
+                  },
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStatePropertyAll<Color>(
+                          const Color.fromARGB(255, 27, 247, 228)
+                              .withOpacity(0.8)),
+                      shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0)))),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          "assets/images/cam_xuc/gg.png",
+                          height: 40,
+                          width: 40,
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        const Text(
+                          "Login with Gmail",
+                          style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black87),
+                        ),
+                      ],
                     ),
-                    child: Image.asset(
-                      "assets/images/cam_xuc/gg.png",
-                      width: MediaQuery.of(context).size.width / 9.0,
-                    ),
-                    onPressed: () async {
-                      bool result = await _authMethods.signInWithGoogle();
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => HomeGG()));
-                    },
                   ),
-                ],
-              )
+                ),
+              ),
             ],
           ),
         ),

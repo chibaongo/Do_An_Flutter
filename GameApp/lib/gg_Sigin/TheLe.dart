@@ -25,7 +25,7 @@ class _TheLeState extends State<TheLeGG> {
               fit: BoxFit.cover),
         ),
         constraints: const BoxConstraints.expand(),
-        child: Padding(
+        child: Container(
           padding: EdgeInsets.all(40),
           child: SingleChildScrollView(
             child: Column(

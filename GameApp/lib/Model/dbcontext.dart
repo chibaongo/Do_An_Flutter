@@ -412,49 +412,27 @@ final questions = [
           text: 'thiên nhiên có sự phân hóa đa dạng.', isCorrect: false)
     ],
   ),
+
   Question(
     level: 3,
     text:
-        'Nguyên nhân cơ bản nhất quyết định sự bùng nổ của phong trào cách mạng 1930 - 1931 ở Việt Nam là',
+        'Theo quyết định của hội nghị Ianta (2-1945), quốc gia nào cần phải trở thành một quốc gia thống nhất và dân chủ?',
     options: [
-      const Option(
-          text:
-              'địa chủ phong kiến cấu kết với thực dân Pháp đàn áp đối với nông dân.',
-          isCorrect: false),
-      const Option(
-          text: 'ảnh hưởng của cuộc khủng hoảng kinh tế 1929 - 1933.64',
-          isCorrect: false),
-      const Option(
-          text:
-              'Đảng cộng sản Việt Nam ra đời kịp thời lãnh đạo cách mạng.',
-          isCorrect: true),
-      const Option(
-          text:
-              'thực dân Pháp tiến hành khủng bố trắng sau khởi nghĩa Yên Bái.',
-          isCorrect: false)
+      const Option(text: 'Đức', isCorrect: false),
+      const Option(text: 'Mông Cổ', isCorrect: false),
+      const Option(text: 'Trung Quốc', isCorrect: true),
+      const Option(text: 'Triều Tiên', isCorrect: false)
     ],
   ),
   Question(
     level: 3,
     text:
-        ' Sự ra đời của các Xô viết ở Nghệ An và Hà Tĩnh là đỉnh cao của phong trào cách mạng 1930 - 1931 vì?',
+        'Theo quy định của Hội nghị Ianta (2-1945), quốc gia nào sẽ thực hiện nhiệm vụ chiếm đóng, giải giáp miền Tây Đức, Tây Béc-lin và các nước Tây Âu?',
     options: [
-      const Option(
-          text:
-              'đã hoàn thành mục tiêu đề ra trong Luận cương chính trị tháng 10/1930.',
-          isCorrect: false),
-      const Option(
-          text:
-              'đây là mốc đánh dấu sự tan rã của bộ máy chính quyền thực dân và tay sai.',
-          isCorrect: false),
-      const Option(
-          text:
-              'đã giải quyết được vấn đề cơ bản của một cuộc cách mạng xã hội.',
-          isCorrect: true),
-      const Option(
-          text:
-              'đây là hình thức chính quyền nhà nước giống các Xô viết ở nước Nga.',
-          isCorrect: false)
+      const Option(text: 'Liên Xô.', isCorrect: false),
+      const Option(text: 'Mĩ.', isCorrect: false),
+      const Option(text: 'Mĩ, Anh.', isCorrect: false),
+      const Option(text: 'Mĩ, Anh, Pháp.', isCorrect: true)
     ],
   ),
   Question(
@@ -493,22 +471,12 @@ final questions = [
   Question(
     level: 3,
     text:
-        'Ý nghĩa quan trọng của phong trào cách mạng 1930 - 1931 ở Việt Nam là?',
+        'Theo quy định của Hội nghị Ianta, quân đội nước nào sẽ chiếm đóng các vùng Đông Đức, Đông Âu, Đông Bắc Triều Tiên sau chiến tranh thế giới thứ hai?',
     options: [
-      const Option(
-          text:
-              'chứng minh trong thực tế khả năng lãnh đạo của chính đảng vô sản.',
-          isCorrect: true),
-      const Option(
-          text: 'tạo tiền đề trực tiếp cho Tổng khởi nghĩa tháng Tám năm 1945.',
-          isCorrect: false),
-      const Option(
-          text:
-              'hình thành khối liên minh công nông binh cho cách mạng Việt Nam.',
-          isCorrect: false),
-      const Option(
-          text: 'Đảng Cộng sản Việt Nam được công nhận là một phân bố độc lập.',
-          isCorrect: false)
+      const Option(text: 'Liên Xô.', isCorrect: true),
+      const Option(text: 'Mỹ.', isCorrect: false),
+      const Option(text: 'Anh..', isCorrect: false),
+      const Option(text: 'Pháp.', isCorrect: false)
     ],
   ),
   //độ khó 4
@@ -556,82 +524,45 @@ final questions = [
   ),
   Question(
     level: 4,
-    text: 'Ý nghĩa của vị trí địa lí nước ta không phải là',
+    text: 'Tổng thư ký Liên Hợp Quốc từ năm 2017 là người nước nào?',
     options: [
-      const Option(
-          text:
-              'có vị trí địa lí đặc biệt quan trọng ở vùng Đông Nam Á, châu Á',
-          isCorrect: false),
-      const Option(
-          text:
-              'tạo điều kiện thực hiện chính sách mở cửa, hội nhập với các nước trên thế giới',
-          isCorrect: false),
-      const Option(
-          text:
-              'chung sống hòa bình, hợp tác hữu nghị và cùng phát triển với các nước',
-          isCorrect: false),
-      const Option(
-          text:
-              'xảy ra các vấn đề tranh chấp biển Đông, ranh giới trên đất liền với Trung Quốc',
-          isCorrect: true)
+      const Option(text: 'Bồ Đào Nha.', isCorrect: false),
+      const Option(text: 'Canada', isCorrect: false),
+      const Option(text: 'Hàn Quốc', isCorrect: false),
+      const Option(text: 'Tây ban Nha', isCorrect: true)
+    ],
+  ),
+  Question(
+    level: 4,
+    text: 'Hiến chương của Liên hợp quốc được thông qua tại hội nghị nào?',
+    options: [
+      const Option(text: 'Hội nghị Ianta', isCorrect: false),
+      const Option(text: 'Hội nghị Xan Phranxico', isCorrect: true),
+      const Option(text: 'Hội nghị Pốtxđam', isCorrect: false),
+      const Option(text: 'Hội nghị Pari', isCorrect: false)
+    ],
+  ),
+  Question(
+    //
+    level: 4,
+    text:
+        'Tốc độ tăng trưởng của nền kinh tế Liên Bang Nga từ năm 1991 đến năm 1995 rơi vào tình trạng',
+    options: [
+      const Option(text: 'Luôn là con số âm', isCorrect: true),
+      const Option(text: 'Chậm phát triển.', isCorrect: false),
+      const Option(text: 'Không phát triển.', isCorrect: false),
+      const Option(text: 'Trì trệ, chậm phát triển.', isCorrect: false)
     ],
   ),
   Question(
     level: 4,
     text:
-        'Luận cương chính trị tháng 10/1930 và Cương lĩnh chính trị tháng 2/1930 có điểm gì tương đồng?',
+        'Hội nghị quốc tế họp tại Xan Phranxixcô (Mĩ) đã thông qua Hiến chương và tuyên bố thành lập Liên Hợp quốc có sự tham gia của đại biểu bao nhiêu nước?',
     options: [
-      const Option(
-          text:
-              'Khẳng định công nhân và tư sản dân tộc là lực lượng cơ bản của cách mạng.',
-          isCorrect: false),
-      const Option(
-          text:
-              'Xác định cách mạng Đông Dương có mối liên hệ mật thiết với cách mạng thế giới.',
-          isCorrect: false),
-      const Option(
-          text:
-              'Xác định phản đế và phản phong kiến là nhiệm vụ chiến lược của cách mạng.',
-          isCorrect: true),
-      const Option(
-          text:
-              'Xác định liên minh công – nông là lực lượng lãnh đạo cách mạng.',
-          isCorrect: false)
-    ],
-  ),
-  Question(
-    level: 4,
-    text:
-        'Nội dung nào phản ánh đúng tình hình của Đảng Cộng sản Đông Dương trong những năm 1931 – 1932?',
-    options: [
-      const Option(
-          text: 'Hoạt động của Đảng hoàn toàn bị tế liệt.', isCorrect: false),
-      const Option(
-          text: 'Toàn bộ Đảng viên thuộc Xứ uỷ Trung Kì đều bị bắt.',
-          isCorrect: false),
-      const Option(
-          text: 'Toàn bộ Ban Chấp hành Trung ương đảng đều bị bắt.',
-          isCorrect: false),
-      const Option(
-          text:
-              'Hầu hết các uỷ viên Ban Chấp hành Trung ương, Xứ uỷ ba Kì đều bị bắt.',
-          isCorrect: true)
-    ],
-  ),
-  Question(
-    level: 4,
-    text:
-        'vChính sách nào sau đây của chính quyền Xô viết Nghệ - Tĩnh không được thực hiện trong thời gian tồn tại?',
-    options: [
-      const Option(
-          text: 'Quần chúng được tự do tham gia các đoàn thể, tự do hội họp',
-          isCorrect: false),
-      const Option(
-          text: 'Chia lại ruộng công, xóa nợ cho người nghèo', isCorrect: true),
-      const Option(
-          text: 'Mở lớp dạy chữ Quốc ngữ cho nhân dân', isCorrect: false),
-      const Option(
-          text: 'Tiến hành bầu cử chính quyền các cấp', isCorrect: false)
+      const Option(text: '35 nước', isCorrect: false),
+      const Option(text: '48 nước  ', isCorrect: false),
+      const Option(text: '50 nước', isCorrect: true),
+      const Option(text: '55 nước', isCorrect: false)
     ],
   ),
   Question(
@@ -648,23 +579,14 @@ final questions = [
   Question(
     level: 4,
     text:
-        'Mục tiêu đấu tranh chính trong phong trào cách mạng 1930 – 1931 là gì?',
+        'Liên hợp quốc quyết định lấy ngày 24-10 hàng năm làm ngày Liên hợp quốc là vì đó là ngày',
     options: [
+      const Option(text: 'Kết thúc chiến tranh lạnh.', isCorrect: false),
+      const Option(text: 'Bế mạc hội nghị Ianta.', isCorrect: false),
       const Option(
-          text:
-              'Chống đế quốc và phong kiến đòi độc lập dân tộc và ruộng đất dân cày',
-          isCorrect: true),
+          text: 'Hiến chương Liên hợp quốc có hiệu lực.', isCorrect: true),
       const Option(
-          text:
-              'Chống bọn phản động thuộc địa và tay sai của chúng, đòi tự do, dân chủ, cơm áo, hòa bình',
-          isCorrect: false),
-      const Option(
-          text:
-              'Chống đế quốc và phát xít Pháp – Nhật, đòi độc lập cho dân tộc',
-          isCorrect: false),
-      const Option(
-          text: 'Chống phát xít, chống chiến tranh, bảo vệ hòa bình',
-          isCorrect: false)
+          text: 'Khai mạc lễ thành lập Liên hợp quốc.', isCorrect: false)
     ],
   ),
   //độ khó 5
@@ -740,17 +662,12 @@ final questions = [
   Question(
     level: 5,
     text:
-        'Nguyên nhân nào sau đây đóng vai trò quyết định nhất dẫn tới sự bùng nổ phong trào 1930 -1931?',
+        'Lần đầu tiên, Việt Nam được bầu làm Ủy viên không thường trực Hội đồng Bảo an Liên hợp quốc trong nhiệm kì nào?',
     options: [
-      const Option(
-          text: 'Sự cổ vũ của phong trào cách mạng thế giới', isCorrect: false),
-      const Option(
-          text: 'Sự ra đời và lãnh đạo cách mạng của Đảng cộng sản Việt Nam',
-          isCorrect: true),
-      const Option(
-          text: 'Mâu thuẫn dân tộc phát triển gay gắt', isCorrect: false),
-      const Option(
-          text: 'Cuộc khủng hoảng kinh tế thế giới 1929-1933', isCorrect: false)
+      const Option(text: '2008 - 2009.', isCorrect: true),
+      const Option(text: ' 2011 - 2012.', isCorrect: false),
+      const Option(text: '2018 - 2019.', isCorrect: false),
+      const Option(text: '2021 - 2022.', isCorrect: false)
     ],
   ),
   Question(
@@ -774,43 +691,22 @@ final questions = [
   Question(
     level: 5,
     text:
-        ' Ý nghĩa nào sau đây không phải của phong trào cách mạng 1930 - 1931?',
+        ' Cơ quan nào của Liên hợp quốc đóng vai trò là cơ quan chính trị quan trọng nhất, chịu trách nhiệm duy trì hòa bình và an ninh thế giới?',
     options: [
-      const Option(
-          text:
-              'Là cuộc tập dượt đầu tiên chuẩn bị cho Tổng khởi nghĩa tháng Tám sau này.',
-          isCorrect: false),
-      const Option(
-          text: 'Khẳng định đường lối lãnh đạo đúng đắn của Đảng.',
-          isCorrect: false),
-      const Option(
-          text: 'Từ phong trào khối liên minh công - nông được hình thành.',
-          isCorrect: false),
-      const Option(
-          text:
-              'Là cuộc tập dượt thứ hai chuẩn bị cho Tổng khởi nghĩa tháng Tám sau này.',
-          isCorrect: true)
+      const Option(text: 'Hội đồng Quản thác.', isCorrect: false),
+      const Option(text: 'Tòa án Quốc tế.', isCorrect: false),
+      const Option(text: 'Hội đồng bảo an.', isCorrect: false),
+      const Option(text: 'Đại hội đồng.', isCorrect: true)
     ],
   ),
   Question(
     level: 5,
-    text:
-        'Nguyên nhân khách quan dẫn đến bùng nổ phong trào cách mạng 1930 - 1931 ở Việt Nam là do',
+    text: 'Việt Nam gia nhập Liên hợp quốc vào khoảng thời gian nào?',
     options: [
-      const Option(
-          text: 'ảnh hưởng của cuộc khủng hoảng kinh tế 1929 - 1933.',
-          isCorrect: true),
-      const Option(
-          text:
-              'mâu thuẫn dân tộc sâu sắc giữa nhân dân Việt Nam với thực dân Pháp.',
-          isCorrect: false),
-      const Option(
-          text: 'Đảng Cộng sản Việt Nam ra đời kịp thời lãnh đạo đấu tranh.',
-          isCorrect: false),
-      const Option(
-          text:
-              'đời sống của các tầng lớp nhân dân Việt Nam khổ cực, bần cùng.',
-          isCorrect: false)
+      const Option(text: '7- 1976 ', isCorrect: true),
+      const Option(text: '7- 1977 ', isCorrect: false),
+      const Option(text: '9-1977', isCorrect: false),
+      const Option(text: '7-1979', isCorrect: false)
     ],
   ),
   Question(
@@ -833,6 +729,116 @@ final questions = [
       const Option(text: 'công nhân.', isCorrect: true),
       const Option(text: 'tư sản dân tộc.', isCorrect: false),
       const Option(text: 'tiểu tư sản trí thức.', isCorrect: false)
+    ],
+  ),
+  //câu 51 đến 60
+  Question(
+    level: 5,
+    text:
+        'Kế hoạch 5 năm (1946-1950) của Liên Xô được tiến hành trong thời gian bao lâu?',
+    options: [
+      const Option(text: '4 năm 3 tháng', isCorrect: false),
+      const Option(text: '1 năm 3 tháng', isCorrect: true),
+      const Option(text: '12 tháng', isCorrect: false),
+      const Option(text: '9 tháng', isCorrect: false)
+    ],
+  ),
+  Question(
+    level: 5,
+    text: 'Kinh tế Nga bắt đầu có những tín hiệu phục hồi từ năm nào?',
+    options: [
+      const Option(text: 'Từ năm 1995', isCorrect: false),
+      const Option(text: 'Từ năm 1996', isCorrect: true),
+      const Option(text: 'Từ năm 1997', isCorrect: false),
+      const Option(text: 'Từ năm 1998', isCorrect: false)
+    ],
+  ),
+  Question(
+    level: 5,
+    text:
+        'Kế hoạch 5 năm (1946-1950) của Liên Xô được tiến hành trong thời gian bao lâu?',
+    options: [
+      const Option(text: '4 năm 3 tháng', isCorrect: false),
+      const Option(text: '1 năm 3 tháng', isCorrect: true),
+      const Option(text: '12 tháng', isCorrect: false),
+      const Option(text: '9 tháng', isCorrect: false)
+    ],
+  ),
+  Question(
+    level: 5,
+    text:
+        'Kế hoạch 5 năm (1946-1950) của Liên Xô được tiến hành trong thời gian bao lâu?',
+    options: [
+      const Option(text: '4 năm 3 tháng', isCorrect: false),
+      const Option(text: '1 năm 3 tháng', isCorrect: true),
+      const Option(text: '12 tháng', isCorrect: false),
+      const Option(text: '9 tháng', isCorrect: false)
+    ],
+  ),
+  Question(
+    level: 5,
+    text:
+        'Kế hoạch 5 năm (1946-1950) của Liên Xô được tiến hành trong thời gian bao lâu?',
+    options: [
+      const Option(text: '4 năm 3 tháng', isCorrect: false),
+      const Option(text: '1 năm 3 tháng', isCorrect: true),
+      const Option(text: '12 tháng', isCorrect: false),
+      const Option(text: '9 tháng', isCorrect: false)
+    ],
+  ),
+  Question(
+    level: 5,
+    text:
+        'Kế hoạch 5 năm (1946-1950) của Liên Xô được tiến hành trong thời gian bao lâu?',
+    options: [
+      const Option(text: '4 năm 3 tháng', isCorrect: false),
+      const Option(text: '1 năm 3 tháng', isCorrect: true),
+      const Option(text: '12 tháng', isCorrect: false),
+      const Option(text: '9 tháng', isCorrect: false)
+    ],
+  ),
+  Question(
+    level: 5,
+    text:
+        'Kế hoạch 5 năm (1946-1950) của Liên Xô được tiến hành trong thời gian bao lâu?',
+    options: [
+      const Option(text: '4 năm 3 tháng', isCorrect: false),
+      const Option(text: '1 năm 3 tháng', isCorrect: true),
+      const Option(text: '12 tháng', isCorrect: false),
+      const Option(text: '9 tháng', isCorrect: false)
+    ],
+  ),
+  Question(
+    level: 5,
+    text:
+        'Kế hoạch 5 năm (1946-1950) của Liên Xô được tiến hành trong thời gian bao lâu?',
+    options: [
+      const Option(text: '4 năm 3 tháng', isCorrect: false),
+      const Option(text: '1 năm 3 tháng', isCorrect: true),
+      const Option(text: '12 tháng', isCorrect: false),
+      const Option(text: '9 tháng', isCorrect: false)
+    ],
+  ),
+  Question(
+    level: 5,
+    text:
+        'Kế hoạch 5 năm (1946-1950) của Liên Xô được tiến hành trong thời gian bao lâu?',
+    options: [
+      const Option(text: '4 năm 3 tháng', isCorrect: false),
+      const Option(text: '1 năm 3 tháng', isCorrect: true),
+      const Option(text: '12 tháng', isCorrect: false),
+      const Option(text: '9 tháng', isCorrect: false)
+    ],
+  ),
+  Question(
+    level: 5,
+    text:
+        'Kế hoạch 5 năm (1946-1950) của Liên Xô được tiến hành trong thời gian bao lâu?',
+    options: [
+      const Option(text: '4 năm 3 tháng', isCorrect: false),
+      const Option(text: '1 năm 3 tháng', isCorrect: true),
+      const Option(text: '12 tháng', isCorrect: false),
+      const Option(text: '9 tháng', isCorrect: false)
     ],
   ),
 ];
