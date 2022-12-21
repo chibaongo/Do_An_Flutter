@@ -57,14 +57,15 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
               if(_questionNumber%10==0){
                 _round++;
                   _exp+=10;
-                
+                  _life=3;
               }
               _thoiGianTraLoi = 20;
+           //   _controller.removeListener(_controller.pa);
               _controller.nextPage(
+                
                 duration: const Duration(milliseconds: 250),
                 curve: Curves.bounceIn,
               );
-
               _questionNumber++;
               _isLocked = false;
             } else {
@@ -108,35 +109,6 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: 
-      // StreamBuilder<QuerySnapshot>(
-      //   stream: FirebaseFirestore.instance.collection("Questions").snapshots(),
-      //   builder: (context,snapshot){
-      //     if(!snapshot.hasData){
-      //       return Center(
-      //         child: CircularProgressIndicator(),
-      //       );
-      //     }
-      //     final doc=snapshot.data!.docs;
-      //     final lstQuestions=doc.map((e) => Question.fromQueryDocumentSnapshot(e)).toList();
-      //     return 
-        //  StreamBuilder<QuerySnapshot>(
-        // stream: FirebaseFirestore.instance.collection("Questions").snapshots(),
-        // builder: (context, snapshot) {
-        //   if (snapshot.hasData) {
-        //     final data = snapshot.data!.docs;
-
-        //     for (var row in data) {
-        //       final r = row.data() as Map<String, dynamic>;
-        //       var a = Question(
-        //           text: r['questions'],
-        //           options: r['Answer'],
-        //           id: r['id'],
-        //           correct: r['correctAnswer']
-        //          );
-        //       questions.add(a);
-        //     }
-        //   }
-        //   return  
            Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
@@ -226,7 +198,7 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                   height: MediaQuery.of(context).size.height / 1.65,
                   child: PageView.builder( 
  //Lấy 50 câu hỏi
-                    itemCount: questions.take(50).length,
+                    itemCount: lstQuestions.length,
                     controller: _controller,
                     physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) {
@@ -253,7 +225,7 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                         ),
                         Padding(padding: EdgeInsets.all(5)),
                         Text("Số câu đúng: "),
-                        Text("$_numberCorrect/${questions.length}"),
+                        Text("$_numberCorrect/${lstQuestions.length}"),
                       ],
                     )),
                 Container(
@@ -292,16 +264,32 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                                       borderRadius:
                                           BorderRadius.circular(30.0)))),
                           onPressed: () {
-                            Navigator.pop(context);
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => TongKetThang(
-                                          Complete: _numberComplete,
-                                          Correct: _numberCorrect,
-                                          score: _score,
-                                          exp: _exp,
-                                        )));
+                             if(_numberComplete==50)
+              {
+                Navigator.pop(context);
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => TongKetThang(
+                                            Complete: _numberComplete,
+                                            Correct: _numberCorrect,
+                                            score: _score,
+                                            exp: _exp,
+                                          )));
+              }
+              else
+              {
+                //  Navigator.pop(context);
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => TongKetThua(
+                                            Complete: _numberComplete,
+                                            Correct: _numberCorrect,
+                                            score: _score,
+                                            exp: _exp,
+                                          )));
+              }
                           },
                           child: const Padding(
                             padding: EdgeInsets.fromLTRB(35, 10, 35, 10),
@@ -386,7 +374,11 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
         Container(
             margin: EdgeInsets.only(top: 5),
             child: Expanded(
-              child: OptionsWidget(
+              child:
+              //  SingleChildScrollView(
+              //   scrollDirection: Axis.horizontal,
+              //   child:
+                 OptionsWidget(
                 question: question,
                 onClickedOption: (option) {
                   if (question.isLocked) {
@@ -420,6 +412,7 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                   }
                 },
               ),
+            //  )
             ))
       ],
     );
@@ -433,6 +426,7 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
             if(_questionNumber%10==0){
                 _round++;
                 _exp+=10;
+                _life=3;
               }
             _controller.nextPage(
               duration: const Duration(milliseconds: 250),
@@ -516,7 +510,6 @@ class OptionsWidget extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.fromLTRB(5, 15, 5, 15),
                 child: Text(
-                  // questions[0],  
                   option.text,
                   style: TextStyle(color: Colors.black),
                   textAlign: TextAlign.center,
