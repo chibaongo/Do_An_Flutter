@@ -10,6 +10,7 @@ import 'package:flutter_application_2/GDTrangCaNhan.dart';
 import 'package:flutter_application_2/GiaoDienChoiCaNhan.dart';
 import 'package:flutter_application_2/GiaoDienLichSu.dart';
 import 'package:flutter_application_2/GiaoDienNapTien.dart';
+import 'package:flutter_application_2/TheLe.dart';
 import 'package:flutter_application_2/TimPhong.dart';
 import 'package:flutter_application_2/GDTrangCaNhan.dart';
 import 'package:flutter_application_2/GiaoDienNapTien.dart';
@@ -17,6 +18,7 @@ import 'package:flutter_application_2/WaitCaNhan.dart';
 import 'Animation/Animation.dart';
 import 'Model/dulieuUser.dart';
 import 'WaitCaNhan.dart';
+
 class Home extends StatefulWidget {
   @override
   State<Home> createState() {
@@ -160,8 +162,7 @@ class _Home extends State<Home> {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) =>
-                                                Wait()));
+                                            builder: (context) => Wait()));
                                   },
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -411,7 +412,14 @@ class _Home extends State<Home> {
                                             shape: CircleBorder(),
                                             minimumSize: Size.square(40),
                                           ),
-                                          onPressed: (() {}),
+                                          onPressed: () {
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) => TheLe(
+                                                          title: '',
+                                                        )));
+                                          },
                                           child: Image.asset(
                                               "assets/images/icon/book.png",
                                               fit: BoxFit.cover,
