@@ -57,6 +57,7 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
 //xử lí điều kiện qua từng trang
           if (_thoiGianTraLoi == 0) {
             _life--;
+            _score--;
             if (_questionNumber < 50 && _life > 0) {
               if (_questionNumber % 10 == 0) {
                 _round++;
@@ -535,6 +536,7 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                       }
                     } else {
                       _life--;
+                      _score--;
                       _numberComplete++;
                     }
                   }
