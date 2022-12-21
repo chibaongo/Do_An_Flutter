@@ -2,6 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/Model/Thele_obj.dart';
 
+import 'CuaHang.dart';
+import 'GDTrangCaNhan.dart';
+import 'GiaoDienLichSu.dart';
+
 class TheLe extends StatefulWidget {
   const TheLe({super.key, required this.title});
   final String title;
@@ -22,12 +26,12 @@ class _TheLeState extends State<TheLe> {
         ),
         constraints: const BoxConstraints.expand(),
         child: Container(
-          padding: EdgeInsets.all(40),
+          padding: EdgeInsets.all(10),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(padding: EdgeInsets.all(50)),
+                Padding(padding: EdgeInsets.all(40)),
                 Text('Thể Lệ',
                     style: const TextStyle(color: Colors.red, fontSize: 50)),
                 Padding(padding: EdgeInsets.all(20)),
@@ -44,138 +48,149 @@ class _TheLeState extends State<TheLe> {
                         return infoTheLe(dl: TheLeObject.lstTheLe[index]);
                       }),
                 ),
-                const Padding(padding: EdgeInsets.all(60)),
+                const Padding(padding: EdgeInsets.all(115)),
                 Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Column(
-                        children: [
-                          OutlinedButton(
-                              style: OutlinedButton.styleFrom(
-                                elevation: 8,
-                                shape: CircleBorder(),
-                                minimumSize: Size.square(40),
-                              ),
-                              onPressed: (() {
-                                // Navigator.push(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (context) =>
-                                //             ThongTinCaNhan(
-                                //               title: '',
-                                //             )));
-                              }),
-                              child: Image.asset("assets/images/icon/user.png",
-                                  fit: BoxFit.cover, width: 30)),
-                          const Text(
-                            'Hồ Sơ',
-                            style: TextStyle(
-                                fontSize: 16, color: Colors.blueAccent),
-                          )
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          OutlinedButton(
-                            style: OutlinedButton.styleFrom(
-                              elevation: 8,
-                              shape: CircleBorder(),
-                              minimumSize: Size.square(40),
-                            ),
-                            onPressed: () {
-                              // Navigator.push(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //         builder: (context) => LichSu(
-                              //               title: '',
-                              //             )));
-                            },
-                            child: Image.asset(
-                                "assets/images/icon/history-book.png",
-                                fit: BoxFit.cover,
-                                width: 30),
-                          ),
-                          const Text(
-                            'Lịch Sử',
-                            style: TextStyle(
-                                fontSize: 16, color: Colors.blueAccent),
-                          )
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          OutlinedButton(
-                              style: OutlinedButton.styleFrom(
-                                elevation: 8,
-                                shape: CircleBorder(),
-                                minimumSize: Size.square(40),
-                              ),
-                              onPressed: (() {}),
-                              child: Image.asset("assets/images/icon/home2.png",
-                                  fit: BoxFit.cover, width: 40)),
-                          const Text(
-                            'Home',
-                            style: TextStyle(
-                                fontSize: 16, color: Colors.blueAccent),
-                          )
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Row(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              OutlinedButton(
-                                  style: OutlinedButton.styleFrom(
-                                    elevation: 8,
-                                    shape: CircleBorder(),
-                                    minimumSize: Size.square(40),
+                              Column(
+                                children: [
+                                  OutlinedButton(
+                                      style: OutlinedButton.styleFrom(
+                                        elevation: 8,
+                                        shape: CircleBorder(),
+                                        minimumSize: Size.square(40),
+                                      ),
+                                      onPressed: (() {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    ThongTinCaNhan()));
+                                      }),
+                                      child: Image.asset(
+                                          "assets/images/icon/user.png",
+                                          fit: BoxFit.cover,
+                                          width: 30)),
+                                  const Text(
+                                    'Hồ Sơ',
+                                    style: TextStyle(
+                                        fontSize: 15, color: Colors.blueAccent),
+                                  )
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  OutlinedButton(
+                                    style: OutlinedButton.styleFrom(
+                                      elevation: 8,
+                                      shape: CircleBorder(),
+                                      minimumSize: Size.square(40),
+                                    ),
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => LichSu(
+                                                    title: '',
+                                                  )));
+                                    },
+                                    child: Image.asset(
+                                        "assets/images/icon/history-book.png",
+                                        fit: BoxFit.cover,
+                                        width: 30),
                                   ),
-                                  onPressed: (() {}),
-                                  child: Image.asset(
-                                      "assets/images/icon/book.png",
-                                      fit: BoxFit.cover,
-                                      width: 30))
+                                  const Text(
+                                    'Lịch Sử',
+                                    style: TextStyle(
+                                        fontSize: 16, color: Colors.blueAccent),
+                                  )
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  OutlinedButton(
+                                      style: OutlinedButton.styleFrom(
+                                        elevation: 8,
+                                        shape: CircleBorder(),
+                                        minimumSize: Size.square(40),
+                                      ),
+                                      onPressed: (() {}),
+                                      child: Image.asset(
+                                          "assets/images/icon/home2.png",
+                                          fit: BoxFit.cover,
+                                          width: 40)),
+                                  const Text(
+                                    'Home',
+                                    style: TextStyle(
+                                        fontSize: 16, color: Colors.blueAccent),
+                                  )
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  Row(
+                                    children: [
+                                      OutlinedButton(
+                                          style: OutlinedButton.styleFrom(
+                                            elevation: 8,
+                                            shape: CircleBorder(),
+                                            minimumSize: Size.square(40),
+                                          ),
+                                          onPressed: () {
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) => TheLe(
+                                                          title: '',
+                                                        )));
+                                          },
+                                          child: Image.asset(
+                                              "assets/images/icon/book.png",
+                                              fit: BoxFit.cover,
+                                              width: 30))
+                                    ],
+                                  ),
+                                  const Text(
+                                    'Thể Lệ',
+                                    style: TextStyle(
+                                        fontSize: 16, color: Colors.blueAccent),
+                                  )
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  OutlinedButton(
+                                    style: OutlinedButton.styleFrom(
+                                      elevation: 8,
+                                      shape: CircleBorder(),
+                                      minimumSize: Size.square(40),
+                                    ),
+                                    child: Image.asset(
+                                        "assets/images/icon/shop.png",
+                                        fit: BoxFit.cover,
+                                        width: 40),
+                                    onPressed: (() {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => CuaHang()));
+                                    }),
+                                  ),
+                                  const Text(
+                                    'Cửa Hàng',
+                                    style: TextStyle(
+                                        fontSize: 16, color: Colors.blueAccent),
+                                  )
+                                ],
+                              ),
                             ],
                           ),
-                          const Text(
-                            'Thể Lệ',
-                            style: TextStyle(
-                                fontSize: 16, color: Colors.blueAccent),
-                          )
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          OutlinedButton(
-                            style: OutlinedButton.styleFrom(
-                              elevation: 8,
-                              shape: CircleBorder(),
-                              minimumSize: Size.square(40),
-                            ),
-                            child: Image.asset("assets/images/icon/shop.png",
-                                fit: BoxFit.cover, width: 40),
-                            onPressed: (() {
-                              // Navigator.push(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //         builder: (context) =>
-                              //             CuaHang()));
-                            }),
-                          ),
-                          const Text(
-                            'Cửa Hàng',
-                            style: TextStyle(
-                                fontSize: 16, color: Colors.blueAccent),
-                          )
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
+                        ),
               ],
             ),
           ),
+        
         ),
       ),
 

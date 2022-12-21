@@ -84,7 +84,7 @@ class _DangNhap extends State<DangNhap> {
                   child: TextField(
                       controller: txtEmail,
                       keyboardType: TextInputType.emailAddress,
-                      style: TextStyle(color: Colors.blueGrey),
+                      style: TextStyle(color: Color.fromARGB(255, 250, 25, 0)),
                       decoration: InputDecoration(
                         labelText: "Email",
                         errorText: _emailIsvalid ? _emailErr : null,
@@ -109,7 +109,7 @@ class _DangNhap extends State<DangNhap> {
                       TextField(
                         controller: txtPassword,
                         obscureText: !_showpass,
-                        style: TextStyle(color: Colors.blueGrey),
+                        style: TextStyle(color: Color.fromARGB(255, 253, 0, 0)),
                         decoration: InputDecoration(
                           labelText: "Mật khẩu",
                           errorText: _passIsvalid ? _passErr : null,
@@ -179,24 +179,7 @@ class _DangNhap extends State<DangNhap> {
                       )),
                 ),
               ),
-              // Container(
-              //   width: MediaQuery.of(context).size.width,
-              //   child: ElevatedButton(
-              //       style: ButtonStyle(
-              //           backgroundColor: MaterialStatePropertyAll<Color>(
-              //               const Color.fromARGB(255, 27, 247, 228)
-              //                   .withOpacity(0.8)),
-              //           shape: MaterialStateProperty.all(RoundedRectangleBorder(
-              //               borderRadius: BorderRadius.circular(30.0)))),
-              //       onPressed: login,
-              //       child: Padding(
-              //         padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
-              //         child: const Text(
-              //           'Đăng Nhập',
-              //           style: TextStyle(fontSize: 30),
-              //         ),
-              //       )),
-              // ),
+            
               Padding(padding: EdgeInsets.all(5)),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -263,7 +246,7 @@ class _DangNhap extends State<DangNhap> {
                         const Text(
                           "Login with Gmail",
                           style: TextStyle(
-                              fontSize: 24,
+                              fontSize: 20,
                               fontWeight: FontWeight.bold,
                               color: Colors.black87),
                         ),
