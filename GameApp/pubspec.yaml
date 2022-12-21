@@ -135,6 +135,8 @@ flutter:
      - assets/images/icon/Winner.png
      - assets/images/rank/rank bk.png
      - assets/gif/Pikachu.gif
+     - assets/gif/abc.gif
+     - assets/gif/naruto.gif
      - assets/TheAvengers.mp3
    #  - assets/audios/TheAvengers.mp3
 

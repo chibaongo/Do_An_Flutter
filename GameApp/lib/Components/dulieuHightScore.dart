@@ -52,7 +52,7 @@ class inforHightScore extends StatelessWidget {
                    itemCount: ls.take(10).length,
                     shrinkWrap: true,
                     itemBuilder: (context, i) {
-                      final data = snapshot.data!.docs[i];
+                     // final data = snapshot.data!.docs[i];
                       final lsData=ls[i];
                       dem++;
                      

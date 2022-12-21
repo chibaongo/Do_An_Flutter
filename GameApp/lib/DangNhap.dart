@@ -53,7 +53,7 @@ class _DangNhap extends State<DangNhap> {
           padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
           decoration: const BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("assets/images/nen/nen.jpg"),
+                image: AssetImage("assets/gif/abc.gif"),
                 fit: BoxFit.cover),
           ),
           //constraints: const BoxConstraints.expand(),

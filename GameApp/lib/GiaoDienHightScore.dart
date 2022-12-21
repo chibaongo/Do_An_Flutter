@@ -43,6 +43,14 @@ class _HightScoreState extends State<HightScore> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Container(
+                color: Colors.red.withOpacity(0),
+                width: MediaQuery.of(context).size.width/3,
+                height: MediaQuery.of(context).size.height/4,
+                
+                child:
+              Image.asset("assets/gif/naruto.gif") 
+              ,),
                Text(
                 "High Score",
                 style: TextStyle(
