@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/GiaoDienLichSu.dart';
 import 'Components/dulieuHightScore.dart';
@@ -15,7 +16,22 @@ class _HightScoreState extends State<HightScore> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      
+      body:
+      //  StreamBuilder<QuerySnapshot>(
+      //   stream: FirebaseFirestore.instance
+      //       .collection("users")
+      //       .snapshots(),
+      //   builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+      //     if (snapshot.hasData) {
+      //       return ListView.builder(
+      //         itemCount: snapshot.data!.docs.length,
+      //         shrinkWrap: true,
+      //         itemBuilder: (context, i) {
+      //           final data = snapshot.data!.docs[i];
+
+      //           return 
+                Container(
         padding: const EdgeInsets.fromLTRB(30, 10, 30, 10),
         decoration: const BoxDecoration(
           image: DecorationImage(
@@ -27,8 +43,8 @@ class _HightScoreState extends State<HightScore> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
-                'HIGHT SCORE',
+               Text(
+                "High Score",
                 style: TextStyle(
                     fontSize: 40,
                     fontWeight: FontWeight.bold,
@@ -42,13 +58,7 @@ class _HightScoreState extends State<HightScore> {
                     borderRadius: BorderRadius.circular(20)),
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height / 3,
-                child: ListView.builder(
-                  itemCount: duLieuHightScore.lstDuLieuHightScore.length,
-                  itemBuilder: ((BuildContext context, int index) {
-                    return inforHightScore(
-                        dl: duLieuHightScore.lstDuLieuHightScore[index]);
-                  }),
-                ),
+                child: inforHightScore(),
               ),
               const Padding(padding: EdgeInsets.all(20)),
               ElevatedButton(
@@ -75,6 +85,11 @@ class _HightScoreState extends State<HightScore> {
           ),
         ),
       ),
+          
+        //   });
+        //   }
+        //   return Text("Loadding...");
+        // })
     );
   }
 }
