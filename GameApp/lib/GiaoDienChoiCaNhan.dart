@@ -12,6 +12,7 @@ import 'GiaoDienNapTien.dart';
 import 'GiaoDienQuyenTroGiup.dart';
 import 'TongKetCaNhanThua.dart';
 import 'Model/dbcontext.dart';
+import 'Model/dulieuUser.dart';
 
 // factory Question.fromQueryDocumentSnapshot(QueryDocumentSnapshot snapshot){
 //   final data=snapshot.data() as Map<String,dynamic>;
@@ -72,6 +73,18 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
               _isLocked = false;
             } else {
               if (_numberComplete == 50) {
+                for (int i = 0; i < lsUsers.length; i++) {
+                    if (lsUsers[i].email ==
+                        FirebaseAuth.instance.currentUser!.email) {
+                      if (_score > int.parse(lsUsers[i].highscore)) {
+                        FirebaseFirestore.instance
+                            .collection('users')
+                            .doc(lsUsers[i].id)
+                            .update({'highscore': _score.toString()});
+                      }
+                    }
+                  }
+
                 Navigator.pop(context);
                 Navigator.pushReplacement(
                     context,
@@ -83,6 +96,19 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                               exp: _exp,
                             )));
               } else {
+                
+                  for (int i = 0; i < lsUsers.length; i++) {
+                    if (lsUsers[i].email ==
+                        FirebaseAuth.instance.currentUser!.email) {
+                      if (_score > int.parse(lsUsers[i].highscore)) {
+                        FirebaseFirestore.instance
+                            .collection('users')
+                            .doc(lsUsers[i].id)
+                            .update({'highscore': _score.toString()});
+                      }
+                    }
+                  }
+                
                 Navigator.pop(context);
                 Navigator.pushReplacement(
                     context,
@@ -102,6 +128,7 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
     _controller = PageController(initialPage: 0);
   }
 
+  List<Usera> lsUsers = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -112,12 +139,24 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                 .snapshots(),
             builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
               if (snapshot.hasData) {
+                
                 return ListView.builder(
                     itemCount: snapshot.data!.docs.length,
                     shrinkWrap: true,
                     itemBuilder: (context, i) {
                       final data = snapshot.data!.docs[i];
-
+                     var a = Usera(
+                          id: data['id'],
+                          email: data['email'],
+                          name: data['name'],
+                          avatar: data['avatar'],
+                          phone: data['phone'],
+                          password: data['password'],
+                          coin: data['coin'],
+                          highscore: data['highscore'],
+                          lv: data['lv'],
+              );
+              lsUsers.add(a);
                       return Container(
                         width: MediaQuery.of(context).size.width,
                         height: MediaQuery.of(context).size.height,
@@ -159,7 +198,6 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                                                 ),
                                                 child: Text(data['coin']),
                                               ),
-                                             
                                             ],
                                           ),
                                         ],
@@ -508,6 +546,18 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
             if (this.mounted) {
               setState(() {
                 if (_numberComplete == 50) {
+                  for (int i = 0; i < lsUsers.length; i++) {
+                    if (lsUsers[i].email ==
+                        FirebaseAuth.instance.currentUser!.email) {
+                      if (_score > int.parse(lsUsers[i].highscore)) {
+                        FirebaseFirestore.instance
+                            .collection('users')
+                            .doc(lsUsers[i].id)
+                            .update({'highscore': _score.toString()});
+                      }
+                    }
+                  }
+
                   Navigator.pop(context);
                   Navigator.pushReplacement(
                       context,
@@ -519,6 +569,17 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                                 exp: _exp,
                               )));
                 } else {
+                for (int i = 0; i < lsUsers.length; i++) {
+                    if (lsUsers[i].email ==
+                        FirebaseAuth.instance.currentUser!.email) {
+                      if (_score > int.parse(lsUsers[i].highscore)) {
+                        FirebaseFirestore.instance
+                            .collection('users')
+                            .doc(lsUsers[i].id)
+                            .update({'highscore': _score.toString()});
+                      }
+                    }
+                  }
                   Navigator.pop(context);
                   Navigator.pushReplacement(
                       context,
