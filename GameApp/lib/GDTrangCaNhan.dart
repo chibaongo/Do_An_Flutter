@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/DangNhap.dart';
 import 'Animation/Animation.dart';
 import 'CaiDat.dart';
 import 'CuaHang.dart';
@@ -316,7 +317,13 @@ class _ThongTinCaNhan extends State<ThongTinCaNhan> {
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             30.0)))),
-                                        onPressed: () => {},
+                                        onPressed: () {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      DangNhap()));
+                                        },
                                         child: const Padding(
                                           padding: EdgeInsets.all(10),
                                           child: Text('Đăng xuất',
@@ -423,12 +430,13 @@ class _ThongTinCaNhan extends State<ThongTinCaNhan> {
                                                   minimumSize:
                                                       const Size.square(40),
                                                 ),
-                                                onPressed: () { Navigator.push(
-                                                          context,
-                                                          MaterialPageRoute(
-                                                              builder:
-                                                                  (context) =>
-                                                                      TheLe()));},
+                                                onPressed: () {
+                                                  Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              TheLe()));
+                                                },
                                                 child: Image.asset(
                                                     "assets/images/icon/book.png",
                                                     fit: BoxFit.cover,
