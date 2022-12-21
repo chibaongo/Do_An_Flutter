@@ -363,6 +363,18 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                                                               30.0)))),
                                           onPressed: () {
                                             if (_numberComplete == 50) {
+
+                                              for (int i = 0; i < lsUsers.length; i++) {
+                    if (lsUsers[i].email ==
+                        FirebaseAuth.instance.currentUser!.email) {
+                      if (_score > int.parse(lsUsers[i].highscore)) {
+                        FirebaseFirestore.instance
+                            .collection('users')
+                            .doc(lsUsers[i].id)
+                            .update({'highscore': _score.toString()});
+                      }
+                    }
+                  }
                                               Navigator.pop(context);
                                               Navigator.pushReplacement(
                                                   context,
@@ -378,6 +390,17 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                                                           )));
                                             } else {
                                               //  Navigator.pop(context);
+                                              for (int i = 0; i < lsUsers.length; i++) {
+                    if (lsUsers[i].email ==
+                        FirebaseAuth.instance.currentUser!.email) {
+                      if (_score > int.parse(lsUsers[i].highscore)) {
+                        FirebaseFirestore.instance
+                            .collection('users')
+                            .doc(lsUsers[i].id)
+                            .update({'highscore': _score.toString()});
+                      }
+                    }
+                  }
                                               Navigator.pushReplacement(
                                                   context,
                                                   MaterialPageRoute(
