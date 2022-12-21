@@ -5,6 +5,7 @@ import 'package:flutter_application_2/giaodienchinh.dart';
 
 import 'CuaHang.dart';
 import 'GDTrangCaNhan.dart';
+import 'TheLe.dart';
 
 class LichSu extends StatefulWidget {
   const LichSu({super.key, required this.title});
@@ -216,7 +217,12 @@ class _LichSuState extends State<LichSu> {
                                       shape: CircleBorder(),
                                       minimumSize: Size.square(40),
                                     ),
-                                    onPressed: (() {}),
+                                    onPressed: (() { Navigator.push(
+                                                          context,
+                                                          MaterialPageRoute(
+                                                              builder:
+                                                                  (context) =>
+                                                                      TheLe()));}),
                                     child: Image.asset(
                                         "assets/images/icon/book.png",
                                         fit: BoxFit.cover,

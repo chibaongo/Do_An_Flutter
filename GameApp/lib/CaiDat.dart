@@ -98,7 +98,7 @@ class _CaiDat extends State<CaiDat> {
                               setState(() {
                                 music = value;
                                 if (music == true) {
-                                  player.play(AssetSource('TheAvengers.mp3'));
+                                  player.play(AssetSource('FunnySong.mp3'));
                                 } else {
                                   player.stop();
                                 }

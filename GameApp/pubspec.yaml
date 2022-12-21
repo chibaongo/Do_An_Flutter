@@ -138,6 +138,7 @@ flutter:
      - assets/gif/abc.gif
      - assets/gif/naruto.gif
      - assets/TheAvengers.mp3
+     - assets/FunnySong.mp3
    #  - assets/audios/TheAvengers.mp3
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -5,13 +5,16 @@ import 'package:flutter_application_2/Model/Thele_obj.dart';
 import 'CuaHang.dart';
 import 'GDTrangCaNhan.dart';
 import 'GiaoDienLichSu.dart';
+import 'giaodienchinh.dart';
 
 class TheLe extends StatefulWidget {
-  const TheLe({super.key, required this.title});
-  final String title;
+ 
 
   @override
-  State<TheLe> createState() => _TheLeState();
+  State<TheLe> createState() 
+  {
+    return _TheLeState();
+  } 
 }
 
 class _TheLeState extends State<TheLe> {
@@ -115,7 +118,12 @@ class _TheLeState extends State<TheLe> {
                                         shape: CircleBorder(),
                                         minimumSize: Size.square(40),
                                       ),
-                                      onPressed: (() {}),
+                                      onPressed: () { Navigator.push(
+                                                          context,
+                                                          MaterialPageRoute(
+                                                              builder:
+                                                                  (context) =>
+                                                                      Home()));},
                                       child: Image.asset(
                                           "assets/images/icon/home2.png",
                                           fit: BoxFit.cover,
@@ -138,12 +146,7 @@ class _TheLeState extends State<TheLe> {
                                             minimumSize: Size.square(40),
                                           ),
                                           onPressed: () {
-                                            Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) => TheLe(
-                                                          title: '',
-                                                        )));
+                                           
                                           },
                                           child: Image.asset(
                                               "assets/images/icon/book.png",

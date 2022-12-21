@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/GiaoDienNapTien.dart';
+import 'package:flutter_application_2/TheLe.dart';
 import 'Components/CuaHang/itemStoreAvatar.dart';
 import 'Components/CuaHang/itemStoteXu.dart';
 import 'package:flutter_application_2/Model/dbcontext.dart';
@@ -36,8 +37,6 @@ class _CuaHang extends State<CuaHang> {
                       final data = snapshot.data!.docs[i];
 
                       return Container(
-                         
-                       
                         decoration: const BoxDecoration(
                           image: DecorationImage(
                               image: AssetImage("assets/images/nen/nen.jpg"),
@@ -45,7 +44,6 @@ class _CuaHang extends State<CuaHang> {
                         ),
                         child: SingleChildScrollView(
                           child: Container(
-                           
                               margin: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                               padding: EdgeInsets.all(15),
                               child: Column(
@@ -68,7 +66,6 @@ class _CuaHang extends State<CuaHang> {
                                         ),
                                         child: Text(data['coin']),
                                       ),
-                                    
                                     ],
                                   ),
                                   Container(
@@ -307,7 +304,14 @@ class _CuaHang extends State<CuaHang> {
                                                       minimumSize:
                                                           Size.square(40),
                                                     ),
-                                                    onPressed: (() {}),
+                                                    onPressed: (() {
+                                                      Navigator.push(
+                                                          context,
+                                                          MaterialPageRoute(
+                                                              builder:
+                                                                  (context) =>
+                                                                      TheLe()));
+                                                    }),
                                                     child: Image.asset(
                                                         "assets/images/icon/book.png",
                                                         fit: BoxFit.cover,
@@ -334,9 +338,7 @@ class _CuaHang extends State<CuaHang> {
                                                   "assets/images/icon/shop.png",
                                                   fit: BoxFit.cover,
                                                   width: 40),
-                                              onPressed: (() {
-                                              
-                                              }),
+                                              onPressed: (() {}),
                                             ),
                                             const Text(
                                               'Cửa Hàng',

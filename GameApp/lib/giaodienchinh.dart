@@ -423,9 +423,8 @@ class _Home extends State<Home> {
                                             Navigator.push(
                                                 context,
                                                 MaterialPageRoute(
-                                                    builder: (context) => TheLe(
-                                                          title: '',
-                                                        )));
+                                                    builder: (context) =>
+                                                        TheLe()));
                                           },
                                           child: Image.asset(
                                               "assets/images/icon/book.png",

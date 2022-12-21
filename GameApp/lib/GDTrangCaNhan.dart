@@ -8,6 +8,7 @@ import 'GDThayDoiMK.dart';
 import 'GiaoDienLichSu.dart';
 import 'GiaoDienNapTien.dart';
 import 'ThayDoiThongTin.dart';
+import 'TheLe.dart';
 import 'giaodienchinh.dart';
 
 class ThongTinCaNhan extends StatefulWidget {
@@ -422,7 +423,12 @@ class _ThongTinCaNhan extends State<ThongTinCaNhan> {
                                                   minimumSize:
                                                       const Size.square(40),
                                                 ),
-                                                onPressed: (() {}),
+                                                onPressed: () { Navigator.push(
+                                                          context,
+                                                          MaterialPageRoute(
+                                                              builder:
+                                                                  (context) =>
+                                                                      TheLe()));},
                                                 child: Image.asset(
                                                     "assets/images/icon/book.png",
                                                     fit: BoxFit.cover,
