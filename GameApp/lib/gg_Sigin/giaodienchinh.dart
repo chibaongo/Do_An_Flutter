@@ -17,9 +17,9 @@ import 'package:flutter_application_2/Animation/Animation.dart';
 import 'package:flutter_application_2/Model/dulieuUser_ggSigin.dart';
 import 'package:flutter_application_2/gg_Sigin/CuaHang.dart';
 import 'package:flutter_application_2/gg_Sigin/TheLe.dart';
-// import 'package:flutter_application_2/gg_Sigin/CuaHang.dart';
-// import 'package:flutter_application_2/gg_Sigin/GDTrangCaNhan.dart';
-// import 'package:flutter_application_2/gg_Sigin/GiaoDienLichSu.dart';
+import 'package:flutter_application_2/gg_Sigin/CuaHang.dart';
+import 'package:flutter_application_2/gg_Sigin/GDTrangCaNhan.dart';
+import 'package:flutter_application_2/gg_Sigin/GiaoDienLichSu.dart';
 
 class HomeGG extends StatefulWidget {
   @override
@@ -341,11 +341,11 @@ class _HomeGG extends State<HomeGG> {
                                         minimumSize: Size.square(40),
                                       ),
                                       onPressed: (() {
-                                        // Navigator.push(
-                                        //     context,
-                                        //     MaterialPageRoute(
-                                        //         builder: (context) =>
-                                        //             ThongTinCaNhanGG()));
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    ThongTinCaNhanGG()));
                                       }),
                                       child: Image.asset(
                                           "assets/images/icon/user.png",
@@ -367,12 +367,12 @@ class _HomeGG extends State<HomeGG> {
                                       minimumSize: Size.square(40),
                                     ),
                                     onPressed: () {
-                                      // Navigator.push(
-                                      //     context,
-                                      //     MaterialPageRoute(
-                                      //         builder: (context) => LichSuGG(
-                                      //               title: '',
-                                      //             )));
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => LichSuGG(
+                                                    title: '',
+                                                  )));
                                     },
                                     child: Image.asset(
                                         "assets/images/icon/history-book.png",

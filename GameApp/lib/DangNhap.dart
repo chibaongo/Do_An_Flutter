@@ -1,4 +1,3 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -6,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_2/GiaoDienTaoTen.dart';
 import 'package:flutter_application_2/QKMNhapMail.dart';
 import 'package:flutter_application_2/TaoAvt.dart';
+import 'package:flutter_application_2/gg_Sigin/giaodienchinh.dart';
+import 'package:flutter_application_2/services/firebase_services.dart';
 import 'GiaoDienDangKy.dart';
 import 'Model/dulieuUser.dart';
 import 'giaodienchinh.dart';
@@ -30,6 +31,8 @@ class _DangNhap extends State<DangNhap> {
   var _emailIsvalid = false;
   var _passIsvalid = false;
   List<Usera> ls = [];
+
+  final AuthMethods _authMethods = AuthMethods();
   @override
   void dispose() {
     txtEmail.dispose();
@@ -242,7 +245,11 @@ class _DangNhap extends State<DangNhap> {
                       "assets/images/cam_xuc/gg.png",
                       width: MediaQuery.of(context).size.width / 9.0,
                     ),
-                    onPressed: () {},
+                    onPressed: () async {
+                      bool result = await _authMethods.signInWithGoogle();
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => HomeGG()));
+                    },
                   ),
                 ],
               )

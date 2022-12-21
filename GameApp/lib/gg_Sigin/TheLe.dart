@@ -1,6 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/Model/Thele_obj.dart';
+import 'package:flutter_application_2/gg_Sigin/CuaHang.dart';
+import 'package:flutter_application_2/gg_Sigin/GDTrangCaNhan.dart';
+import 'package:flutter_application_2/gg_Sigin/GiaoDienLichSu.dart';
+import 'package:flutter_application_2/gg_Sigin/giaodienchinh.dart';
 
 class TheLeGG extends StatefulWidget {
   const TheLeGG({super.key, required this.title});
@@ -58,13 +62,11 @@ class _TheLeState extends State<TheLeGG> {
                                 minimumSize: Size.square(40),
                               ),
                               onPressed: (() {
-                                // Navigator.push(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (context) =>
-                                //             ThongTinCaNhan(
-                                //               title: '',
-                                //             )));
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            ThongTinCaNhanGG()));
                               }),
                               child: Image.asset("assets/images/icon/user.png",
                                   fit: BoxFit.cover, width: 30)),
@@ -84,12 +86,12 @@ class _TheLeState extends State<TheLeGG> {
                               minimumSize: Size.square(40),
                             ),
                             onPressed: () {
-                              // Navigator.push(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //         builder: (context) => LichSu(
-                              //               title: '',
-                              //             )));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => LichSuGG(
+                                            title: '',
+                                          )));
                             },
                             child: Image.asset(
                                 "assets/images/icon/history-book.png",
@@ -111,7 +113,12 @@ class _TheLeState extends State<TheLeGG> {
                                 shape: CircleBorder(),
                                 minimumSize: Size.square(40),
                               ),
-                              onPressed: (() {}),
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => HomeGG()));
+                              },
                               child: Image.asset("assets/images/icon/home2.png",
                                   fit: BoxFit.cover, width: 40)),
                           const Text(
@@ -156,11 +163,10 @@ class _TheLeState extends State<TheLeGG> {
                             child: Image.asset("assets/images/icon/shop.png",
                                 fit: BoxFit.cover, width: 40),
                             onPressed: (() {
-                              // Navigator.push(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //         builder: (context) =>
-                              //             CuaHang()));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => CuaHangGG()));
                             }),
                           ),
                           const Text(

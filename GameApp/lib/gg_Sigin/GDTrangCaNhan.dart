@@ -3,6 +3,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/Animation/Animation.dart';
 import 'package:flutter_application_2/CaiDat.dart';
+import 'package:flutter_application_2/gg_Sigin/CuaHang.dart';
+import 'package:flutter_application_2/gg_Sigin/GiaoDienLichSu.dart';
+import 'package:flutter_application_2/gg_Sigin/TheLe.dart';
 // import 'package:flutter_application_2/gg_Sigin/CuaHang.dart';
 // import 'package:flutter_application_2/gg_Sigin/GiaoDienLichSu.dart';
 // //import 'package:flutter_application_2/gg_Sigin/GiaoDienNapTien.dart';
@@ -300,13 +303,13 @@ class _ThongTinCaNhanGG extends State<ThongTinCaNhanGG> {
                                             minimumSize: const Size.square(40),
                                           ),
                                           onPressed: () {
-                                            // Navigator.push(
-                                            //     context,
-                                            //     MaterialPageRoute(
-                                            //         builder: (context) =>
-                                            //             const LichSuGG(
-                                            //               title: '',
-                                            //             )));
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        const LichSuGG(
+                                                          title: '',
+                                                        )));
                                           },
                                           child: Image.asset(
                                               "assets/images/icon/history-book.png",
@@ -360,7 +363,15 @@ class _ThongTinCaNhanGG extends State<ThongTinCaNhanGG> {
                                                   minimumSize:
                                                       const Size.square(40),
                                                 ),
-                                                onPressed: (() {}),
+                                                onPressed: () {
+                                                  Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              TheLeGG(
+                                                                title: '',
+                                                              )));
+                                                },
                                                 child: Image.asset(
                                                     "assets/images/icon/book.png",
                                                     fit: BoxFit.cover,
@@ -388,11 +399,11 @@ class _ThongTinCaNhanGG extends State<ThongTinCaNhanGG> {
                                               fit: BoxFit.cover,
                                               width: 40),
                                           onPressed: (() {
-                                            // Navigator.push(
-                                            //     context,
-                                            //     MaterialPageRoute(
-                                            //         builder: (context) =>
-                                            //             const CuaHangGG()));
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        const CuaHangGG()));
                                           }),
                                         ),
                                         const Text(
