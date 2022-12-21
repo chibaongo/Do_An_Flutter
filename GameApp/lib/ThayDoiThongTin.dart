@@ -62,6 +62,8 @@ class _ThayDoiAVT extends State<ThayDoiInfo> {
               avatar: r['avatar'],
               password: r['password'],
               coin: r['coin'],
+              highscore: r['highscore'],
+              lv: r['lv'],
             );
 
             ls.add(a);

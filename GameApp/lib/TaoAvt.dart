@@ -92,6 +92,8 @@ class _TaoAvtState extends State<TaoAvt> {
                 phone: r['phone'],
                 password: r['password'],
                 coin: r['coin'],
+                highscore: r['highscore'],
+                lv: r['lv'],
               );
               lsUsers.add(a);
             }

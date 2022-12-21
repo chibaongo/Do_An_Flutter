@@ -8,6 +8,8 @@ class Usera {
   final String email;
   final String avatar;
   final String coin;
+  final String lv;
+  final String highscore;
   Usera({
     required this.id,
     required this.name,
@@ -16,6 +18,8 @@ class Usera {
     required this.phone,
     required this.avatar,
     required this.coin,
+    required this.lv,
+    required this.highscore,
   });
 
   Map<String, dynamic> toJson() {
@@ -26,7 +30,9 @@ class Usera {
       'password': password,
       'email': email,
       'avatar': avatar,
-      'coin':coin,
+      'coin': coin,
+      'lv': lv,
+      'highscore': highscore,
     };
   }
 }

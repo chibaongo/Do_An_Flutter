@@ -69,7 +69,9 @@ class GiaoDienDangKyState extends State<GiaoDienDangKy> {
                         fontWeight: FontWeight.bold,
                         color: Colors.redAccent)),
               ),
-              SizedBox(height: 30,),
+              SizedBox(
+                height: 30,
+              ),
               Padding(
                   padding: EdgeInsets.all(10),
                   child: TextField(
@@ -256,12 +258,19 @@ class GiaoDienDangKyState extends State<GiaoDienDangKy> {
         var data = FirebaseFirestore.instance.collection("users").doc();
         var id = data.id;
         var a = Usera(
-            id: id, email: txtEmail.text.trim(), phone: txtNumberPhone.text.trim(), name:" ", avatar: " ", password: txtPassword.text.trim(), coin: "0");
+          id: id,
+          email: txtEmail.text.trim(),
+          phone: txtNumberPhone.text.trim(),
+          name: " ",
+          avatar: " ",
+          password: txtPassword.text.trim(),
+          coin: "0",
+          highscore: "0",
+          lv: "1",
+        );
         await data.set(a.toJson());
 
         Navigator.pop(context, 'Bạn Đăng Ký Thành Công !');
-
-      
       } on FirebaseAuthException catch (e) {
         final snackBar = SnackBar(content: Text('Email đã được đăng ký'));
         ScaffoldMessenger.of(context).showSnackBar(snackBar);

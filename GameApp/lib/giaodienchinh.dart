@@ -120,10 +120,17 @@ class _Home extends State<Home> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Container(
-                                  width: MediaQuery.of(context).size.width / 4,
-                                  height:
-                                      MediaQuery.of(context).size.height / 18,
-                                  child: DoiMau(text: "Level 2")),
+                                width: MediaQuery.of(context).size.width / 4,
+                                height: MediaQuery.of(context).size.height / 18,
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    DoiMau(text: 'Level'),
+                                    DoiMau(text: data['lv'])
+                                  ],
+                                ),
+                              ),
                               const Padding(padding: EdgeInsets.all(10)),
                               Image.asset(
                                 data['avatar'],
