@@ -1,0 +1,424 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_application_2/Animation/Animation.dart';
+import 'package:flutter_application_2/CaiDat.dart';
+// import 'package:flutter_application_2/gg_Sigin/CuaHang.dart';
+// import 'package:flutter_application_2/gg_Sigin/GiaoDienLichSu.dart';
+// //import 'package:flutter_application_2/gg_Sigin/GiaoDienNapTien.dart';
+// import 'package:flutter_application_2/gg_Sigin/ThayDoiThongTin.dart';
+import 'package:flutter_application_2/gg_Sigin/giaodienchinh.dart';
+
+class ThongTinCaNhanGG extends StatefulWidget {
+  @override
+  State<ThongTinCaNhanGG> createState() {
+    return _ThongTinCaNhanGG();
+  }
+}
+
+class _ThongTinCaNhanGG extends State<ThongTinCaNhanGG> {
+  final crUser = FirebaseAuth.instance;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: StreamBuilder<QuerySnapshot>(
+        stream: FirebaseFirestore.instance
+            .collection("user")
+            .where('uid', isEqualTo: crUser.currentUser!.uid)
+            .snapshots(),
+        builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+          if (snapshot.hasData) {
+            return ListView.builder(
+              itemCount: snapshot.data!.docs.length,
+              shrinkWrap: true,
+              itemBuilder: (context, i) {
+                final data = snapshot.data!.docs[i];
+
+                return Container(
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage("assets/images/nen/nen.jpg"),
+                        fit: BoxFit.cover),
+                  ),
+                  child: Container(
+                    margin: const EdgeInsets.all(5),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.all(20),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Container(
+                                margin: const EdgeInsets.all(5),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Image.asset(
+                                          "assets/images/iconxu/star.png",
+                                          fit: BoxFit.cover,
+                                          width: 30,
+                                        ),
+                                        Container(
+                                          padding: const EdgeInsets.fromLTRB(
+                                              25, 0, 25, 0),
+                                          decoration: BoxDecoration(
+                                            border: Border.all(
+                                                width: 1, color: Colors.black),
+                                            borderRadius:
+                                                BorderRadius.circular(8),
+                                          ),
+                                          child: Text('0'),
+                                        ),
+                                        GestureDetector(
+                                          child: Image.asset(
+                                            "assets/images/icon/add.png",
+                                            fit: BoxFit.cover,
+                                            width: 20,
+                                          ),
+                                          onTap: (() {
+                                            // Navigator.push(
+                                            //     context,
+                                            //     MaterialPageRoute(
+                                            //         builder: (context) =>
+                                            //             const NapTien(
+                                            //               title: '',
+                                            //             )));
+                                          }),
+                                        ),
+                                      ],
+                                    ),
+                                    ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          elevation: 8,
+                                          shape: const CircleBorder(),
+                                          minimumSize: const Size.square(40),
+                                        ),
+                                        onPressed: (() {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      CaiDat()));
+                                        }),
+                                        child: Image.asset(
+                                            "assets/images/cam_xuc/setting.png",
+                                            fit: BoxFit.cover,
+                                            width: 40))
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 30),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Image.asset(
+                                      'assets/images/avatar/tiger1.png',
+                                      fit: BoxFit.cover,
+                                      width: 90,
+                                    ),
+                                    const Padding(padding: EdgeInsets.all(30)),
+                                    Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Container(
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width /
+                                                4,
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height /
+                                                20,
+                                            child:
+                                                const DoiMau(text: "Level 2")),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 15,
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(5),
+                                child: Row(
+                                  children: const [
+                                    Text(
+                                      'Thông tin khác',
+                                      style: TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Container(
+                                  decoration: const BoxDecoration(
+                                      border:
+                                          Border(top: BorderSide(width: 0.5))),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(5),
+                                child: Row(
+                                  children: [
+                                    const Text(
+                                      'Username',
+                                      style: TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w400,
+                                          color: Colors.black),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                          65, 0, 0, 0),
+                                      child: Text(
+                                        data['username'],
+                                        style: const TextStyle(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w400,
+                                            color: Colors.black),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Container(
+                                  decoration: const BoxDecoration(
+                                      border:
+                                          Border(top: BorderSide(width: 0.5))),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(5),
+                                child: Row(
+                                  children: [
+                                    const Text(
+                                      'UID',
+                                      style: TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w400,
+                                          color: Colors.black),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                          65, 0, 0, 0),
+                                      child: Text(
+                                        data['uid'],
+                                        style: const TextStyle(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w400,
+                                            color: Colors.black),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Container(
+                                  decoration: const BoxDecoration(
+                                      border:
+                                          Border(top: BorderSide(width: 0.5))),
+                                ),
+                              ),
+                              Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 130),
+                                      child: ElevatedButton(
+                                        style: ButtonStyle(
+                                            backgroundColor:
+                                                MaterialStatePropertyAll<Color>(
+                                                    const Color.fromARGB(
+                                                            255, 27, 247, 228)
+                                                        .withOpacity(0.8)),
+                                            shape: MaterialStateProperty.all(
+                                                RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            30.0)))),
+                                        onPressed: () => {},
+                                        child: const Padding(
+                                          padding: EdgeInsets.all(10),
+                                          child: Text('Đăng xuất',
+                                              style:
+                                                  TextStyle(color: Colors.red)),
+                                        ),
+                                      ),
+                                    ),
+                                  ]),
+                              const Padding(padding: EdgeInsets.all(73)),
+                              Container(
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Column(
+                                      children: [
+                                        OutlinedButton(
+                                            style: OutlinedButton.styleFrom(
+                                              elevation: 8,
+                                              shape: const CircleBorder(),
+                                              minimumSize:
+                                                  const Size.square(40),
+                                            ),
+                                            onPressed: (() {}),
+                                            child: Image.asset(
+                                                "assets/images/icon/user.png",
+                                                fit: BoxFit.cover,
+                                                width: 30)),
+                                        const Text(
+                                          'Hồ Sơ',
+                                          style: TextStyle(
+                                              fontSize: 16,
+                                              color: Colors.blueAccent),
+                                        )
+                                      ],
+                                    ),
+                                    Column(
+                                      children: [
+                                        OutlinedButton(
+                                          style: OutlinedButton.styleFrom(
+                                            elevation: 8,
+                                            shape: const CircleBorder(),
+                                            minimumSize: const Size.square(40),
+                                          ),
+                                          onPressed: () {
+                                            // Navigator.push(
+                                            //     context,
+                                            //     MaterialPageRoute(
+                                            //         builder: (context) =>
+                                            //             const LichSuGG(
+                                            //               title: '',
+                                            //             )));
+                                          },
+                                          child: Image.asset(
+                                              "assets/images/icon/history-book.png",
+                                              fit: BoxFit.cover,
+                                              width: 30),
+                                        ),
+                                        const Text(
+                                          'Lịch Sử',
+                                          style: TextStyle(
+                                              fontSize: 16,
+                                              color: Colors.blueAccent),
+                                        )
+                                      ],
+                                    ),
+                                    Column(
+                                      children: [
+                                        OutlinedButton(
+                                            style: OutlinedButton.styleFrom(
+                                              elevation: 8,
+                                              shape: const CircleBorder(),
+                                              minimumSize:
+                                                  const Size.square(40),
+                                            ),
+                                            onPressed: () {
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          HomeGG()));
+                                            },
+                                            child: Image.asset(
+                                                "assets/images/icon/home2.png",
+                                                fit: BoxFit.cover,
+                                                width: 40)),
+                                        const Text(
+                                          'Home',
+                                          style: TextStyle(
+                                              fontSize: 16,
+                                              color: Colors.blueAccent),
+                                        )
+                                      ],
+                                    ),
+                                    Column(
+                                      children: [
+                                        Row(
+                                          children: [
+                                            OutlinedButton(
+                                                style: OutlinedButton.styleFrom(
+                                                  elevation: 8,
+                                                  shape: const CircleBorder(),
+                                                  minimumSize:
+                                                      const Size.square(40),
+                                                ),
+                                                onPressed: (() {}),
+                                                child: Image.asset(
+                                                    "assets/images/icon/book.png",
+                                                    fit: BoxFit.cover,
+                                                    width: 30))
+                                          ],
+                                        ),
+                                        const Text(
+                                          'Thể Lệ',
+                                          style: TextStyle(
+                                              fontSize: 16,
+                                              color: Colors.blueAccent),
+                                        )
+                                      ],
+                                    ),
+                                    Column(
+                                      children: [
+                                        OutlinedButton(
+                                          style: OutlinedButton.styleFrom(
+                                            elevation: 8,
+                                            shape: const CircleBorder(),
+                                            minimumSize: const Size.square(40),
+                                          ),
+                                          child: Image.asset(
+                                              "assets/images/icon/shop.png",
+                                              fit: BoxFit.cover,
+                                              width: 40),
+                                          onPressed: (() {
+                                            // Navigator.push(
+                                            //     context,
+                                            //     MaterialPageRoute(
+                                            //         builder: (context) =>
+                                            //             const CuaHangGG()));
+                                          }),
+                                        ),
+                                        const Text(
+                                          'Cửa Hàng',
+                                          style: TextStyle(
+                                              fontSize: 16,
+                                              color: Colors.blueAccent),
+                                        )
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            );
+          }
+          return const Text('Loading...');
+        },
+      ),
+    );
+  }
+}
