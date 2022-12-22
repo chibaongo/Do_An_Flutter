@@ -305,7 +305,7 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                                               15,
                                           child: ToNho(
                                               image:
-                                                  "assets/images/avatar/goku.png"),
+                                                  data['avatar']),
                                         ),
                                         Padding(padding: EdgeInsets.all(5)),
                                         Text("Số câu đúng: "),
