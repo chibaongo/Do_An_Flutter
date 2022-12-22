@@ -45,19 +45,26 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
   //thời gian
   late Timer _timer;
   int _thoiGianTraLoi = 20;
+
   // firebase
   // final _fireStore=FirebaseFirestore.instance;
   @override
   void initState() {
     super.initState();
+
     _timer = Timer.periodic(Duration(seconds: 1), (timer) {
       if (this.mounted) {
         setState(() {
           _thoiGianTraLoi--;
 //xử lí điều kiện qua từng trang
           if (_thoiGianTraLoi == 0) {
+          
             _life--;
             _score--;
+             if(_score<0)
+                        {
+                          _score=0;
+                        }
             if (_questionNumber < 50 && _life > 0) {
               if (_questionNumber % 10 == 0) {
                 _round++;
@@ -415,6 +422,7 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                                                   }
                                                 }
                                               }
+                                              
                                               Navigator.pushReplacement(
                                                   context,
                                                   MaterialPageRoute(
@@ -524,37 +532,58 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                   //   scrollDirection: Axis.horizontal,
                   //   child:
                   OptionsWidget(
+                    
                 question: question,
                 onClickedOption: (option) {
                   if (question.isLocked) {
                     return;
                   } else {
+                    
                     setState(() {
                       question.isLocked = true;
                       question.selectedoption = option;
                       _thoiGianTraLoi = _thoiGianTraLoi;
                     });
                     _isLocked = question.isLocked;
+
                     if (question.selectedoption!.isCorrect) {
                       _numberComplete++;
                       _numberCorrect++;
-//TÍnh điểm
+//TÍnh điểm             
+                      
                       if (_thoiGianTraLoi <= 20 && _thoiGianTraLoi > 10) {
                         _score = _score + 4;
+                      
                       }
                       if (_thoiGianTraLoi <= 10 && _thoiGianTraLoi > 5) {
                         _score += 3;
+                        
                       } else {
                         _score++;
+                        if(_score<0)
+                        {
+                          _score=0;
+                        }
+                       
                       }
                     } else {
                       _life--;
                       _score--;
+                       if(_score<0)
+                        {
+                          _score=0;
+                        }
+
                       _numberComplete++;
+                      
                     }
+                     clearIsLocked(option, question,_thoiGianTraLoi);
                   }
+                 
                 },
+                
               ),
+              
               //  )
             ))
       ],
@@ -563,19 +592,25 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
 
   ElevatedButton buildElevatedButton() {
     return ElevatedButton(
+      
         onPressed: () {
+          
           if (_questionNumber < 50 && _life > 0) {
+           
             _thoiGianTraLoi = 20;
             if (_questionNumber % 10 == 0) {
               _round++;
               _exp += 10;
               _life = 3;
             }
+            
             _controller.nextPage(
+              
               duration: const Duration(milliseconds: 250),
               curve: Curves.linear,
+              
             );
-
+           
             setState(() {
               _questionNumber++;
               _isLocked = false;
@@ -618,6 +653,7 @@ class _ChoiCaNhan extends State<ChoiCaNhan> {
                       }
                     }
                   }
+              
                   Navigator.pop(context);
                   Navigator.pushReplacement(
                       context,
@@ -646,18 +682,24 @@ class OptionsWidget extends StatelessWidget {
       : super(key: key);
   @override
   Widget build(BuildContext context) {
+  
     return SingleChildScrollView(
       child: Column(
+        
         children: question.options
             .map((option) => buidOption(context, option))
             .toList(),
+            
       ),
     );
   }
 
   Widget buidOption(BuildContext context, Option option) {
+    
     final color = getColorForOption(option, question);
+    
     return GestureDetector(
+      
       onTap: () => onClickedOption(option),
       child: Container(
         margin: EdgeInsets.only(top: 5),
@@ -679,7 +721,10 @@ class OptionsWidget extends StatelessWidget {
                 ),
               ),
             ),
-            getIconForOption(option, question)
+            getIconForOption(option, question),
+            
+            
+            // clearIsLocked(option, question)
           ],
         ),
       ),
@@ -690,10 +735,13 @@ class OptionsWidget extends StatelessWidget {
     final isSelected = option == question.selectedoption;
     if (question.isLocked) {
       if (isSelected) {
+      
         return option.isCorrect ? Colors.green : Colors.red;
       } else if (option.isCorrect) {
+       
         return Colors.green;
       }
+      
     }
     return Colors.grey.shade200;
   }
@@ -702,16 +750,31 @@ class OptionsWidget extends StatelessWidget {
     final isSelected = option == question.selectedoption;
     if (question.isLocked) {
       if (isSelected) {
+         
         return option.isCorrect
             ? const Icon(Icons.check_circle, color: Colors.green)
             : const Icon(
                 Icons.cancel,
                 color: Colors.red,
+                
               );
-      } else if (option.isCorrect) {
+      } else if (option.isCorrect) 
+      { 
+      //  question.isLocked=false;
         return const Icon(Icons.check_circle, color: Colors.green);
       }
     }
     return const SizedBox.shrink();
   }
+}
+Widget clearIsLocked(Option option,Question question, int time)
+{
+  late Timer _timera;
+    _timera = Timer.periodic(Duration(seconds:time ), (timera) {
+       question.isLocked=false;
+    });
+    
+  
+  return const SizedBox.shrink();
+   
 }
