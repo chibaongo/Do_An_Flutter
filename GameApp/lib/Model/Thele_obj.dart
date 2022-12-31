@@ -7,27 +7,30 @@ class TheLeObject {
   static List<TheLeObject> lstTheLe = [
     const TheLeObject(
         tieuDe:
-            "Người chơi cần trả lời hết tổng 50 câu hỏi nếu muốn hoàn thành game.Có 5 level cho với độ khó tăng dần cho người chơi."),
+            "Người chơi có  50 câu hỏi được chia làm 5 level: rất dễ, dễ, trung bình, khó, rất khó."),
     const TheLeObject(
         tieuDe:
-            "Mỗi level gồm 10 câu hỏi.Trong  đó 10 câu hỏi được random ngẫu nhiên với từng độ khó khác nhau. "),
+            "Mỗi level sẽ có 10 câu hỏi được random ngẫu nhiên với từng độ khó. "),
     const TheLeObject(
-        tieuDe: "Với 5 độ khó tăng dần: rất dễ, dễ, trung bình, khó,rất khó. "),
-    const TheLeObject(
-        tieuDe:
-            "Người chơi cần vượt qua từng độ khó 1 để hoàn thành trò chơi.Mỗi câu hỏi đều có thời gian trả lời (15s giảm dần). "),
+        tieuDe: "Người chơi có 15 giây giảm dần để chọn đáp án đúng. "),
     const TheLeObject(
         tieuDe:
-            "nếu như hết thời gian vẫn chưa trả lời được câu hỏi thì coi như người chơi trả lời sai. "),
+            "Ở level rất dễ có 50 point cho 10 câu hỏi (5 point/ câu). Nếu trả lời trong vòng 5 giây sẽ nhận được 5 point , 10 giây sẽ nhận được 3 point , 15 giây sẽ nhận được 1 point. "),
     const TheLeObject(
         tieuDe:
-            "Người chơi được cung cấp sẵn 3 mạng. Khi hết mạng, người chơi trả lời sai sẽ kết thúc trò chơi với số point hiện tại và điểm exp (được dùng để tăng level của người chơi)."),
+            "Ở level dễ có 70 point cho 10 câu hỏi (7 point/ câu). Nếu trả lời trong vòng 5 giây sẽ nhận được 7 point , 10 giây sẽ nhận được 4 point , 15 giây sẽ nhận được 2 point. "),
     const TheLeObject(
         tieuDe:
-            "Với mỗi câu trả lời sai người hoặc hết thời gian trả lời câu hỏi thì chơi bị trừ đi 1 mạng. "),
+            "Ở level trung bình có 90 point cho 10 câu hỏi (9 point/ câu). Nếu trả lời trong vòng 5 giây sẽ nhận được 9 point , 10 giây sẽ nhận được 7 point , 15 giây sẽ nhận được 5 point."),
     const TheLeObject(
         tieuDe:
-            "Nếu lần chơi hiện tại kết thúc có số điểm cao hơn high score thì điểm high score sẽ được cập nhật."),
+            "Ở level khó có 120 point cho 10 câu hỏi (12 point/ câu). Nếu trả lời trong vòng 5 giây sẽ nhận được 12 point , 10 giây sẽ nhận được 8 point , 15 giây sẽ nhận được 6 point. "),
+    const TheLeObject(
+        tieuDe:
+            "Ở level rất khó có 150 point cho 10 câu hỏi (15 point/ câu). Nếu trả lời trong vòng 5 giây sẽ nhận được 15 point , 10 giây sẽ nhận được 11 point, 15 giây sẽ nhận được 7 point."),
+    const TheLeObject(
+        tieuDe:
+            "Sau khi kết thúc trò chơi số point sẽ được tổng kết và lưu vào lịch sử của người chơi."),
   ];
 }
 
